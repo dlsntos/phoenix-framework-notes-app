@@ -1,4 +1,4 @@
-<header class="absolute flex flex-row justify-between px-5 py-3 w-full bg-orange-400">
+<header class="absolute flex flex-row justify-between px-5 py-3 w-full bg-orange-400 z-10000	">
 	<div class="text-xl font-bold">Notes App</div>
 	<nav>
 		<ul class="flex flex-row gap-5">
@@ -24,8 +24,9 @@
 	</nav>
 </header>
 <main class="h-full overflow-hidden">
-	<section class="relative flex flex-row justify-center w-full p-10 mt-20 gap-5">
-		<svg class="opacity-0 lg:opacity-100 absolute left-0 rotate-150 z-0 h-250 text-orange-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
+	<section class="relative flex flex-row justify-start w-full mt-12 gap-5">
+		<img src="https://oxfordlearning.com/wp-content/uploads/2025/03/AdobeStock_81795837-scaled.jpeg" class="absolute w-full h-full object-cover brightness-50"/>
+		<%!-- <svg class="opacity-0 lg:opacity-100 absolute left-0 rotate-150 z-0 h-250 text-orange-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
 		<path d="m394.7 317.4-51.5-25.8a57.7 57.7 0 0 1 0-103.2l51.5-25.8a57.7 57.7 0 1 0-77.4-77.4l-25.7 51.6a57.7 57.7 0 0 1-103.2 0l-25.8-51.5a57.7 57.7 0 1 0-77.3 77.3l51.5 25.8a57.7 57.7 0 0 1 0 103.2l-51.5 25.8a57.7 57.7 0 1 0 77.3 77.3l25.8-51.5a57.7 57.7 0 0 1 103.2 0l25.8 51.5a57.7 57.7 0 1 0 77.4-77.4Z" fill="currentColor">
 		</path>
 		</svg>
@@ -38,25 +39,19 @@
 		<svg class="opacity-0 lg:opacity-100 absolute top-70 right-80 z-0 h-130 text-orange-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
 		<path d="m394.7 317.4-51.5-25.8a57.7 57.7 0 0 1 0-103.2l51.5-25.8a57.7 57.7 0 1 0-77.4-77.4l-25.7 51.6a57.7 57.7 0 0 1-103.2 0l-25.8-51.5a57.7 57.7 0 1 0-77.3 77.3l51.5 25.8a57.7 57.7 0 0 1 0 103.2l-51.5 25.8a57.7 57.7 0 1 0 77.3 77.3l25.8-51.5a57.7 57.7 0 0 1 103.2 0l25.8 51.5a57.7 57.7 0 1 0 77.4-77.4Z" fill="currentColor">
 		</path>
-		</svg>
-
-		<div class="flex flex-col justify-start items-center my-auto z-100 gap-5">
+		</svg> --%>
+		<div class="flex flex-col justify-start items-start my-auto p-10 z-100 gap-5">
 			<h1 class="text-6xl font-montserrat font-bold">Notes App</h1>
+			<p class="w-lg">
+				Stay organized, capture ideas, and boost productivity with Notes app - the ultimate notes app for all your thoughts, lists, and inspirations. Quickly jot down text, create checklists, attach images, or record voice notes, all in one seamless interface. With powerful search, customizable folders, and cloud sync, your notes are always at your fingertips, whether you’re on your phone, tablet, or computer. Perfect for students, professionals, and anyone who wants to keep life organized—effortlessly.
+			</p>
 			<button 
 				class="p-3 w-full bg-orange-400 rounded-xl shadow-md cursor-pointer transition duration-300
 							hover:bg-orange-600
 				"
 			>
-				Get started
+				Start note taking now
 			</button>
-		</div>
-		<div class="z-200">
-			<p class="w-lg">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est erat, maximus nec vulputate at, mattis ut lacus. 
-				Nulla quis mattis urna, in aliquam leo. Donec sodales lectus tortor, vitae dapibus magna placerat et. Proin euismod, 
-				lorem eget accumsan interdum, mi augue facilisis velit, et interdum libero lacus non tellus. Donec nec purus nec orci 
-				ullamcorper ornare. Sed id enim eu nunc commodo commodo quis et arcu. Nam vitae ex sit amet erat aliquam consectetur.
-			</p>
 		</div>
 	</section>
 </main>
