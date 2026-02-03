@@ -59,6 +59,7 @@
 
 @theme {
   --font-montserrat: "Montserrat", sans-serif;
+  --text-white-1: #FFFDF1;
 }
 @plugin "../vendor/daisyui-theme" {
   name: "light";
