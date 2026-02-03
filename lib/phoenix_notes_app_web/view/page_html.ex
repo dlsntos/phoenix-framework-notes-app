@@ -6,5 +6,5 @@ defmodule PhoenixNotesAppWeb.PageHTML do
   """
   use PhoenixNotesAppWeb, :html
 
-  embed_templates "page_html/*"
+  embed_templates "layouts/page_html/*"
 end
