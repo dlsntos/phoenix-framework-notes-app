@@ -2,6 +2,7 @@
    https://tailwindcss.com/docs/configuration */
 
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @source "../css";
 @source "../js";
 @source "../../lib/phoenix_notes_app_web";
@@ -56,6 +57,9 @@
   --noise: 0;
 } */
 
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+}
 @plugin "../vendor/daisyui-theme" {
   name: "light";
   default: true;
