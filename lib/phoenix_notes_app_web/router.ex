@@ -18,6 +18,7 @@ defmodule PhoenixNotesAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/notes", NoteController, :index
   end
 
   # Other scopes may use custom stacks.
