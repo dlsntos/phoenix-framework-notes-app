@@ -1,5 +1,6 @@
 defmodule PhoenixNotesAppWeb.Router do
   use PhoenixNotesAppWeb, :router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -17,8 +18,9 @@ defmodule PhoenixNotesAppWeb.Router do
   scope "/", PhoenixNotesAppWeb do
     pipe_through :browser
 
-    #get "/", PageController, :home
+    #get "/home", PageController, :home
     get "/", NoteController, :index
+    live "/notes", NoteDashboardLive
   end
 
   # Other scopes may use custom stacks.
