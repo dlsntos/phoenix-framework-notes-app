@@ -1,5 +1,5 @@
 <aside class="fixed h-full w-1/8 top-0 left-0 p-5 bg-orange-400 shadow-[4px_0_6px_-1px_rgba(0,0,0,0.2)]">
-  <ul class="flex flex-col gap-2">
+  <ul class="flex flex-col mt-20 gap-2">
     <li><a href="" class="block w-full p-3 bg-blue-500">Add a Note</a></li>
     
     <li><a href="" class="block w-full p-3 bg-blue-500">Delete a Note</a></li>
@@ -10,10 +10,12 @@
   </ul>
 </aside>
 
-<main class="ml-50 h-full pl-20 pt-10">
+<header class="fixed bg-blue-500 h-auto w-full z-10">
   <input type="text" placeholder="Search notes" />
   <h1 class="text-black text-2xl">Notes</h1>
-  
+</header>
+
+<main class="ml-50 h-full pl-20 pt-10">
   <section class="grid grid-cols-[repeat(3,minmax(0,350px))] auto-rows[15rem] gap-5">
     <div class="flex flex-col h-full max-h-[250px] bg-orange-200 rounded-xl drop-shadow-md">
       <section class="flex bg-orange-400 p-3 rounded-t-2xl">
