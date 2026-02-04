@@ -2,7 +2,17 @@
   class="fixed top-0 left-0 h-screen w-full bg-black/50 z-50 flex justify-center items-center"
   phx-click="close-create-note-modal"
 >
-  <div class="h-80 w-80 bg-white p-4" phx-click="noop">
-    <h1>Modal Content</h1>
+  <div class="h-full max-h-[80vh] w-full max-w-lg bg-white p-4" phx-click="noop">
+    <section>
+      <h1>Create a new note</h1>
+    </section>
+    
+    <section>
+      <form action="">
+        <div><label for="">Title:</label> <input type="text" /></div>
+        
+        <div><label for="">Content:</label> <textarea name="" id=""></textarea></div>
+      </form>
+    </section>
   </div>
 </div>
