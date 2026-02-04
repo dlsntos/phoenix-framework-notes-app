@@ -1,17 +1,28 @@
-<div
-  class="fixed top-0 left-0 h-screen w-full bg-black/50 z-50 flex justify-center items-center"
-  phx-click="close-create-note-modal"
->
-  <div class="h-full max-h-[80vh] w-full max-w-lg bg-white p-4" phx-click="noop">
-    <section>
-      <h1>Create a new note</h1>
-    </section>
+<div class="fixed top-0 left-0 h-screen w-full bg-black/50 z-50 flex justify-center items-center">
+  <%!-- phx-click="close-create-note-modal" --%>
+  <div class="relative h-full max-h-[80vh] w-full max-w-lg bg-white p-4">
+    <div class="absolute top-0 left-0 p-2 w-full border-1">
+      <div class="border-1 h-10 w-10 ml-auto"></div>
+    </div>
     
     <section>
+      <h1 class="text-2xl text-center p-2">Create a new note</h1>
+    </section>
+    
+    <section class="h-auto">
       <form action="">
-        <div><label for="">Title:</label> <input type="text" /></div>
+        <div class="flex flex-row gap-2">
+          <label for="">Title:</label>
+          <input type="text" class="border-1 border-orange-400 w-full" />
+        </div>
         
-        <div><label for="">Content:</label> <textarea name="" id=""></textarea></div>
+        <div class="flex flex-col h-full">
+          <label for="">Content:</label> <textarea
+            name=""
+            id=""
+            class="h-[60vh] p-3 border-1 border-orange-400 outline-none resize-none"
+          ></textarea>
+        </div>
       </form>
     </section>
   </div>
