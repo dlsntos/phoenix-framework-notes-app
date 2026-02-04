@@ -1,5 +1,25 @@
-<div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full">
-  <div>
-    <h1>Test</h1>
-  </div>
+<div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-50">
+  <section class="h-full max-h-[80vh] w-full max-w-3xl rounded-3xl bg-orange-200">
+    <div class="flex flex-col h-30 w-full p-2 bg-[var(--bg-lightorange)] rounded-t-3xl drop-shadow-sm">
+      <div
+        class="flex flex-row self-end items-center h-10 w-10 bg-red-500 rounded-full cursor-pointer transition duration-200 hover:bg-red-700 hover:scale-110"
+        phx-click="close_view_note"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 mx-auto"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </div>
+      
+      <div class="text-center">
+        <h1>My note</h1>
+      </div>
+    </div>
+  </section>
 </div>
