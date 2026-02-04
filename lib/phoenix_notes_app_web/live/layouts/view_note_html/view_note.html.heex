@@ -1,6 +1,6 @@
 <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
-  <section class="h-full max-h-[80vh] w-full max-w-3xl rounded-3xl bg-orange-200">
-    <div class="flex flex-col h-30 w-full p-2 bg-[var(--bg-lightorange)] rounded-t-3xl drop-shadow-sm">
+  <section class="h-full max-h-[80vh] w-full max-w-3xl rounded-3xl bg-white drop-shadow-2xl overflow-y-auto">
+    <div class="flex flex-col h-auto w-full p-2 bg-[var(--bg-lightorange)] rounded-t-3xl drop-shadow-sm">
       <div
         class="flex flex-row self-end items-center h-10 w-10 bg-red-500 rounded-full cursor-pointer transition duration-200 hover:bg-red-700 hover:scale-110"
         phx-click="close-modal"
@@ -21,8 +21,10 @@
         <h1 class="text-4xl font-bold text-gray-800">My note</h1>
       </div>
       
-      <div class="w-full text-lg text-right px-5">
+      <div class="flex flex-row justify-between px-5 py-2">
         <p>Created at 2026-02-04</p>
+        
+        <p>Last updated at 2026-02-05</p>
       </div>
     </div>
     <!-- Text area readonly attribute to false if user decideds to edit a note-->

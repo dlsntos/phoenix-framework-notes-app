@@ -21,7 +21,6 @@ defmodule PhoenixNotesAppWeb.Router do
     #get "/home", PageController, :home
     get "/", NoteController, :index
     live "/notes", NoteDashboardLive
-    live "/notes/show", ViewNoteLive
   end
 
   # Other scopes may use custom stacks.
