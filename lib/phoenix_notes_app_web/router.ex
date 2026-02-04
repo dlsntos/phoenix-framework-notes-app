@@ -20,6 +20,7 @@ defmodule PhoenixNotesAppWeb.Router do
 
     #get "/home", PageController, :home
     get "/", NoteController, :index
+    get "/login", LoginController, :login
     live "/notes", NoteDashboardLive
   end
 
