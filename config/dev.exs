@@ -3,9 +3,10 @@ import Config
 # Configure your database
 config :phoenix_notes_app, PhoenixNotesApp.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "abc123",
   hostname: "localhost",
   database: "phoenix_notes_app_dev",
+  port: 5433,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
