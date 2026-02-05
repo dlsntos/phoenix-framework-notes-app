@@ -65,7 +65,7 @@ defmodule PhoenixNotesApp.MixProject do
       {:gettext, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
-      {:bandit, "~> 1.10.2"}
+      {:bandit, "~> 1.10.2"},
     ]
   end
 
