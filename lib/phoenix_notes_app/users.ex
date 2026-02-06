@@ -7,6 +7,10 @@ defmodule PhoenixNotesApp.Users do
     User.changeset(user, attrs)
   end
 
+  def get_user(id) do
+    Repo.get(User, id)
+  end
+
   defp get_user_by_email(email) do
     Repo.get_by(User, email: email)
   end
