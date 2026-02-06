@@ -16,7 +16,6 @@ defmodule PhoenixNotesAppWeb.LoginController do
         |> put_session(:user_id, user.id)
         |> configure_session(renew: true)
         |> redirect(to: ~p"/notes")
-        |> halt()
 
       {:error, _reason} ->
         changeset =
