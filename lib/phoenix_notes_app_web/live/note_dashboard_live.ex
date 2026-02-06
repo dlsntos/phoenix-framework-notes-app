@@ -1,8 +1,16 @@
 defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   use PhoenixNotesAppWeb, :live_view
-  def mount(_params, _session, socket) do
-    {:ok, assign(socket, show_modal: false, show_create_note: false)}
-  end
+  def mount(_params, %{"user_id" => user_id}, socket) do
+  # notes = Notes.list_user_notes(user_id)  # fetch notes for this user
+
+  {:ok,
+   assign(socket,
+     user_id: user_id,
+    #  notes: notes,
+     show_modal: false,
+     show_create_note: false
+   )}
+end
 
   def handle_event("open-modal", _, socket) do
     {:noreply, assign(socket, show_modal: true)}
@@ -22,7 +30,11 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   def render(assigns) do
   ~H"""
-    <.dashboard show_modal={@show_modal} show_create_note={@show_create_note}/>
+    <.dashboard
+      user_id={@user_id}
+      show_modal={@show_modal}
+      show_create_note={@show_create_note}
+      />
   """
   end
   embed_templates "layouts/note_dashboard_html/*"
