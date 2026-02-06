@@ -15,6 +15,14 @@ defmodule PhoenixNotesApp.Users do
     Repo.get_by(User, email: email)
   end
 
+  def create_user(attrs \\ %{}) do
+    %User{}
+
+    |> User.changeset(attrs)
+    |> Repo.insert()
+
+  end
+
   def authenticate_user(%{"email" => email, "password" => password}) do
     case get_user_by_email(email) do
       nil ->
