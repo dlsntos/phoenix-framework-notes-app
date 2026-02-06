@@ -23,7 +23,14 @@ defmodule PhoenixNotesAppWeb.Router do
     get "/login", LoginController, :login
     post "/login", LoginController, :create
     get "/register", RegisterController, :register
-    live "/notes", NoteDashboardLive
+  end
+
+  live_session :default, on_mount: PhoenixNotesAppWeb.UserAuth do
+    scope "/", PhoenixNotesAppWeb do
+      pipe_through :browser
+
+      live "/notes", NoteDashboardLive
+    end
   end
 
   # Other scopes may use custom stacks.
