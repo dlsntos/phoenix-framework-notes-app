@@ -7,31 +7,23 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   def mount(_params, %{"user_id" => user_id}, socket) do
     users = Users.get_user(user_id)
     notes = Notes.get_all_notes_by_userid(user_id)
-    {:ok,
-    assign(socket,
-      user_id: user_id,
-      user: users,
-      notes: notes,
-      show_modal: false,
-      show_create_note: false
-    )}
-  end
-
-  def handle_info({:note_updated, updated_note}, socket) do
-    updated_notes =
-      Enum.map(socket.assigns.notes, fn note ->
-        if note.id == updated_note.id, do: updated_note, else: note
-      end)
-    {:noreply, assign(socket, notes: updated_notes)}
-  end
+  {:ok,
+   assign(socket,
+     user_id: user_id,
+     user: users,
+     notes: notes,
+     show_modal: false,
+     show_create_note: false
+   )}
+end
 
   def handle_info({:note_created, note}, socket) do
+  # Update the notes list and close the create note modal
   {:noreply,
    socket
    |> update(:notes, fn notes -> [note | notes] end)
    |> assign(show_create_note: false)}
   end
-
   def handle_event("open-modal", %{"id" => id}, socket) do
     note = Notes.get_note_by_id(id)
     {:noreply, assign(socket, show_modal: true, selected_note: note)}
@@ -60,7 +52,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         {:noreply, socket}
     end
   end
-
   def render(assigns) do
   ~H"""
   <header class="fixed top-0 left-0 flex flex-row justify-between items-center bg-cream h-16 w-full p-4 shadow-lg z-30">
@@ -257,30 +248,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   defmodule ViewNoteComponent do
   use PhoenixNotesAppWeb, :live_component
-    def mount(socket) do
-      {:ok, assign(socket, editing: false)}
-    end
 
-    def handle_event("toggle-edit", _, socket) do
-      {:noreply, assign(socket, editing: !socket.assigns.editing)}
-    end
-
-    def handle_event("update-note", %{"note" => %{"content" => content}}, socket) do
-      note = %{socket.assigns.note | content: content}
-      {:noreply, assign(socket, note: note)}
-    end
-
-    def handle_event("save-note", %{"note" => note_params}, socket) do
-      case PhoenixNotesApp.Notes.update_note(socket.assigns.note, note_params) do
-        {:ok, updated_note} ->
-          send(self(), {:note_updated, updated_note})
-          {:noreply, assign(socket, note: updated_note, editing: false)}
-
-        {:error, %Ecto.Changeset{} = changeset} ->
-          {:noreply, assign(socket, changeset: changeset)}
-      end
-    end
-    def render(assigns) do
+  def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
       <section class="h-full max-h-[80vh] w-full max-w-3xl rounded-3xl bg-white drop-shadow-2xl">
@@ -315,22 +284,15 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         </div>
         <!-- Text area readonly attribute to false if user decideds to edit a note-->
         <div class="h-[55vh] p-5">
-          <form phx-change="update-note" phx-submit="save-note" phx-target={@myself}>
-            <textarea
-              name="note[content]"
-              id="note"
-              class="w-full h-full outline-none text-xl text-justify resize-none px-10"
-              {unless @editing, do: "readonly"}
-            ><%= @note.content %></textarea>
-
-            <%= if @editing do %>
-              <div class="flex justify-end mt-2 space-x-3">
-                <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">
-                  Save
-                </button>
-              </div>
-            <% end %>
-          </form>
+          <textarea
+            name="note"
+            id="note"
+            placeholder="Add a note"
+            class="w-full h-full outline-none text-xl text-justify resize-none px-10"
+            readonly
+          >
+          <%= @note.content%>
+          </textarea>
         </div>
 
         <div class="flex justify-end items-center px-15 space-x-5">
@@ -353,7 +315,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
               />
             </svg> <span class="font-semibold drop-shadow-md">Delete Note</span>
           </button>
-          <button phx-click="toggle-edit" class="flex flex-row justify-center items-center px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-[var(--text-white-1)] rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
+          <button class="flex flex-row justify-center items-center px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-[var(--text-white-1)] rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -367,13 +329,12 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
                 stroke-linejoin="round"
                 d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
               />
-            </svg> <span class="font-semibold drop-shadow-md">
-                <%= if @editing, do: "Cancel", else: "Edit Note" %>
-              </span>
+            </svg> <span class="font-semibold drop-shadow-md">Edit Note</span>
           </button>
         </div>
       </section>
     </div>
+
     """
     end
   end
