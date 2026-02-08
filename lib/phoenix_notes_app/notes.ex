@@ -22,6 +22,12 @@ defmodule PhoenixNotesApp.Notes do
     end
   end
 
+  def update_note(%Note{} = note, attrs) do
+    note
+    |> Note.changeset(attrs)
+    |> Repo.update()
+  end
+
   def create_note(attrs \\ %{}) do
     %Note{}
 
