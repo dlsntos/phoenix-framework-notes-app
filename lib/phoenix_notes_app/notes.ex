@@ -10,7 +10,7 @@ defmodule PhoenixNotesApp.Notes do
   end
 
   def get_note_by_id(id) do
-    Repo.get_by(Note, id)
+    Repo.get_by(Note, id: id)
   end
 
   def create_note(attrs \\ %{}) do
