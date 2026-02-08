@@ -17,6 +17,13 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
    )}
 end
 
+  def handle_info({:note_created, note}, socket) do
+  # Update the notes list and close the create note modal
+  {:noreply,
+   socket
+   |> update(:notes, fn notes -> [note | notes] end)
+   |> assign(show_create_note: false)}
+  end
   def handle_event("open-modal", %{"id" => id}, socket) do
     note = Notes.get_note_by_id(id)
     {:noreply, assign(socket, show_modal: true, selected_note: note)}
@@ -80,8 +87,8 @@ end
             </h2>
           </section>
 
-          <section class="relative h-full max-h-[120px] py-5 text-center overflow-y-hidden">
-            <p class="h-full max-h-[120px] text-lg text-gray-500 font-[var(--font-comme)] px-5 drop-shadow-sm">
+          <section class="relative h-full max-h-[120px] py-5 text-center overflow-hidden">
+            <p class="h-full max-h-[100px] w-full max-w-xs text-lg text-gray-500 font-[var(--font-comme)] px-5 drop-shadow-sm break-words overflow-hidden">
               {note.content}
             </p>
 
@@ -137,6 +144,7 @@ end
     <.live_component
       module={PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent}
       id="show-create-note-modal"
+      user_id={@user_id}
     />
   <% end %>
   """
@@ -144,6 +152,25 @@ end
 
   defmodule CreateNoteComponent do
   use PhoenixNotesAppWeb, :live_component
+  alias PhoenixNotesApp.Notes
+
+    def handle_event("save_note", %{"note" => note_params}, socket) do
+      note_params = Map.put(note_params, "user_id", socket.assigns.user_id)
+
+      case Notes.create_note(note_params) do
+        {:ok, note} ->
+          send(self(), {:note_created, note})
+
+          {:noreply,
+          socket
+          |> assign(:note_params, %{})
+          |> push_event("close_modal", %{})}
+
+        {:error, %Ecto.Changeset{} = changeset} ->
+          {:noreply, assign(socket, changeset: changeset)}
+      end
+    end
+
     def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 h-screen w-full bg-black/50 z-50 flex justify-center items-center">
@@ -176,30 +203,32 @@ end
         </section>
 
         <section class="h-auto">
-          <form action="">
+          <form phx-submit="save_note" phx-target={@myself}>
             <div class="flex flex-row justify-between items-center gap-2">
-              <label for="" class="text-2xl">Title</label>
+              <label for="title" class="text-2xl">Title</label>
               <input
                 type="text"
+                name="note[title]"
                 class="border-1 border-orange-400 w-full px-2 py-1 rounded-md focus:outline-1 focus:outline-orange-600"
               />
             </div>
 
             <div class="flex flex-col mt-3 h-full">
-              <label for="" class="text-xl">Content</label> <textarea
-                name=""
-                id=""
+              <label for="content" class="text-xl">Content</label>
+              <textarea
+                name="note[content]"
                 class="h-[55vh] p-3 border-1 border-orange-400 rounded-md focus:outline-1 focus:outline-orange-600 resize-none"
               ></textarea>
             </div>
+
+            <section class="flex flex-row w-full mt-6">
+              <button type="submit" class="py-2 px-4 ml-auto bg-[var(--bg-lightorange)] text-gray-100 font-semibold rounded-3xl cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-110">
+                <span class="drop-shadow-md">Add note</span>
+              </button>
+            </section>
           </form>
         </section>
 
-        <section class="flex flex-row w-full mt-6">
-          <button class="py-2 px-4 ml-auto bg-[var(--bg-lightorange)] text-gray-100 font-semibold rounded-3xl cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-110">
-            <span class="drop-shadow-md">Add note</span>
-          </button>
-        </section>
       </div>
     </div>
     """
