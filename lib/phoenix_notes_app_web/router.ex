@@ -22,6 +22,7 @@ defmodule PhoenixNotesAppWeb.Router do
     get "/", NoteController, :index
     get "/login", LoginController, :login
     post "/login", LoginController, :create
+    post "/register", RegisterController, :create
     get "/register", RegisterController, :register
   end
 
