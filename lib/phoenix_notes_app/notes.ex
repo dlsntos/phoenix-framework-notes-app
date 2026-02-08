@@ -4,7 +4,9 @@ defmodule PhoenixNotesApp.Notes do
   alias PhoenixNotesApp.Note
 
   def get_all_notes_by_userid(user_id) do
-    Repo.all_by(Note, user_id)
+    query = from n in Note,
+          where: n.user_id == ^user_id
+    Repo.all(query)
   end
 
   def get_note_by_id(id) do
