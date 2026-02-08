@@ -1,13 +1,16 @@
 defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   use PhoenixNotesAppWeb, :live_view
 
+  alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Notes
 
   def mount(_params, %{"user_id" => user_id}, socket) do
+    users = Users.get_user(user_id)
     notes = Notes.get_all_notes_by_userid(user_id)
   {:ok,
    assign(socket,
      user_id: user_id,
+     user: users,
      notes: notes,
      show_modal: false,
      show_create_note: false
@@ -60,7 +63,7 @@ end
   <main class="relative bg-white-1 min-h-screen pt-16 pl-8 z-0">
     <section class="mt-6 flex items-center">
       <h2 class="mx-auto py-5 text-5xl font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
-        <span class="text-orange-500"><%= @user_id.name %></span> Notes
+        <span class="text-orange-500"><%= @user.username %>User's </span>Notes
       </h2>
     </section>
 
