@@ -3,11 +3,11 @@
   
   <nav>
     <ul class="flex flex-row gap-5">
-      <li><a class="cursor-pointer">Home</a></li>
+      <li><a href="/" class="cursor-pointer">Home</a></li>
       
       <li><a class="cursor-pointer">About</a></li>
       
-      <li><a class="cursor-pointer">Login</a></li>
+      <li><a href="/login" class="cursor-pointer">Login</a></li>
     </ul>
   </nav>
 </header>
@@ -31,9 +31,12 @@
         The ultimate app for all your thoughts, lists, and inspirations. Jot notes, create checklists, attach images, or record voice memos. With powerful search, folders, and cloud sync, your notes are always accessible on any device—perfect for staying organized effortlessly.
       </p>
       
-      <button class="p-3 w-full bg-[var(--bg-lightorange)] font-bold rounded-xl shadow-md cursor-pointer transition duration-300
+      <button
+        onclick="location.href='/register'"
+        class="p-3 w-full bg-[var(--bg-lightorange)] font-bold rounded-xl shadow-md cursor-pointer transition duration-300
 							hover:bg-orange-600
-				">
+				"
+      >
         Start note taking now
       </button>
     </div>
