@@ -13,6 +13,15 @@ defmodule PhoenixNotesApp.Notes do
     Repo.get_by(Note, id: id)
   end
 
+  def delete_note(id) do
+    note = get_note_by_id(id)
+
+    case note do
+      nil -> {:error, :not_found}
+      note -> Repo.delete(note)
+    end
+  end
+
   def create_note(attrs \\ %{}) do
     %Note{}
 
