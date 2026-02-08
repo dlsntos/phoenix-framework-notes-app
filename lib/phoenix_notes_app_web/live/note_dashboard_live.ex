@@ -63,7 +63,7 @@ end
   <main class="relative bg-white-1 min-h-screen pt-16 pl-8 z-0">
     <section class="mt-6 flex items-center">
       <h2 class="mx-auto py-5 text-5xl font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
-        <span class="text-orange-500"><%= @user.username %>User's </span>Notes
+        <span class="text-orange-500"><%= @user.username %>'s</span> Notes
       </h2>
     </section>
 
