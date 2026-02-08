@@ -6,10 +6,16 @@
       <p class="text-sm z-60">Sign up and to start note taking right away</p>
     </div>
     
-    <form action="" class="flex flex-col mt-10">
+    <.form
+      for={@form}
+      action={~p"/register"}
+      method="post"
+      class="flex flex-col mt-10"
+    >
       <div class=" z-30">
         <label for="">Username</label>
-        <input
+        <.input
+          field={@form[:username]}
           type="text"
           placeholder="Username"
           class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
@@ -18,7 +24,8 @@
       
       <div class=" z-30">
         <label for="">Email</label>
-        <input
+        <.input
+          field={@form[:email]}
           type="email"
           placeholder="Email"
           class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
@@ -27,7 +34,8 @@
       
       <div class=" z-40">
         <label for="">Password</label>
-        <input
+        <.input
+          field={@form[:hashed_password]}
           type="password"
           placeholder="Password"
           class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
@@ -47,7 +55,7 @@
           to login
         </p>
       </div>
-    </form>
+    </.form>
     
     <div class="absolute top-0 left-0 h-full w-full p-10 z-10">
       <img
