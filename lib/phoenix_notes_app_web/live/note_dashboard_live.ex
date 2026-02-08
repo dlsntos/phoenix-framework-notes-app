@@ -14,12 +14,13 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
    )}
 end
 
-  def handle_event("open-modal", _, socket) do
-    {:noreply, assign(socket, show_modal: true)}
+  def handle_event("open-modal", %{"id" => id}, socket) do
+    note = Notes.get_note_by_id(id)
+    {:noreply, assign(socket, show_modal: true, selected_note: note)}
   end
 
   def handle_event("close-modal", _, socket) do
-    {:noreply, assign(socket, show_modal: false)}
+    {:noreply, assign(socket, show_modal: false, selected_note: nil)}
   end
 
   def handle_event("open-create-note-modal", _, socket) do
@@ -59,7 +60,7 @@ end
   <main class="relative bg-white-1 min-h-screen pt-16 pl-8 z-0">
     <section class="mt-6 flex items-center">
       <h2 class="mx-auto py-5 text-5xl font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
-        <span class="text-orange-500"><%= @user_id %>User's </span>Notes
+        <span class="text-orange-500"><%= @user_id.name %></span> Notes
       </h2>
     </section>
 
@@ -68,6 +69,7 @@ end
         <div
           class="flex flex-col h-full max-h-[250px] bg-white rounded-xl drop-shadow-md cursor-pointer transition duration-300 hover:scale-105"
           phx-click="open-modal"
+          phx-value-id={note.id}
         >
           <section class="flex bg-[var(--bg-lightorange)] p-3 text-[var(--text-white-1)] rounded-t-2xl">
             <h2 class="mx-auto text-xl font-semibold font-[var(--font-montserrat)] drop-shadow-md">
@@ -124,6 +126,7 @@ end
     <.live_component
       module={PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent}
       id="view-note-modal"
+      note={@selected_note}
     />
   <% end %>
 
@@ -225,13 +228,15 @@ end
         </div>
 
         <div class="text-center">
-          <h1 class="text-4xl text-white font-bold text-gray-800 text-shadow-sm">My note</h1>
+          <h1 class="text-4xl text-white font-bold text-gray-800 text-shadow-sm">
+            <%= @note.title%>
+          </h1>
         </div>
 
         <div class="flex flex-row justify-between px-5 py-2">
-          <p class="text-lg text-white text-shadow-sm">Created at 2026-02-04</p>
+          <p class="text-lg text-white text-shadow-sm">Created at <%= @note.inserted_at%></p>
 
-          <p class="text-lg text-white text-shadow-sm">Last updated at 2026-02-05</p>
+          <p class="text-lg text-white text-shadow-sm">Last updated at <%= @note.updated_at%></p>
         </div>
       </div>
       <!-- Text area readonly attribute to false if user decideds to edit a note-->
@@ -242,8 +247,8 @@ end
           placeholder="Add a note"
           class="w-full h-full outline-none text-xl text-justify resize-none px-10"
           readonly
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent augue ex, accumsan id tempus non, porta non metus. Sed eleifend sapien at eros sagittis pharetra. Integer at blandit arcu. Curabitur at blandit nibh, in vulputate massa. Aliquam consectetur neque ac fermentum tristique. Integer tincidunt purus non ex dictum, id tempus erat ultricies. Suspendisse quis consectetur odio. Sed pellentesque eros sit amet neque pharetra, sit amet euismod enim auctor. Donec at dapibus lectus. Nullam in rutrum sem. Fusce imperdiet quam at turpis tempor, bibendum auctor ligula scelerisque.
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent augue ex, accumsan id tempus non, porta non metus. Sed eleifend sapien at eros sagittis pharetra. Integer at blandit arcu. Curabitur at blandit nibh, in vulputate massa. Aliquam consectetur neque ac fermentum tristique. Integer tincidunt purus non ex dictum, id tempus erat ultricies. Suspendisse quis consectetur odio. Sed pellentesque eros sit amet neque pharetra, sit amet euismod enim auctor. Donec at dapibus lectus. Nullam in rutrum sem. Fusce imperdiet quam at turpis tempor, bibendum auctor ligula scelerisque.
+        >
+        <%= @note.content%>
         </textarea>
       </div>
 
