@@ -7,15 +7,19 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   def mount(_params, %{"user_id" => user_id}, socket) do
     users = Users.get_user(user_id)
     notes = Notes.get_all_notes_by_userid(user_id)
-  {:ok,
-   assign(socket,
-     user_id: user_id,
-     user: users,
-     notes: notes,
-     show_modal: false,
-     show_create_note: false
-   )}
-end
+    {:ok,
+    assign(socket,
+      user_id: user_id,
+      user: users,
+      notes: notes,
+      show_modal: false,
+      show_create_note: false
+    )}
+  end
+
+  def mount(_params, _session, socket) do
+    {:ok, redirect(socket, to: "/login")}
+  end
 
   def handle_info({:note_created, note}, socket) do
   # Update the notes list and close the create note modal
