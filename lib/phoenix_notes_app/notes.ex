@@ -3,6 +3,10 @@ defmodule PhoenixNotesApp.Notes do
   alias PhoenixNotesApp.Repo
   alias PhoenixNotesApp.Note
 
+  def change_note(%Note{} = note, attrs \\ %{}) do
+    Note.changeset(note, attrs)
+  end
+
   def get_all_notes_by_userid(user_id) do
     query = from n in Note,
           where: n.user_id == ^user_id
