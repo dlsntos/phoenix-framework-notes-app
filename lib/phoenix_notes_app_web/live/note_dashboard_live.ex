@@ -78,14 +78,14 @@ end
     </div>
   </header>
 
-  <main class="relative bg-white-1 min-h-screen pt-16 pl-8 z-0">
+  <main class="relative bg-white-1 min-h-screen pt-16 px-8 md:pl-8 md:pr-0 z-0">
     <section class="mt-6 flex items-center">
       <h2 class="mx-auto py-5 text-5xl font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
         <span class="text-orange-500"><%= @user.username %>'s</span> Notes
       </h2>
     </section>
 
-    <section class="mt-10 grid grid-cols-[repeat(4,minmax(0,350px))] justify-center items-center auto-rows-[15rem] gap-5">
+    <section class="mt-10 grid grid-cols-1 sm:grid-cols-[repeat(2,minmax(0,250px))] md:grid-cols-[repeat(3,minmax(0,300px))] lg:grid-cols-[repeat(4,minmax(0,350px))] justify-center items-center auto-rows-[15rem] gap-5">
       <%= for note <- @notes do %>
         <div
           class="flex flex-col h-full max-h-[250px] bg-white rounded-xl drop-shadow-md cursor-pointer transition duration-300 hover:scale-105"
