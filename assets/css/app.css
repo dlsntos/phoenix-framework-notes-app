@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comme:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&display=swap');
 
 @source "../css";
 @source "../js";
@@ -65,7 +64,7 @@
   --font-montserrat: "Montserrat", sans-serif;
   --font-comme: "Comme", sans-serif;
   --font-merriweather-sans: "Merriweather Sans", sans-serif;
-  --font-delius-unicase: "Delius Unicase", sans-serif;
+  --font-delius: "Delius Unicase", cursive;
   --text-white-1: #FCF8F8;
   --bg-white-1: #FCF8F8;
   --bg-lightorange: #FF8C42;
@@ -118,3 +117,23 @@
 [data-phx-session], [data-phx-teleported-src] { display: contents }
 
 /* This file is for your main application CSS */
+.delius-unicase-bold {
+  font-family: "Delius Unicase", cursive;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.montserrat-bold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.montserrat-normal {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
