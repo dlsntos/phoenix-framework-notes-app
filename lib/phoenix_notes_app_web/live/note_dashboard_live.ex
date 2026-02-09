@@ -99,7 +99,7 @@ end
           </section>
 
           <section class="relative h-full max-h-[120px] py-5 text-center overflow-hidden">
-            <p class="h-full max-h-[100px] w-full max-w-xs text-lg text-gray-500 font-[var(--font-comme)] px-5 drop-shadow-sm break-words overflow-hidden">
+            <p class="h-full max-h-[100px] w-full max-w-md md:max-w-xs text-lg text-justify text-gray-500 font-[var(--font-comme)] px-5 drop-shadow-sm break-words overflow-hidden">
               {note.content}
             </p>
 
@@ -252,7 +252,7 @@ end
   def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
-      <section class="h-full max-h-[80vh] w-full max-w-3xl rounded-3xl bg-white drop-shadow-2xl">
+      <section class="h-full max-h-[80vh] w-full max-w-sm md:max-w-3xl rounded-3xl bg-white drop-shadow-2xl">
         <div class="flex flex-col h-auto w-full p-2 bg-[var(--bg-lightorange)] rounded-t-3xl drop-shadow-sm">
           <div
             class="flex flex-row self-end items-center h-10 w-10 bg-red-500 rounded-full cursor-pointer transition duration-200 hover:bg-red-700 hover:scale-110"
@@ -277,29 +277,29 @@ end
           </div>
 
           <div class="flex flex-row justify-between px-5 py-2">
-            <p class="text-lg text-white text-shadow-sm">Created at <%= @note.inserted_at%></p>
+            <p class="text-sm md:text-lg text-white text-shadow-sm">Created at <%= @note.inserted_at%></p>
 
-            <p class="text-lg text-white text-shadow-sm">Last updated at <%= @note.updated_at%></p>
+            <p class="text-sm md:text-lg text-white text-shadow-sm">Last updated at <%= @note.updated_at%></p>
           </div>
         </div>
         <!-- Text area readonly attribute to false if user decideds to edit a note-->
-        <div class="h-[55vh] p-5">
+        <div class="h-[55vh] p-0 md:p-5">
           <textarea
             name="note"
             id="note"
             placeholder="Add a note"
-            class="w-full h-full outline-none text-xl text-justify resize-none px-10"
+            class="w-full h-full outline-none text-base md:text-xl text-justify resize-none px-10"
             readonly
           >
           <%= @note.content%>
           </textarea>
         </div>
 
-        <div class="flex justify-end items-center px-15 space-x-5">
+        <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
           <button
             phx-click="delete-note"
             phx-value-id={@note.id}
-            class="flex flex-row justify-center items-center px-8 py-3 gap-2 w-auto bg-red-600 text-[var(--text-white-1)] rounded-3xl cursor-pointer hover:bg-red-800 hover:scale-105 transition duration-200">
+            class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-red-600 text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-red-800 hover:scale-105 transition duration-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -315,7 +315,7 @@ end
               />
             </svg> <span class="font-semibold drop-shadow-md">Delete Note</span>
           </button>
-          <button class="flex flex-row justify-center items-center px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-[var(--text-white-1)] rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
+          <button class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
