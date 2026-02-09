@@ -394,18 +394,24 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
               class="h-full"
             >
               <div class="flex flex-col gap-3 h-full">
-                <.input
-                  field={@form[:title]}
-                  type="text"
-                  label="Title"
-                  class="text-base md:text-xl"
-                />
-                <.input
-                  field={@form[:content]}
-                  type="textarea"
-                  label="Content"
-                  class="h-full min-h-[45vh] text-base md:text-xl"
-                />
+                <div class="flex flex-row items-center h-auto w-full gap-2">
+                  <p class="text-base md:text-xl font-semibold">Title</p>
+                  <.input
+                    field={@form[:title]}
+                    type="text"
+                    label=""
+                    class="w-full max-w-lg p-2 text-base md:text-xl border-1 border-orange-500 outline-orange-500 rounded-sm"
+                  />
+                </div>
+                <div>
+                  <p class="text-base md:text-xl font-semibold">Content</p>
+                  <.input
+                    field={@form[:content]}
+                    type="textarea"
+                    label=""
+                    class="h-full min-h-[30vh] w-full p-2 text-base md:text-xl border-1 border-orange-500 outline-orange-500 resize-none rounded-sm"
+                  />
+                </div>
               </div>
             </.form>
           </div>
@@ -435,9 +441,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
               placeholder="Add a note"
               class="w-full h-full outline-none text-base md:text-xl text-justify resize-none px-10"
               readonly
-            >
-            {@note.content}
-            </textarea>
+            >{@note.content}</textarea>
           </div>
 
           <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
