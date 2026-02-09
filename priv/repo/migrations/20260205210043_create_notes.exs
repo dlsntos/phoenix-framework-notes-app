@@ -4,7 +4,7 @@ defmodule PhoenixNotesApp.Repo.Migrations.CreateNotes do
   def change do
     create table(:notes) do
       add :title, :string
-      add :content, :string
+      add :content, :text
       add :user_id, references(:users, on_delete: :nothing)
 
       timestamps(type: :utc_datetime)
