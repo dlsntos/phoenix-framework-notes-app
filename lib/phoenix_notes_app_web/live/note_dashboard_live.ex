@@ -383,7 +383,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
             <p class="text-sm md:text-lg text-white text-shadow-sm">Last updated at <%= @note.updated_at%></p>
           </div>
         </div>
-        <!-- Text area readonly attribute to false if user decideds to edit a note-->
+
         <%= if @edit_mode do %>
           <div class="h-[55vh] p-0 md:p-5">
             <.form
