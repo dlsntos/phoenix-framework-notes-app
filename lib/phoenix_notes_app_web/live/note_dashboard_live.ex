@@ -72,9 +72,16 @@ end
         placeholder="Search notes"
         class="mr-4 border border-slate-300 py-2 px-4 w-1/3 rounded-full transition focus:outline-orange-500"
       />
-      <button class="bg-[var(--bg-lightorange)] text-white px-4 py-2 rounded-full cursor-pointer transition duration-200 hover:bg-orange-700">
-        Logout
-      </button>
+      <form action={~p"/logout"} method="post" class="inline">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
+        <button
+          class="bg-[var(--bg-lightorange)] text-white px-4 py-2 rounded-full cursor-pointer transition duration-200 hover:bg-orange-700"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
     </div>
   </header>
 
