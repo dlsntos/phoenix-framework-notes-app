@@ -28,4 +28,10 @@ defmodule PhoenixNotesAppWeb.LoginController do
         |> render(:login, form: to_form(changeset), layout: false)
     end
   end
+
+  def logout(conn, _params) do
+    conn
+    |> configure_session(drop: true)
+    |> redirect(to: ~p"/login")
+  end
 end
