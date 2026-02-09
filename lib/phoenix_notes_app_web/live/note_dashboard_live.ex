@@ -22,14 +22,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     {:ok, redirect(socket, to: "/login")}
   end
 
-  def handle_info({:note_created, note}, socket) do
-  # Update the notes list and close the create note modal
-  {:noreply,
-   socket
-   |> update(:notes, fn notes -> [note | notes] end)
-   |> assign(show_create_note: false)}
-  end
-
   def handle_info(%{event: "note_created", payload: %{note: note}}, socket) do
     {:noreply, update(socket, :notes, fn notes -> [note | notes] end)}
   end
