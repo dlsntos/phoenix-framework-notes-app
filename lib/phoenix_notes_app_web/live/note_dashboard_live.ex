@@ -5,6 +5,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   alias PhoenixNotesApp.Notes
 
   def mount(_params, %{"user_id" => user_id}, socket) do
+    if connected?(socket), do: PhoenixNotesAppWeb.Endpoint.subscribe("notes:#{user_id}")
     users = Users.get_user(user_id)
     notes = Notes.get_all_notes_by_userid(user_id)
     {:ok,
@@ -28,6 +29,11 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
    |> update(:notes, fn notes -> [note | notes] end)
    |> assign(show_create_note: false)}
   end
+
+  def handle_info(%{event: "note_created", payload: %{note: note}}, socket) do
+    {:noreply, update(socket, :notes, fn notes -> [note | notes] end)}
+  end
+
   def handle_event("open-modal", %{"id" => id}, socket) do
     note = Notes.get_note_by_id(id)
     {:noreply, assign(socket, show_modal: true, selected_note: note)}
@@ -49,6 +55,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     note_id = String.to_integer(id)
     case Notes.delete_note(note_id) do
       {:ok, _note} ->
+        PhoenixNotesAppWeb.Endpoint.broadcast("notes:#{socket.assigns.user_id}", "note_deleted", %{id: id})
+
         updated_notes = Enum.reject(socket.assigns.notes, fn note -> note.id == note_id end)
         {:noreply, assign(socket, notes: updated_notes, show_modal: false, selected_note: nil)}
 
@@ -181,6 +189,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
       case Notes.create_note(note_params) do
         {:ok, note} ->
+          PhoenixNotesAppWeb.Endpoint.broadcast("notes:#{socket.assigns.user_id}", "note_created", %{note: note})
           send(self(), {:note_created, note})
 
           {:noreply,
