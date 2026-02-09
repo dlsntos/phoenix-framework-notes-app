@@ -338,16 +338,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
             class="flex flex-row self-end items-center h-10 w-10 bg-red-500 rounded-full cursor-pointer transition duration-200 hover:bg-red-700 hover:scale-110"
             phx-click="close-modal"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6 mx-auto"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
+            <.icon name="hero-x-mark" class="text-white size-6 mx-auto"/>
           </div>
 
           <div class="text-center">
