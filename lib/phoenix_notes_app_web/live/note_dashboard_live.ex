@@ -26,6 +26,14 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     {:noreply, update(socket, :notes, fn notes -> [note | notes] end)}
   end
 
+  @doc """
+    The event handlers consists of 5 events which is the
+      1.open-model - event for opening the view note modal
+      2.close-modal - event for closing the view note modal
+      3.open-create-note-modal - event for opening the create note modal
+      4.close-create-note-modal - event for closing the create note modal
+      5.delete-note - event for deleting a note
+  """
   def handle_event("open-modal", %{"id" => id}, socket) do
     note = Notes.get_note_by_id(id)
     {:noreply, assign(socket, show_modal: true, selected_note: note)}
@@ -34,6 +42,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   def handle_event("close-modal", _, socket) do
     {:noreply, assign(socket, show_modal: false, selected_note: nil)}
   end
+
 
   def handle_event("open-create-note-modal", _, socket) do
     {:noreply, assign(socket, show_create_note: true)}
@@ -175,7 +184,15 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   defmodule CreateNoteComponent do
   use PhoenixNotesAppWeb, :live_component
   alias PhoenixNotesApp.Notes
+    @moduledoc """
+      This is a live_component for creating a new note.
+      It is used for creating a new note in real time
+      without going to a separate page
+    """
 
+    @doc """
+    this event handler is used for creating a new note
+    """
     def handle_event("save_note", %{"note" => note_params}, socket) do
       note_params = Map.put(note_params, "user_id", socket.assigns.user_id)
 
@@ -258,9 +275,13 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     end
   end
 
+
   defmodule ViewNoteComponent do
   use PhoenixNotesAppWeb, :live_component
-
+  @moduledoc """
+    This is a live_component for viewing a note. It is used to display, update, and delete notes in real time.
+    without going to a separate page.
+  """
   def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
