@@ -9,11 +9,16 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     if connected?(socket), do: PhoenixNotesAppWeb.Endpoint.subscribe("notes:#{user_id}")
     users = Users.get_user(user_id)
     notes = Notes.get_all_notes_by_userid(user_id)
+    search_query = ""
+    search_form = to_form(%{"query" => search_query}, as: :search)
+
     {:ok,
     assign(socket,
       user_id: user_id,
       user: users,
       notes: notes,
+      search_query: search_query,
+      search_form: search_form,
       show_modal: false,
       show_create_note: false
     )}
