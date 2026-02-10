@@ -31,7 +31,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   @impl true
   def handle_info(%{event: "note_created", payload: %{note: note}}, socket) do
-    {:noreply, update(socket, :notes, fn notes -> [note | notes] end)}
+    {:noreply, refresh_notes(socket)}
   end
 
   @impl true
@@ -48,20 +48,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         socket
       end
 
-    {:noreply, assign(socket, notes: updated_notes)}
-  end
-
-  defp refresh_notes(socket) do
-    query = socket.assigns.search_query || ""
-
-    notes =
-      if query == "" do
-        Notes.get_all_notes_by_userid(socket.assigns.user_id)
-      else
-        Notes.search_notes_by_title(socket.assigns.user_id, query)
-      end
-
-    assign(socket, notes: notes)
+    {:noreply, refresh_notes(socket)}
   end
 
   @doc """
@@ -127,6 +114,18 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     end
   end
 
+  defp refresh_notes(socket) do
+    query = socket.assigns.search_query || ""
+
+    notes =
+      if query == "" do
+        Notes.get_all_notes_by_userid(socket.assigns.user_id)
+      else
+        Notes.search_notes_by_title(socket.assigns.user_id, query)
+      end
+
+    assign(socket, notes: notes)
+  end
   @impl true
   def render(assigns) do
   ~H"""
