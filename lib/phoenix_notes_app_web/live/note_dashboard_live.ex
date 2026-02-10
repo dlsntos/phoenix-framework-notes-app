@@ -342,7 +342,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
           </div>
 
           <div class="text-center">
-            <h1 class="text-4xl text-white font-bold text-gray-800 text-shadow-sm">
+            <h1 class="text-2xl md:text-4xl text-white font-bold text-gray-800 text-shadow-sm">
               <%= if @edit_mode do %>
                 Editing note
               <% else %>
@@ -395,14 +395,14 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
               type="button"
               phx-click="cancel-edit"
               phx-target={@myself}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-gray-200 text-xs md:text-base text-gray-700 rounded-lg md:rounded-3xl cursor-pointer hover:bg-gray-300 hover:scale-105 transition duration-200"
+              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-gray-200 text-xs md:text-base text-gray-700 rounded-lg md:rounded-3xl cursor-pointer hover:bg-gray-300 hover:scale-105 transition duration-200"
             >
               <span class="font-semibold drop-shadow-md">Cancel</span>
             </button>
             <button
               type="submit"
               form={"edit-note-form-#{@note.id}"}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200"
+              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200"
             >
               <span class="font-semibold drop-shadow-md">Save</span>
             </button>
