@@ -130,8 +130,6 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       </section>
     </main>
     <footer></footer>
-
     """
-
   end
 end
