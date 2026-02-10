@@ -92,7 +92,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         />
       </div>
 
-      <h1 class="ml-4 text-black text-2xl delius-unicase-bold">Note<span class="text-orange-500">Orange</span></h1>
+      <h1 class="ml-4 text-black text-2xl delius-unicase-bold transition duration-300 hover:scale-105">Note<span class="text-orange-500">Orange</span></h1>
     </div>
 
     <div class="flex flex-row justify-end w-full">
