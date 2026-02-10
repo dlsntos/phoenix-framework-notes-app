@@ -100,14 +100,22 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       )}
   end
   @impl true
+  @impl true
   def handle_event("delete-note", %{"id" => id}, socket) do
     note_id = String.to_integer(id)
+
     case Notes.delete_note(note_id) do
       {:ok, _note} ->
-        PhoenixNotesAppWeb.Endpoint.broadcast("notes:#{socket.assigns.user_id}", "note_deleted", %{id: id})
+        PhoenixNotesAppWeb.Endpoint.broadcast(
+          "notes:#{socket.assigns.user_id}",
+          "note_deleted",
+          %{id: id}
+        )
 
-        updated_notes = Enum.reject(socket.assigns.notes, fn note -> note.id == note_id end)
-        {:noreply, assign(socket, notes: updated_notes, show_modal: false, selected_note: nil)}
+        {:noreply,
+        socket
+        |> assign(show_modal: false, selected_note: nil)
+        |> refresh_notes()}
 
       {:error, _reason} ->
         {:noreply, socket}
