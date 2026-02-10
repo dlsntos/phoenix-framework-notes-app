@@ -1,6 +1,5 @@
 defmodule PhoenixNotesAppWeb.NoteHTML do
   use PhoenixNotesAppWeb, :html
-
   def index(assigns) do
     ~H"""
       <header class="absolute flex flex-row justify-between items-center px-5 py-3 w-full bg-[var(--text-white-1)] drop-shadow-md z-10000 ">
@@ -18,7 +17,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       </div>
 
       <nav>
-        <ul class="flex flex-row gap-2">
+        <ul class="hidden md:flex flex-row gap-2">
           <li>
             <a
               href="/"
@@ -44,6 +43,33 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           </li>
         </ul>
       </nav>
+      <button
+        id="hamburger-btn"
+        phx-click={ JS.show(to: "#mobile-menu") |> JS.hide(to: "#hamburger-btn")}
+        class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300"
+      >
+        <.icon name="hero-bars-3" class="size-10"/>
+      </button>
+
+      <div
+        id="mobile-menu"
+        class="absolute top-10 right-0 mr-2 hidden md:hidden h-auto min-w-[30vw] bg-white md:bg-transparent px-4 py-4 rounded-md"
+      >
+        <ul class="md:hidden h-full w-full">
+          <li class="flex flex-row justify-end w-full">
+            <button
+              phx-click={ JS.hide(to: "#mobile-menu") |> JS.show(to: "#hamburger-btn")}
+              class="px-2 py-1 rounded-full cursor-pointer"
+            >
+              <.icon name="hero-x-mark"/>
+            </button>
+          </li>
+          <.link navigate="/" class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white">Home</.link>
+          <.link navigate="/about" class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white">About</.link>
+          <.link navigate="/login" class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white">Login</.link>
+        </ul>
+      </div>
+
     </header>
 
     <main class="h-full overflow-hidden">
