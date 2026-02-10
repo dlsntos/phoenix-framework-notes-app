@@ -24,6 +24,7 @@ defmodule PhoenixNotesAppWeb.RegisterHTML do
               type="text"
               placeholder="Username"
               class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
+              autocomplete="off"
             />
           </div>
 
@@ -34,6 +35,7 @@ defmodule PhoenixNotesAppWeb.RegisterHTML do
               type="email"
               placeholder="Email"
               class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
+              autocomplete="off"
             />
           </div>
 
@@ -44,6 +46,7 @@ defmodule PhoenixNotesAppWeb.RegisterHTML do
               type="password"
               placeholder="Password"
               class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
+              autocomplete="off"
             />
           </div>
 
