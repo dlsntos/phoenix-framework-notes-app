@@ -7,12 +7,14 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.NoteItemComponent do
       <div
         class="flex flex-col h-full max-h-[250px] bg-white rounded-xl drop-shadow-md transition duration-300 hover:scale-105"
       >
+        <!--Note title section-->
         <section class="flex bg-[var(--bg-lightorange)] p-3 text-[var(--text-white-1)] rounded-t-2xl">
           <h2 class="mx-auto text-xl font-semibold font-[var(--font-montserrat)] drop-shadow-md">
             {@note.title}
           </h2>
         </section>
 
+        <!--Note content section-->
         <section class="relative h-full max-h-[120px] py-5 text-center overflow-hidden">
           <p class="h-full max-h-[100px] w-full max-w-md md:max-w-xs text-lg text-justify text-gray-500 font-[var(--font-comme)] px-5 drop-shadow-sm break-words overflow-hidden">
             {@note.content}
@@ -20,6 +22,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.NoteItemComponent do
           <div class="pointer-events-none absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white/100 to-white/0"></div>
         </section>
 
+        <!--Open note button section-->
         <section class="flex justify-end p-3 rounded-b-xl z-40">
           <div
             phx-click="open-modal"
