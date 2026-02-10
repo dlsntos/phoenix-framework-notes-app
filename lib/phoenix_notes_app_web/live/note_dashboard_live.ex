@@ -51,6 +51,19 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     {:noreply, assign(socket, notes: updated_notes)}
   end
 
+  defp refresh_notes(socket) do
+    query = socket.assigns.search_query || ""
+
+    notes =
+      if query == "" do
+        Notes.get_all_notes_by_userid(socket.assigns.user_id)
+      else
+        Notes.search_notes_by_title(socket.assigns.user_id, query)
+      end
+
+    assign(socket, notes: notes)
+  end
+
   @doc """
     The event handlers consists of 5 events which is the
       1.open-model - event for opening the view note modal
@@ -80,6 +93,25 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     {:noreply, assign(socket, show_create_note: false)}
   end
 
+  @impl true
+
+  def handle_event("search", %{"search" => %{"query" => query}}, socket) do
+    query = query |> to_string() |> String.trim()
+
+    notes =
+      if query == "" do
+        Notes.get_all_notes_by_userid(socket.assigns.user_id)
+      else
+        Notes.search_notes_by_title(socket.assigns.user_id, query)
+      end
+
+    {:noreply,
+      assign(socket,
+        notes: notes,
+        search_query: query,
+        search_form: to_form(%{"query" => query}, as: :search)
+      )}
+  end
   @impl true
   def handle_event("delete-note", %{"id" => id}, socket) do
     note_id = String.to_integer(id)
@@ -111,11 +143,22 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     </div>
 
     <div class="flex flex-row justify-end w-full">
-      <input
-        type="text"
-        placeholder="Search notes"
-        class="w-full sm:w-auto mr-4 border border-slate-300 py-2 px-4 w-1/3 rounded-full transition focus:outline-orange-500"
-      />
+      <.form
+        for={@search_form}
+        id="note-search-form"
+        phx-change="search"
+        autocomplete="off"
+        class="w-full sm:w-auto mr-4"
+      >
+        <.input
+          field={@search_form[:query]}
+          type="text"
+          placeholder="Search notes"
+          phx-debounce="300"
+          class="w-full sm:w-auto mr-4 border border-slate-300 py-2 px-4 w-1/3 rounded-full transition focus:outline-orange-500"
+        />
+
+      </.form>
       <form action={~p"/logout"} method="post" class="inline">
         <input type="hidden" name="_method" value="delete" />
         <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
