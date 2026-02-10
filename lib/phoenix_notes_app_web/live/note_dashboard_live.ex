@@ -144,7 +144,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       <h1 class="hidden md:block ml-4 text-black text-2xl delius-unicase-bold transition duration-300 hover:scale-105">Note<span class="text-orange-500">Orange</span></h1>
     </div>
 
-    <div class="flex flex-row justify-end w-full">
+    <div class="flex flex-row justify-end items-center w-full">
       <.form
         for={@search_form}
         id="note-search-form"
@@ -157,7 +157,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
           type="text"
           placeholder="Search notes"
           phx-debounce="300"
-          class="w-full sm:w-auto mr-4 border border-slate-300 py-2 px-4 w-1/3 rounded-full transition focus:outline-orange-500"
+          class="mt-2 w-full sm:w-auto mr-4 border border-slate-300 py-2 px-4 w-1/3 rounded-full transition focus:outline-orange-500"
         />
 
       </.form>
