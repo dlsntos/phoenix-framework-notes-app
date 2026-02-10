@@ -88,54 +88,11 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         </div>
 
         <%= if @edit_mode do %>
-          <div class="h-[55vh] p-0 px-5 md:p-5">
-            <.form
-              for={@form}
-              id={"edit-note-form-#{@note.id}"}
-              phx-submit="save-note"
-              phx-target={@myself}
-              class="h-full"
-            >
-              <div class="flex flex-col gap-3 h-full">
-                <div class="flex flex-row items-center h-auto w-full gap-2">
-                  <p class="text-base md:text-xl font-semibold">Title</p>
-                  <.input
-                    field={@form[:title]}
-                    type="text"
-                    label=""
-                    class="w-full max-w-lg p-2 text-base md:text-xl border-1 border-orange-500 outline-orange-500 rounded-sm"
-                  />
-                </div>
-                <div>
-                  <p class="text-base md:text-xl font-semibold">Content</p>
-                  <.input
-                    field={@form[:content]}
-                    type="textarea"
-                    label=""
-                    class="h-full min-h-[30vh] w-full p-2 text-base md:text-xl border-1 border-orange-500 outline-orange-500 resize-none rounded-sm"
-                  />
-                </div>
-              </div>
-            </.form>
-          </div>
-
-          <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
-            <button
-              type="button"
-              phx-click="cancel-edit"
-              phx-target={@myself}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-gray-200 text-xs md:text-base text-gray-700 rounded-lg md:rounded-3xl cursor-pointer hover:bg-gray-300 hover:scale-105 transition duration-200"
-            >
-              <span class="font-semibold drop-shadow-md">Cancel</span>
-            </button>
-            <button
-              type="submit"
-              form={"edit-note-form-#{@note.id}"}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200"
-            >
-              <span class="font-semibold drop-shadow-md">Save</span>
-            </button>
-          </div>
+          <.edit_note
+            note={@note}
+            form={@form}
+            myself={@myself}
+          />
         <% else %>
           <div class="h-[55vh] p-0 md:p-5">
             <textarea
@@ -164,6 +121,62 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         <% end %>
       </section>
     </div>
+    """
+  end
+
+  defp edit_note(assigns) do
+    ~H"""
+      <div class="h-[55vh] p-0 px-5 md:p-5">
+        <.form
+          for={@form}
+          id={"edit-note-form-#{@note.id}"}
+          phx-submit="save-note"
+          phx-target={@myself}
+          class="h-full"
+        >
+          <div class="flex flex-col gap-3 h-full">
+
+            <div class="flex flex-row items-center h-auto w-full gap-2">
+              <p class="text-base md:text-xl font-semibold">Title</p>
+              <.input
+                field={@form[:title]}
+                type="text"
+                label=""
+                class="w-full max-w-lg p-2 text-base md:text-xl border-1 border-orange-500 outline-orange-500 rounded-sm"
+              />
+            </div>
+
+            <div>
+              <p class="text-base md:text-xl font-semibold">Content</p>
+              <.input
+                field={@form[:content]}
+                type="textarea"
+                label=""
+                class="h-full min-h-[30vh] w-full p-2 text-base md:text-xl border-1 border-orange-500 outline-orange-500 resize-none rounded-sm"
+              />
+            </div>
+
+          </div>
+        </.form>
+      </div>
+
+          <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
+            <button
+              type="button"
+              phx-click="cancel-edit"
+              phx-target={@myself}
+              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-gray-200 text-xs md:text-base text-gray-700 rounded-lg md:rounded-3xl cursor-pointer hover:bg-gray-300 hover:scale-105 transition duration-200"
+            >
+              <span class="font-semibold drop-shadow-md">Cancel</span>
+            </button>
+            <button
+              type="submit"
+              form={"edit-note-form-#{@note.id}"}
+              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200"
+            >
+              <span class="font-semibold drop-shadow-md">Save</span>
+            </button>
+          </div>
     """
   end
 end
