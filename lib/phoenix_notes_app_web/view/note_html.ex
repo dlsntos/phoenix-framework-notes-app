@@ -19,27 +19,29 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       <nav>
         <ul class="hidden md:flex flex-row gap-2">
           <li>
-            <a
-              href="/"
+            <.link
+              navigate="/"
               class="py-2 px-3 text-orange-600 font-medium cursor-pointer rounded-md transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]"
             >
               Home
-            </a>
+            </.link>
           </li>
 
           <li>
-            <a class="py-2 px-3 text-orange-600 font-medium cursor-pointer rounded-md transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]">
-              About
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/login"
-              class="py-2 px-10 bg-orange-500 text-white font-medium cursor-pointer rounded-full transition duration-200 hover:bg-orange-700 hover:text-[var(--text-white-1)]"
+            <.link
+              navigate="/"
+              class="py-2 px-3 text-orange-600 font-medium cursor-pointer rounded-md transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]"
             >
-              Login
-            </a>
+              About
+            </.link>
+          </li>
+
+          <li>
+            <.link
+              navigate="/"
+              class="py-2 px-10 bg-orange-500 text-white font-medium cursor-pointer rounded-full transition duration-200 hover:bg-orange-700 hover:text-[var(--text-white-1)]">
+                Login
+            </.link>
           </li>
         </ul>
       </nav>
