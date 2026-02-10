@@ -359,7 +359,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         </div>
 
         <%= if @edit_mode do %>
-          <div class="h-[55vh] p-0 md:p-5">
+          <div class="h-[55vh] p-0 px-5 md:p-5">
             <.form
               for={@form}
               id={"edit-note-form-#{@note.id}"}
