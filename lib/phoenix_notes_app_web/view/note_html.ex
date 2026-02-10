@@ -38,7 +38,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
 
           <li>
             <.link
-              navigate="/"
+              navigate="/login"
               class="py-2 px-10 bg-orange-500 text-white font-medium cursor-pointer rounded-full transition duration-200 hover:bg-orange-700 hover:text-[var(--text-white-1)]">
                 Login
             </.link>
