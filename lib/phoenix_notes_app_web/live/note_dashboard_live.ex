@@ -157,7 +157,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
           type="text"
           placeholder="Search notes"
           phx-debounce="300"
-          class="mt-2 w-full sm:w-auto mr-4 border border-slate-300 py-2 px-4 w-1/3 rounded-full transition focus:outline-orange-500"
+          class="mt-2  w-full sm:w-auto mr-4 border border-slate-300 py-2 px-4 w-1/3 rounded-full transition focus:outline-orange-500"
         />
 
       </.form>
@@ -177,7 +177,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   <main class="relative bg-white-1 min-h-screen pt-16 px-8 md:pl-8 md:pr-0 z-0">
     <section class="mt-6 flex items-center">
       <h2 class="mx-auto py-5 text-5xl font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
-        <span class="text-orange-500">{String.capitalize(@user.username)}'s</span> Notes
+        <span class="text-orange-500">{@user.username |> String.capitalize()}'s</span> Notes
       </h2>
     </section>
 
