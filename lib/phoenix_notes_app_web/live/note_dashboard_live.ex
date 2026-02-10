@@ -4,6 +4,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Notes
 
+  @impl true
   def mount(_params, %{"user_id" => user_id}, socket) do
     if connected?(socket), do: PhoenixNotesAppWeb.Endpoint.subscribe("notes:#{user_id}")
     users = Users.get_user(user_id)
@@ -18,14 +19,17 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     )}
   end
 
+  @impl true
   def mount(_params, _session, socket) do
     {:ok, redirect(socket, to: "/login")}
   end
 
+  @impl true
   def handle_info(%{event: "note_created", payload: %{note: note}}, socket) do
     {:noreply, update(socket, :notes, fn notes -> [note | notes] end)}
   end
 
+  @impl true
   def handle_info(%{event: "note_updated", payload: %{note: note}}, socket) do
     updated_notes =
       Enum.map(socket.assigns.notes, fn existing_note ->
@@ -50,24 +54,28 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       4.close-create-note-modal - event for closing the create note modal
       5.delete-note - event for deleting a note
   """
+  @impl true
   def handle_event("open-modal", %{"id" => id}, socket) do
     note = Notes.get_note_by_id(id)
     {:noreply, assign(socket, show_modal: true, selected_note: note)}
   end
 
+  @impl true
   def handle_event("close-modal", _, socket) do
     {:noreply, assign(socket, show_modal: false, selected_note: nil)}
   end
 
-
+  @impl true
   def handle_event("open-create-note-modal", _, socket) do
     {:noreply, assign(socket, show_create_note: true)}
   end
 
+  @impl true
   def handle_event("close-create-note-modal", _, socket) do
     {:noreply, assign(socket, show_create_note: false)}
   end
 
+  @impl true
   def handle_event("delete-note", %{"id" => id}, socket) do
     note_id = String.to_integer(id)
     case Notes.delete_note(note_id) do
@@ -81,6 +89,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         {:noreply, socket}
     end
   end
+
+  @impl true
   def render(assigns) do
   ~H"""
   <header class="fixed top-0 left-0 flex flex-row justify-between items-center bg-cream h-16 w-full p-4 shadow-lg z-30">
@@ -192,6 +202,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     @doc """
     this event handler is used for creating a new note
     """
+    @impl true
     def handle_event("save_note", %{"note" => note_params}, socket) do
       note_params = Map.put(note_params, "user_id", socket.assigns.user_id)
 
@@ -210,6 +221,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       end
     end
 
+    @impl true
     def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 h-screen w-full bg-black/50 z-50 flex justify-center items-center">
@@ -283,6 +295,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     without going to a separate page.
   """
 
+  @impl true
   def update(%{note: note} = assigns, socket) do
     socket = assign(socket, assigns)
     edit_mode = Map.get(socket.assigns, :edit_mode, false)
@@ -297,6 +310,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     {:ok, assign(socket, edit_mode: edit_mode, form: form)}
   end
 
+  @impl true
   def handle_event("enable-edit", _, socket) do
     {:noreply,
      assign(socket,
@@ -305,6 +319,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
      )}
   end
 
+  @impl true
   def handle_event("cancel-edit", _, socket) do
     {:noreply,
      assign(socket,
@@ -313,6 +328,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
      )}
   end
 
+  @impl true
   def handle_event("save-note", %{"note" => note_params}, socket) do
     case Notes.update_note(socket.assigns.note, note_params) do
       {:ok, note} ->
@@ -329,6 +345,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         {:noreply, assign(socket, form: to_form(changeset))}
     end
   end
+
+  @impl true
   def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
