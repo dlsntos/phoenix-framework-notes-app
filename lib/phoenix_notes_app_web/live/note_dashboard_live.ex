@@ -30,7 +30,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
-  def handle_info(%{event: "note_created", payload: %{note: note}}, socket) do
+  def handle_info(%{event: "note_created", payload: %{note: _note}}, socket) do
     {:noreply, refresh_notes(socket)}
   end
 
@@ -94,7 +94,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         search_form: to_form(%{"query" => query}, as: :search)
       )}
   end
-  @impl true
+
   @impl true
   def handle_event("delete-note", %{"id" => id}, socket) do
     note_id = String.to_integer(id)
