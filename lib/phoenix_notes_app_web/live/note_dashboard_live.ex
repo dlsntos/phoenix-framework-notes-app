@@ -36,11 +36,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   @impl true
   def handle_info(%{event: "note_updated", payload: %{note: note}}, socket) do
-    updated_notes =
-      Enum.map(socket.assigns.notes, fn existing_note ->
-        if existing_note.id == note.id, do: note, else: existing_note
-      end)
-
     socket =
       if socket.assigns[:selected_note] && socket.assigns.selected_note.id == note.id do
         assign(socket, selected_note: note)
