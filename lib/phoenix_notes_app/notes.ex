@@ -7,6 +7,16 @@ defmodule PhoenixNotesApp.Notes do
     Note.changeset(note, attrs)
   end
 
+  def search_notes_by_title(user_id, query) do
+    pattern = "%#{query}%"
+
+    from(n in Note,
+      where: n.user_id == ^user_id and ilike(n.title, ^pattern),
+      order_by: [desc: n.inserted_at]
+    )
+    |> Repo.all()
+  end
+
   def get_all_notes_by_userid(user_id) do
     query = from n in Note,
           where: n.user_id == ^user_id
