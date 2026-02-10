@@ -1,4 +1,4 @@
-defmodule PhoenixNotesApp.Note do
+defmodule PhoenixNotesApp.Notes.Note do
   use Ecto.Schema
   import Ecto.Changeset
 

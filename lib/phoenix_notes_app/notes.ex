@@ -1,7 +1,7 @@
 defmodule PhoenixNotesApp.Notes do
   import Ecto.{Query, Schema}, warn: false
   alias PhoenixNotesApp.Repo
-  alias PhoenixNotesApp.Note
+  alias PhoenixNotesApp.Notes.Note
 
   def change_note(%Note{} = note, attrs \\ %{}) do
     Note.changeset(note, attrs)
