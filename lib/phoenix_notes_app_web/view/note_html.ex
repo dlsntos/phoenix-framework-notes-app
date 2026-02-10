@@ -76,7 +76,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       <section class="relative flex flex-row justify-center lg:justify-evenly h-full w-full mt-12 gap-5">
         <img
           src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          class="absolute w-full h-full object-cover brightness-50"
+          class="absolute w-full h-full object-cover brightness-30"
         />
         <div class="flex flex-col justify-start items-center lg:items-start max-w-sm md:max-w-screen my-auto p-10 pb-40 ml-0 lg:ml-60 z-100 gap-5">
           <h1 class="text-4xl md:text-6xl text-[var(--text-white-1)] montserrat-bold font-bold drop-shadow-sm">
