@@ -148,6 +148,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           </div>
         </div>
 
+        <!-- Footer Column Container-->
         <div>
             <!-- About Column -->
           <div>
