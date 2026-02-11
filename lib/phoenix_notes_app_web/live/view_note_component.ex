@@ -119,9 +119,9 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
           </div>
 
           <div class="flex flex-row justify-between px-5 py-2">
-            <p class="text-sm md:text-lg text-white text-shadow-sm">Created at <%= @note.inserted_at%></p>
+            <p class="text-sm md:text-lg text-white text-shadow-sm">Created at {@note.inserted_at}</p>
 
-            <p class="text-sm md:text-lg text-white text-shadow-sm">Last updated at <%= @note.updated_at%></p>
+            <p class="text-sm md:text-lg text-white text-shadow-sm">Last updated at {@note.updated_at}</p>
           </div>
         </div>
 

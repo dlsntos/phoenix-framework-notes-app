@@ -11,6 +11,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
     ## Events
     - `"close-create-note-modal"` - closes create-note modal.
     - `"save_note"` - saves the newly created note
+
     """
 
     @impl true
