@@ -45,6 +45,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           </li>
         </ul>
       </nav>
+
       <button
         id="hamburger-btn"
         phx-click={ JS.add_class("hidden", to: "#hamburger-btn")
@@ -130,7 +131,24 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         </svg>
       </section>
     </main>
-    <footer></footer>
+
+    <footer class="h-auto">
+      <section>
+        <!-- Company Logo -->
+        <div class="flex flex-row items-center">
+          <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
+          <img
+            src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
+            alt="orange.png"
+            />
+          </div>
+
+          <div class="ml-2 text-xl font-bold delius-unicase-bold">
+            Note<span class="text-orange-500">Orange</span>
+          </div>
+        </div>
+      </section>
+    </footer>
     """
   end
 end
