@@ -12,7 +12,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   edit, and delete their notes.
 
   ## State
-  - `:user_id` - gets the user_id.
+  - `":user_id"` - gets the user_id.
   - `":user"` - gets a single user.
   - `":search_query"` - represents what the user searches.
   - `":search_form"` -
@@ -21,10 +21,10 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   ## Mount
   - Auth mount fetches the data if the user_id is correct
-  - otherwise it will proceed to the fall back mount that will redirect the user to the login page
+  - Otherwise it will proceed to the fall back mount that will redirect the user to the login page
 
   ## Events
-  - `"open-modal"` - opens view_note modal.
+  - `"open-modal"` - opens the view_note modal.
   - `"open-create-note-modal"` - opens create-note-modal.
   - `"search"` - searches for the note using the query given by the user.
   """
