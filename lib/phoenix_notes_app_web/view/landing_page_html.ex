@@ -98,6 +98,13 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           >
             Login
           </.link>
+
+          <.link
+            navigate="/register"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+          >
+            Register
+          </.link>
         </ul>
       </div>
     </header>
