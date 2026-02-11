@@ -189,7 +189,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         <div class="flex flex-row md:justify-around justify-center w-full max-w-3xl my-10 ml-13 md:ml-20 gap-10 md:gap-0">
             <!-- About Column -->
           <div>
-            <h3 class="text-orange-600 font-bold">
+            <h3 class="mb-3 text-orange-600 font-bold">
               About
             </h3>
             <ul>
@@ -204,7 +204,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
 
           <!-- Support Column -->
           <div>
-            <h3 class="text-orange-600 font-bold">
+            <h3 class="mb-3 text-orange-600 font-bold">
               Support
             </h3>
             <ul>
@@ -220,7 +220,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
 
           <!-- Legal Column -->
           <div>
-            <h3 class="text-orange-600 font-bold">
+            <h3 class="mb-3 text-orange-600 font-bold">
               Legal
             </h3>
             <ul>
