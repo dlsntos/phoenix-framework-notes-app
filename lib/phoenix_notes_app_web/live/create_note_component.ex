@@ -16,7 +16,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
 
     @impl true
     def handle_event("close-create-note-modal", _, socket) do
-      {:noreply, notify_parent(socket, __MODULE__,show_create_note: false)}
+      {:noreply, notify_parent(socket, __MODULE__, :close_create_note_modal)}
     end
 
     @impl true
@@ -54,6 +54,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
           <button
             class="flex flex-row items-center h-7 w-7 bg-red-500 text-white rounded-full drop-shadow-sm cursor-pointer transition duration-300 hover:bg-red-700 hover:scale-110"
             phx-click="close-create-note-modal"
+            phx-target={@myself}
           >
             <.icon name="hero-x-mark" class="ml-1 size-5"/>
           </button>

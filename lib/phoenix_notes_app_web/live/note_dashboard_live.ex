@@ -76,6 +76,11 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
+  def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent, :close_create_note_modal}, socket) do
+    {:noreply, assign(socket, show_create_note: false)}
+  end
+
+  @impl true
   def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, event}, socket)
       when event in [:note_deleted, :close_modal] do
     socket = assign(socket, show_view_note_modal: false, selected_note: nil)
