@@ -2,8 +2,15 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   use PhoenixNotesAppWeb, :live_component
   alias PhoenixNotesApp.Notes
   @moduledoc """
-    This is a live_component for viewing a note. It is used to display, update, and delete notes in real time.
-    without going to a separate page.
+  ViewNoteComponent
+
+  ## Purpose
+  This live component is responsible for editting and deleting notes
+
+  ## Events
+  - `"enable-edit"` - Enables the user to edit a note.
+  - `"cancel-edit"` - Cancels editing mode.
+  - `"save-note"` - Saves note data after updating a note.
   """
 
   @impl true
