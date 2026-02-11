@@ -23,14 +23,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       show_create_note: false
     )}
   end
-  @doc """
-    The event handlers consists of 5 events which is the
-      1.open-model - event for opening the view note modal
-      2.close-modal - event for closing the view note modal
-      3.open-create-note-modal - event for opening the create note modal
-      4.close-create-note-modal - event for closing the create note modal
-      5.delete-note - event for deleting a note
-  """
 
   @impl true
   def mount(_params, _session, socket) do
