@@ -43,6 +43,14 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
                 Login
             </.link>
           </li>
+
+          <li>
+            <.link
+              navigate="/register"
+              class="py-2 px-10 bg-white text-orange-500 font-medium border-1 border-orange-500 cursor-pointer rounded-full transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]">
+                Register
+            </.link>
+          </li>
         </ul>
       </nav>
 
