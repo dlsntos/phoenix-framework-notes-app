@@ -133,9 +133,9 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
     </main>
 
     <footer class="h-auto">
-      <section>
+      <section class="flex flex-row justify-center items-center gap-10">
         <!-- Company Logo -->
-        <div class="flex flex-row items-center p-10">
+        <div class="flex flex-row items-center">
           <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
           <img
             src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
@@ -149,7 +149,49 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         </div>
 
         <div>
+          <h3>
+            About
+          </h3>
+          <ul>
+            <li>
+              <.link navigate="/">About us</.link>
+            </li>
+            <li>
+              <.link navigate="/">Guides</.link>
+            </li>
+          </ul>
         </div>
+
+
+        <div>
+          <h3>
+            Support
+          </h3>
+          <ul>
+            <li>
+              <.link navigate="/">Help Center</.link>
+            </li>
+
+            <li>
+              <.link navigate="/">Contact</.link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>
+            Legal
+          </h3>
+          <ul>
+            <li>
+              <.link navigate="/">Terms & Conditions</.link>
+            </li>
+            <li>
+              <.link navigate="/">Privacy Policy</.link>
+            </li>
+          </ul>
+        </div>
+
       </section>
       <section class="flex flex-row p-2">
         <p class="mx-auto font-medium">©2026 NoteOrange. All rights reserved.</p>
