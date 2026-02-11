@@ -33,6 +33,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
     def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 h-screen w-full bg-black/50 z-50 flex justify-center items-center">
+      <!-- This section is the main container -->
       <div class="relative h-full max-h-[80vh] w-full max-w-sm md:max-w-lg bg-white p-4 rounded-md">
         <section class="absolute flex flex-row justify-between items-center top-0 left-0 p-2 w-full">
           <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
