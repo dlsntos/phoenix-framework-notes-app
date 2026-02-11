@@ -135,7 +135,8 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
     <footer class="h-auto">
       <section class="flex flex-col justify-between items-center px-10 mx-auto">
         <!-- Company Logo -->
-        <div class="flex flex-row items-center">
+        <div class="flex flex-col items-center">
+          <div class="flex flex-row items-center">
           <div class="h-25 w-25 object-cover">
           <img
             src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
@@ -146,8 +147,11 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           <div class="ml-2 text-5xl font-bold delius-unicase-bold">
             Note<span class="text-orange-500">Orange</span>
           </div>
+          </div>
+          <p class="w-auto text-base md:text-lg text-center md:text-start font-semibold">
+              Stay organized, capture ideas, and boost productivity with Note Orange
+          </p>
         </div>
-
         <!-- Footer Column Container-->
         <div class="flex flex-row justify-around w-full max-w-3xl my-10 ml-20">
             <!-- About Column -->
