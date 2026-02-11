@@ -77,9 +77,27 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
               <.icon name="hero-x-mark"/>
             </button>
           </li>
-          <.link navigate="/" class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white">Home</.link>
-          <.link navigate="/about" class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white">About</.link>
-          <.link navigate="/login" class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white">Login</.link>
+
+          <.link
+            navigate="/"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+            >
+              Home
+          </.link>
+
+          <.link
+            navigate="/about"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+            >
+              About
+          </.link>
+
+          <.link
+            navigate="/login"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+          >
+            Login
+          </.link>
         </ul>
       </div>
     </header>
