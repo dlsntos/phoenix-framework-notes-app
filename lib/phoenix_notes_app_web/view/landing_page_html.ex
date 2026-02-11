@@ -133,7 +133,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
     </main>
 
     <footer class="h-auto">
-      <section class="flex flex-row justify-center items-center gap-10">
+      <section class="flex flex-row justify-between items-center px-10 mx-auto">
         <!-- Company Logo -->
         <div class="flex flex-row items-center">
           <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
@@ -149,7 +149,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         </div>
 
         <!-- Footer Column Container-->
-        <div>
+        <div class="flex flex-row mt-10 gap-5">
             <!-- About Column -->
           <div>
             <h3 class="text-orange-600 font-bold">
