@@ -150,7 +150,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
 
         <!-- About Column -->
         <div>
-          <h3>
+          <h3 class="text-orange-600 font-bold">
             About
           </h3>
           <ul>
@@ -165,7 +165,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
 
         <!-- Support Column -->
         <div>
-          <h3>
+          <h3 class="text-orange-600 font-bold">
             Support
           </h3>
           <ul>
@@ -181,7 +181,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
 
         <!-- Legal Column -->
         <div>
-          <h3>
+          <h3 class="text-orange-600 font-bold">
             Legal
           </h3>
           <ul>
