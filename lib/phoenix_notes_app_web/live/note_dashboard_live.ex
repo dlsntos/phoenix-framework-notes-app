@@ -16,7 +16,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   - `":user"` - gets a single user.
   - `":search_query"` - represents what the user searches.
   - `":search_form"` -
-  - `":show_modal"` - boolean value to show the modal.
+  - `":show_view_note_modal"` - boolean value to show the modal.
   - `":show_create_note"` - boolean value to show the create-note modal.
 
   ## Mount
@@ -45,7 +45,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       notes: notes,
       search_query: search_query,
       search_form: search_form,
-      show_modal: false,
+      show_view_note_modal: false,
       show_create_note: false
     )}
   end
@@ -78,7 +78,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   @impl true
   def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, event}, socket)
       when event in [:note_deleted, :close_modal] do
-    socket = assign(socket, show_modal: false, selected_note: nil)
+    socket = assign(socket, show_view_note_modal: false, selected_note: nil)
 
     socket =
       if event == :note_deleted do
@@ -94,14 +94,14 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   def handle_info(%Phoenix.Socket.Broadcast{event: "note_deleted", payload: %{id: _id}}, socket) do
     {:noreply,
     socket
-    |> assign(show_modal: false, selected_note: nil)
+    |> assign(show_view_note_modal: false, selected_note: nil)
     |> refresh_notes()}
   end
 
   @impl true
-  def handle_event("open-modal", %{"id" => id}, socket) do
+  def handle_event("open-view_note_modal", %{"id" => id}, socket) do
     note = Notes.get_note_by_id(id)
-    {:noreply, assign(socket, show_modal: true, selected_note: note)}
+    {:noreply, assign(socket, show_view_note_modal: true, selected_note: note)}
   end
 
   @impl true
@@ -205,7 +205,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     </main>
 
     <!--Conditional logic for rendering view note modal-->
-    <%= if @show_modal do %>
+    <%= if @show_view_note_modal do %>
       <.live_component
         module={PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent}
         id="view-note-modal"

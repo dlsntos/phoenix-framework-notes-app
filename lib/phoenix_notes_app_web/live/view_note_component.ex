@@ -90,7 +90,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   end
 
   @impl true
-  def handle_event("close-modal", _, socket) do
+  def handle_event("close-view_note-modal", _, socket) do
     {:noreply, notify_parent(socket, __MODULE__,:close_modal)}
   end
 
