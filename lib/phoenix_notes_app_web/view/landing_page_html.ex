@@ -144,7 +144,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
               />
             </div>
 
-            <div class="ml-2 text-5xl font-bold delius-unicase-bold">
+            <div class="ml-2 text-3xl md:text-5xl font-bold delius-unicase-bold">
               Note<span class="text-orange-500">Orange</span>
             </div>
           </div>
@@ -153,7 +153,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           </p>
         </div>
         <!-- Footer Column Container-->
-        <div class="flex flex-row justify-around w-full max-w-3xl my-10 ml-20">
+        <div class="flex flex-row md:justify-around justify-center w-full max-w-3xl my-10 ml-13 md:ml-20 gap-10 md:gap-0">
             <!-- About Column -->
           <div>
             <h3 class="text-orange-600 font-bold">
