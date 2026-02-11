@@ -2,7 +2,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
   use PhoenixNotesAppWeb, :html
   def index(assigns) do
     ~H"""
-      <header class="absolute flex flex-row justify-between items-center px-5 py-3 w-full bg-[var(--text-white-1)] drop-shadow-md z-10000 ">
+    <header class="absolute flex flex-row justify-between items-center px-5 py-3 w-full bg-[var(--text-white-1)] drop-shadow-md z-10000 ">
       <div class="flex flex-row items-center">
         <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
           <img
@@ -47,7 +47,8 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       </nav>
       <button
         id="hamburger-btn"
-        phx-click={ JS.show(to: "#mobile-menu") |> JS.hide(to: "#hamburger-btn")}
+        phx-click={ JS.add_class("hidden", to: "#hamburger-btn")
+                    |> JS.remove_class("hidden", to: "#mobile-menu")}
         class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300"
       >
         <.icon name="hero-bars-3" class="size-10"/>
@@ -60,7 +61,8 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         <ul class="md:hidden h-full w-full">
           <li class="flex flex-row justify-end w-full">
             <button
-              phx-click={ JS.hide(to: "#mobile-menu") |> JS.show(to: "#hamburger-btn")}
+              phx-click={ JS.add_class("hidden", to: "#mobile-menu")
+                          |> JS.remove_class("hidden", to: "#hamburger-btn")}
               class="px-2 py-1 rounded-full cursor-pointer"
             >
               <.icon name="hero-x-mark"/>
@@ -71,7 +73,6 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           <.link navigate="/login" class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white">Login</.link>
         </ul>
       </div>
-
     </header>
 
     <main class="h-full overflow-hidden">
