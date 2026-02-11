@@ -2,14 +2,15 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
   use PhoenixNotesAppWeb, :live_component
   alias PhoenixNotesApp.Notes
     @moduledoc """
-      This is a live_component for creating a new note.
-      It is used for creating a new note in real time
-      without going to a separate page
+    CreateNoteComponent
+
+    ## Purpose
+    This live component is responsible for the Visual Interface for the user to create a note
+
+    ## Events
+    - `"save_note"` - saves the newly created note
     """
 
-    @doc """
-    this event handler is used for creating a new note
-    """
     @impl true
     def handle_event("save_note", %{"note" => note_params}, socket) do
       note_params = Map.put(note_params, "user_id", socket.assigns.user_id)
