@@ -1,5 +1,6 @@
 defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   use PhoenixNotesAppWeb, :live_component
+  import PhoenixNotesAppWeb.Helpers.LiveViewHelper
   alias PhoenixNotesApp.Notes
   @moduledoc """
   ViewNoteComponent
@@ -225,10 +226,5 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         </button>
       </div>
     """
-  end
-
-  defp notify_parent(socket, message) do
-    send(self(), {__MODULE__, message})
-    socket
   end
 end
