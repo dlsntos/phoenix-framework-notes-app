@@ -25,11 +25,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   ## Events
   - `"open-modal"` - opens view_note modal.
-  - `"close-modal"` - closes view_note modal.
   - `"open-create-note-modal"` - opens create-note-modal.
-  - `"close-create-note-modal"` - closes create-note modal.
   - `"search"` - searches for the note using the query given by the user.
-  - `"delete"` - deletes a note.
   """
 
 

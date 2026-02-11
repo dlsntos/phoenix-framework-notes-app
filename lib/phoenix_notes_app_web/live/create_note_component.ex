@@ -9,6 +9,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
     This live component is responsible for the Visual Interface for the user to create a note
 
     ## Events
+    - `"close-create-note-modal"` - closes create-note modal.
     - `"save_note"` - saves the newly created note
     """
 

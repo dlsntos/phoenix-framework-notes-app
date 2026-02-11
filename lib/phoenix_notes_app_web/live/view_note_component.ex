@@ -12,6 +12,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   - `"enable-edit"` - Enables the user to edit a note.
   - `"cancel-edit"` - Cancels editing mode.
   - `"save-note"` - Saves note data after updating a note.
+  - `"delete"` - deletes a note.
+  - `"close-modal"` - closes view_note modal.
   """
 
   @impl true
