@@ -102,11 +102,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
-  def handle_event("close-modal", _, socket) do
-    {:noreply, assign(socket, show_modal: false, selected_note: nil)}
-  end
-
-  @impl true
   def handle_event("open-create-note-modal", _, socket) do
     {:noreply, assign(socket, show_create_note: true)}
   end
@@ -115,8 +110,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   def handle_event("close-create-note-modal", _, socket) do
     {:noreply, assign(socket, show_create_note: false)}
   end
-
-  @impl true
 
   def handle_event("search", %{"search" => %{"query" => query}}, socket) do
     query = query |> to_string() |> String.trim()

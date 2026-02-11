@@ -87,6 +87,11 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   end
 
   @impl true
+  def handle_event("close-modal", _, socket) do
+    {:noreply, assign(socket, show_modal: false, selected_note: nil)}
+  end
+
+  @impl true
   def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
