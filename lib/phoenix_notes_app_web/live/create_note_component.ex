@@ -69,6 +69,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
                 type="text"
                 name="note[title]"
                 class="border-1 border-orange-400 w-full px-2 py-1 rounded-md focus:outline-1 focus:outline-orange-600"
+                autocomplete="off"
               />
             </div>
 
@@ -77,6 +78,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
               <textarea
                 name="note[content]"
                 class="h-[55vh] p-3 border-1 border-orange-400 rounded-md focus:outline-1 focus:outline-orange-600 resize-none"
+                autocomplete="off"
               ></textarea>
             </div>
 
