@@ -151,6 +151,9 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         <div>
         </div>
       </section>
+      <section class="flex flex-row p-2">
+        <p class="mx-auto font-medium">©2026 NoteOrange. All rights reserved.</p>
+      </section>
     </footer>
     """
   end
