@@ -148,50 +148,52 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           </div>
         </div>
 
-        <!-- About Column -->
         <div>
-          <h3 class="text-orange-600 font-bold">
-            About
-          </h3>
-          <ul>
-            <li>
-              <.link navigate="/">About us</.link>
-            </li>
-            <li>
-              <.link navigate="/">Guides</.link>
-            </li>
-          </ul>
-        </div>
+            <!-- About Column -->
+          <div>
+            <h3 class="text-orange-600 font-bold">
+              About
+            </h3>
+            <ul>
+              <li>
+                <.link navigate="/">About us</.link>
+              </li>
+              <li>
+                <.link navigate="/">Guides</.link>
+              </li>
+            </ul>
+          </div>
 
-        <!-- Support Column -->
-        <div>
-          <h3 class="text-orange-600 font-bold">
-            Support
-          </h3>
-          <ul>
-            <li>
-              <.link navigate="/">Help Center</.link>
-            </li>
+          <!-- Support Column -->
+          <div>
+            <h3 class="text-orange-600 font-bold">
+              Support
+            </h3>
+            <ul>
+              <li>
+                <.link navigate="/">Help Center</.link>
+              </li>
 
-            <li>
-              <.link navigate="/">Contact</.link>
-            </li>
-          </ul>
-        </div>
+              <li>
+                <.link navigate="/">Contact</.link>
+              </li>
+            </ul>
+          </div>
 
-        <!-- Legal Column -->
-        <div>
-          <h3 class="text-orange-600 font-bold">
-            Legal
-          </h3>
-          <ul>
-            <li>
-              <.link navigate="/">Terms & Conditions</.link>
-            </li>
-            <li>
-              <.link navigate="/">Privacy Policy</.link>
-            </li>
-          </ul>
+          <!-- Legal Column -->
+          <div>
+            <h3 class="text-orange-600 font-bold">
+              Legal
+            </h3>
+            <ul>
+              <li>
+                <.link navigate="/">Terms & Conditions</.link>
+              </li>
+              <li>
+                <.link navigate="/">Privacy Policy</.link>
+              </li>
+            </ul>
+          </div>
         </div>
 
       </section>
