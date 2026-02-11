@@ -58,6 +58,14 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
+  def handle_info(%Phoenix.Socket.Broadcast{event: "note_deleted", payload: %{id: _id}}, socket) do
+    {:noreply,
+    socket
+    |> assign(show_modal: false, selected_note: nil)
+    |> refresh_notes()}
+  end
+
+  @impl true
   def handle_event("open-modal", %{"id" => id}, socket) do
     note = Notes.get_note_by_id(id)
     {:noreply, assign(socket, show_modal: true, selected_note: note)}
