@@ -134,6 +134,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       </div>
 
       <div class="flex flex-row justify-end items-center w-full">
+        <!-- This form container contains the search bar input for searching notes -->
         <.form
           for={@search_form}
           id="note-search-form"
@@ -164,12 +165,14 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     </header>
 
     <main class="relative bg-white-1 min-h-screen pt-16 px-8 md:pl-8 md:pr-0 z-0">
+      <!-- Username Label -->
       <section class="mt-6 flex items-center">
         <h2 class="mx-auto py-5 text-5xl font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
           <span class="text-orange-500">{@user.username |> String.capitalize()}'s</span> Notes
         </h2>
       </section>
 
+      <!-- Grid container that contains the notes list -->
       <section class="mt-10 grid grid-cols-1 sm:grid-cols-[repeat(2,minmax(0,250px))] md:grid-cols-[repeat(3,minmax(0,300px))] lg:grid-cols-[repeat(4,minmax(0,350px))] justify-center items-center auto-rows-[15rem] gap-5">
         <%= for note <- @notes do %>
           <.note_item_component
@@ -179,6 +182,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         <% end %>
       </section>
 
+      <!-- absolute container that contains the create/add note button -->
       <section class="absolute flex flex-row justify-end bottom-20 left-0 w-full p-5">
         <button
           class="flex flex-row justify-center items-center bg-[var(--bg-lightorange)] text-white p-5 mr-0 md:mr-30 h-20 w-20 rounded-full cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-110"
@@ -189,6 +193,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       </section>
     </main>
 
+    <!--Conditional logic for rendering view note modal-->
     <%= if @show_modal do %>
       <.live_component
         module={PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent}
@@ -197,6 +202,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       />
     <% end %>
 
+    <!--Conditional logic for rendering create note modal-->
     <%= if @show_create_note do %>
       <.live_component
         module={PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent}

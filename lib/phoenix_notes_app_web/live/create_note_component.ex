@@ -57,10 +57,12 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
           </button>
         </section>
 
+        <!-- This section contains the label "Create a new note" -->
         <section>
           <h1 class="text-2xl text-center p-2">Create a new note</h1>
         </section>
 
+        <!-- This section contains the forms for inputting note title and content -->
         <section class="h-auto">
           <form phx-submit="save_note" phx-target={@myself}>
             <div class="flex flex-row justify-between items-center gap-2">
@@ -89,7 +91,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
             </section>
           </form>
         </section>
-
       </div>
     </div>
     """
