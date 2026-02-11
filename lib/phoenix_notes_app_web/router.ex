@@ -18,7 +18,6 @@ defmodule PhoenixNotesAppWeb.Router do
   scope "/", PhoenixNotesAppWeb do
     pipe_through :browser
 
-    #get "/home", PageController, :home
     get "/", NoteController, :index
     get "/login", LoginController, :login
     post "/login", LoginController, :create
