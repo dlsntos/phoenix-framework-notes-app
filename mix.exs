@@ -1,6 +1,6 @@
 defmodule PhoenixNotesApp.MixProject do
   use Mix.Project
-
+  @name "PhoenixNotesApp"
   def project do
     [
       app: :phoenix_notes_app,
@@ -11,8 +11,13 @@ defmodule PhoenixNotesApp.MixProject do
       aliases: aliases(),
       deps: deps(),
       compilers: [:phoenix_live_view] ++ Mix.compilers(),
-      listeners: [Phoenix.CodeReloader]
+      listeners: [Phoenix.CodeReloader],
+      docs: [
+        main: @name,
+        extras: ["README.md"]
+      ]
     ]
+
   end
 
   # Configuration for the OTP application.
@@ -66,6 +71,7 @@ defmodule PhoenixNotesApp.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.10.2"},
+      {:ex_doc, "~> 0.31", only: :dev, runtime: false},
     ]
   end
 
