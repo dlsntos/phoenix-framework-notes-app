@@ -88,7 +88,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
 
   @impl true
   def handle_event("close-modal", _, socket) do
-    {:noreply, assign(socket, show_modal: false, selected_note: nil)}
+    {:noreply, notify_parent(socket, :close_modal)}
   end
 
   @impl true
@@ -100,6 +100,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
           <div
             class="flex flex-row self-end items-center h-10 w-10 bg-red-500 rounded-full cursor-pointer transition duration-200 hover:bg-red-700 hover:scale-110"
             phx-click="close-modal"
+            phx-target={@myself}
           >
             <.icon name="hero-x-mark" class="text-white size-6 mx-auto"/>
           </div>

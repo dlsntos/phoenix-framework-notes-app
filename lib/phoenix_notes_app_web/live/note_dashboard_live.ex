@@ -79,11 +79,18 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
-  def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, :note_deleted}, socket) do
-  {:noreply,
-    socket
-    |> assign(show_modal: false, selected_note: nil)
-    |> refresh_notes()}
+  def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, event}, socket)
+      when event in [:note_deleted, :close_modal] do
+    socket = assign(socket, show_modal: false, selected_note: nil)
+
+    socket =
+      if event == :note_deleted do
+        refresh_notes(socket)
+      else
+        socket
+      end
+
+    {:noreply, socket}
   end
 
   @impl true
@@ -93,7 +100,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     |> assign(show_modal: false, selected_note: nil)
     |> refresh_notes()}
   end
-
 
   @impl true
   def handle_event("open-modal", %{"id" => id}, socket) do
