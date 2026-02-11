@@ -137,16 +137,16 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         <!-- Company Logo -->
         <div class="flex flex-col items-center">
           <div class="flex flex-row items-center">
-          <div class="h-25 w-25 object-cover">
-          <img
-            src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
-            alt="orange.png"
-            />
-          </div>
+            <div class="h-25 w-25 object-cover">
+            <img
+              src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
+              alt="orange.png"
+              />
+            </div>
 
-          <div class="ml-2 text-5xl font-bold delius-unicase-bold">
-            Note<span class="text-orange-500">Orange</span>
-          </div>
+            <div class="ml-2 text-5xl font-bold delius-unicase-bold">
+              Note<span class="text-orange-500">Orange</span>
+            </div>
           </div>
           <p class="w-auto text-base md:text-lg text-center md:text-start font-semibold">
               Stay organized, capture ideas, and boost productivity with Note Orange
