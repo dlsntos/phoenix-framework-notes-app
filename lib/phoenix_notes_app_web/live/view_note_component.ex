@@ -65,6 +65,28 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   end
 
   @impl true
+  def handle_event("delete-note", %{"id" => id}, socket) do
+    note_id = String.to_integer(id)
+
+    case Notes.delete_note(note_id) do
+      {:ok, _note} ->
+        PhoenixNotesAppWeb.Endpoint.broadcast(
+          "notes:#{socket.assigns.user_id}",
+          "note_deleted",
+          %{id: id}
+        )
+
+        {:noreply,
+        socket
+        |> assign(show_modal: false, selected_note: nil)
+        |> notify_parent(:note_deleted)}
+
+      {:error, _reason} ->
+        {:noreply, socket}
+    end
+  end
+
+  @impl true
   def render(assigns) do
     ~H"""
     <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
@@ -184,6 +206,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         <button
           phx-click="delete-note"
           phx-value-id={@note.id}
+          phx-target={@myself}
           class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-red-600 text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-red-800 hover:scale-105 transition duration-200">
           <.icon name="hero-trash" class="size-6"/><span class="font-semibold drop-shadow-md">Delete Note</span>
         </button>
@@ -196,5 +219,10 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         </button>
       </div>
     """
+  end
+
+  defp notify_parent(socket, message) do
+    send(self(), {__MODULE__, message})
+    socket
   end
 end

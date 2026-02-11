@@ -23,9 +23,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   - Auth mount fetches the data if the user_id is correct
   - otherwise it will proceed to the fall back mount that will redirect the user to the login page
 
-  ## Info (handle_info/2)
-
-
   ## Events
   - `"open-modal"` - opens view_note modal.
   - `"close-modal"` - closes view_note modal.
@@ -82,12 +79,21 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
+  def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, :note_deleted}, socket) do
+  {:noreply,
+    socket
+    |> assign(show_modal: false, selected_note: nil)
+    |> refresh_notes()}
+  end
+
+  @impl true
   def handle_info(%Phoenix.Socket.Broadcast{event: "note_deleted", payload: %{id: _id}}, socket) do
     {:noreply,
     socket
     |> assign(show_modal: false, selected_note: nil)
     |> refresh_notes()}
   end
+
 
   @impl true
   def handle_event("open-modal", %{"id" => id}, socket) do
@@ -130,27 +136,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       )}
   end
 
-  @impl true
-  def handle_event("delete-note", %{"id" => id}, socket) do
-    note_id = String.to_integer(id)
-
-    case Notes.delete_note(note_id) do
-      {:ok, _note} ->
-        PhoenixNotesAppWeb.Endpoint.broadcast(
-          "notes:#{socket.assigns.user_id}",
-          "note_deleted",
-          %{id: id}
-        )
-
-        {:noreply,
-        socket
-        |> assign(show_modal: false, selected_note: nil)
-        |> refresh_notes()}
-
-      {:error, _reason} ->
-        {:noreply, socket}
-    end
-  end
 
   @impl true
   def render(assigns) do
@@ -233,6 +218,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       <.live_component
         module={PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent}
         id="view-note-modal"
+        user_id={@user_id}
         note={@selected_note}
       />
     <% end %>
