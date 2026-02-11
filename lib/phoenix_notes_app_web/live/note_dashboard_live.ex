@@ -117,19 +117,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     end
   end
 
-  defp refresh_notes(socket) do
-    query = socket.assigns.search_query || ""
-
-    notes =
-      if query == "" do
-        Notes.get_all_notes_by_userid(socket.assigns.user_id)
-      else
-        Notes.search_notes_by_title(socket.assigns.user_id, query)
-      end
-
-    assign(socket, notes: notes)
-  end
-
   @impl true
   def render(assigns) do
   ~H"""
@@ -252,5 +239,18 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       </section>
     </div>
   """
+  end
+
+  defp refresh_notes(socket) do
+    query = socket.assigns.search_query || ""
+
+    notes =
+      if query == "" do
+        Notes.get_all_notes_by_userid(socket.assigns.user_id)
+      else
+        Notes.search_notes_by_title(socket.assigns.user_id, query)
+      end
+
+    assign(socket, notes: notes)
   end
 end
