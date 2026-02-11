@@ -94,30 +94,10 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
             myself={@myself}
           />
         <% else %>
-          <div class="h-[55vh] p-0 md:p-5">
-            <textarea
-              name="note"
-              id="note"
-              placeholder="Add a note"
-              class="w-full h-full outline-none text-base md:text-xl text-justify resize-none px-10"
-              readonly
-            >{@note.content}</textarea>
-          </div>
-
-          <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
-            <button
-              phx-click="delete-note"
-              phx-value-id={@note.id}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-red-600 text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-red-800 hover:scale-105 transition duration-200">
-              <.icon name="hero-trash" class="size-6"/><span class="font-semibold drop-shadow-md">Delete Note</span>
-            </button>
-            <button
-              phx-click="enable-edit"
-              phx-target={@myself}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
-              <.icon name="hero-pencil-square" class="size-6"/> <span class="font-semibold drop-shadow-md">Edit Note</span>
-            </button>
-          </div>
+          <.view_note_content
+            note={@note}
+            myself={@myself}
+          />
         <% end %>
       </section>
     </div>
@@ -160,23 +140,54 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         </.form>
       </div>
 
-          <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
-            <button
-              type="button"
-              phx-click="cancel-edit"
-              phx-target={@myself}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-gray-200 text-xs md:text-base text-gray-700 rounded-lg md:rounded-3xl cursor-pointer hover:bg-gray-300 hover:scale-105 transition duration-200"
-            >
-              <span class="font-semibold drop-shadow-md">Cancel</span>
-            </button>
-            <button
-              type="submit"
-              form={"edit-note-form-#{@note.id}"}
-              class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200"
-            >
-              <span class="font-semibold drop-shadow-md">Save</span>
-            </button>
-          </div>
+      <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
+        <button
+          type="button"
+          phx-click="cancel-edit"
+          phx-target={@myself}
+          class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-gray-200 text-xs md:text-base text-gray-700 rounded-lg md:rounded-3xl cursor-pointer hover:bg-gray-300 hover:scale-105 transition duration-200"
+        >
+          <span class="font-semibold drop-shadow-md">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          form={"edit-note-form-#{@note.id}"}
+          class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-full bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200"
+        >
+          <span class="font-semibold drop-shadow-md">Save</span>
+        </button>
+      </div>
+    """
+  end
+
+  defp view_note_content(assigns) do
+    ~H"""
+      <div class="h-[55vh] p-0 md:p-5">
+        <textarea
+          name="note"
+          id="note"
+          placeholder="Add a note"
+          class="w-full h-full outline-none text-base md:text-xl text-justify resize-none px-10"
+          readonly
+        >{@note.content}</textarea>
+      </div>
+
+      <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
+        <button
+          phx-click="delete-note"
+          phx-value-id={@note.id}
+          class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-red-600 text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-red-800 hover:scale-105 transition duration-200">
+          <.icon name="hero-trash" class="size-6"/><span class="font-semibold drop-shadow-md">Delete Note</span>
+        </button>
+
+        <button
+          phx-click="enable-edit"
+          phx-target={@myself}
+          class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
+          <.icon name="hero-pencil-square" class="size-6"/> <span class="font-semibold drop-shadow-md">Edit Note</span>
+        </button>
+      </div>
     """
   end
 end
