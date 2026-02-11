@@ -1,5 +1,6 @@
 defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
   use PhoenixNotesAppWeb, :live_component
+  import PhoenixNotesAppWeb.Helpers.LiveViewHelper
   alias PhoenixNotesApp.Notes
     @moduledoc """
     CreateNoteComponent
@@ -10,6 +11,11 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
     ## Events
     - `"save_note"` - saves the newly created note
     """
+
+    @impl true
+    def handle_event("close-create-note-modal", _, socket) do
+      {:noreply, notify_parent(socket, show_create_note: false)}
+    end
 
     @impl true
     def handle_event("save_note", %{"note" => note_params}, socket) do
