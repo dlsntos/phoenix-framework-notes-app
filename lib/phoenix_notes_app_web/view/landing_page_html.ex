@@ -88,11 +88,11 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           </h1>
 
           <p class="w-sm md:w-lg text-base md:text-lg text-[var(--text-white-1)] text-center md:text-start font-semibold drop-shadow-sm">
-            Stay organized, capture ideas, and boost productivity with Notes app
+            Stay organized, capture ideas, and boost productivity with Note Orange
           </p>
 
           <p class="w-xs md:w-lg text-sm text-[var(--text-white-1)] text-justify montserrat-normal md:text-left drop-shadow-sm">
-            The ultimate app for all your thoughts, lists, and inspirations. Jot notes, create checklists, attach images, or record voice memos. With powerful search, folders, and cloud sync, your notes are always accessible on any device—perfect for staying organized effortlessly.
+            The ultimate app for all your thoughts, lists, and inspirations. Jot notes, create checklists, and write your thoughts. With powerful search, folders, and cloud sync, your notes are always accessible on any device—perfect for staying organized effortlessly.
           </p>
 
           <button
@@ -135,7 +135,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
     <footer class="h-auto">
       <section>
         <!-- Company Logo -->
-        <div class="flex flex-row items-center">
+        <div class="flex flex-row items-center p-10">
           <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
           <img
             src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
@@ -146,6 +146,9 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           <div class="ml-2 text-xl font-bold delius-unicase-bold">
             Note<span class="text-orange-500">Orange</span>
           </div>
+        </div>
+
+        <div>
         </div>
       </section>
     </footer>
