@@ -14,7 +14,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
 
     @impl true
     def handle_event("close-create-note-modal", _, socket) do
-      {:noreply, notify_parent(socket, show_create_note: false)}
+      {:noreply, notify_parent(socket, __MODULE__,show_create_note: false)}
     end
 
     @impl true

@@ -80,7 +80,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         {:noreply,
         socket
         |> assign(show_modal: false, selected_note: nil)
-        |> notify_parent(:note_deleted)}
+        |> notify_parent(__MODULE__, :note_deleted)}
 
       {:error, _reason} ->
         {:noreply, socket}
@@ -89,7 +89,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
 
   @impl true
   def handle_event("close-modal", _, socket) do
-    {:noreply, notify_parent(socket, :close_modal)}
+    {:noreply, notify_parent(socket, __MODULE__,:close_modal)}
   end
 
   @impl true
