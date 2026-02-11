@@ -4,6 +4,38 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Notes
 
+  @moduledoc """
+  NoteDashboardLive LiveView
+
+  ## Purpose
+  This page provides a Visual Interface for users to create, view, search,
+  edit, and delete their notes.
+
+  ## State
+  - `:user_id` - gets the user_id.
+  - `":user"` - gets a single user.
+  - `":search_query"` - represents what the user searches.
+  - `":search_form"` -
+  - `":show_modal"` - boolean value to show the modal.
+  - `":show_create_note"` - boolean value to show the create-note modal.
+
+  ## Mount
+  - Auth mount fetches the data if the user_id is correct
+  - otherwise it will proceed to the fall back mount that will redirect the user to the login page
+
+  ## Info (handle_info/2)
+
+
+  ## Events
+  - `"open-modal"` - opens view_note modal.
+  - `"close-modal"` - closes view_note modal.
+  - `"open-create-note-modal"` - opens create-note-modal.
+  - `"close-create-note-modal"` - closes create-note modal.
+  - `"search"` - searches for the note using the query given by the user.
+  - `"delete"` - deletes a note.
+  """
+
+
   @impl true
   def mount(_params, %{"user_id" => user_id}, socket) do
     if connected?(socket), do: PhoenixNotesAppWeb.Endpoint.subscribe("notes:#{user_id}")
@@ -217,6 +249,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   """
   end
 
+  @doc false
   defp note_item_component(assigns) do
   ~H"""
     <div
@@ -250,6 +283,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   """
   end
 
+  @doc false
   defp refresh_notes(socket) do
     query = socket.assigns.search_query || ""
 
