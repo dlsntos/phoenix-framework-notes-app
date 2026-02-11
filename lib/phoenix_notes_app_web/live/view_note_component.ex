@@ -102,7 +102,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         <div class="flex flex-col h-auto w-full p-2 bg-[var(--bg-lightorange)] rounded-t-3xl drop-shadow-sm">
           <div
             class="flex flex-row self-end items-center h-10 w-10 bg-red-500 rounded-full cursor-pointer transition duration-200 hover:bg-red-700 hover:scale-110"
-            phx-click="close-modal"
+            phx-click="close-view_note-modal"
             phx-target={@myself}
           >
             <.icon name="hero-x-mark" class="text-white size-6 mx-auto"/>
