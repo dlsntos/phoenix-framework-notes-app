@@ -39,7 +39,10 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   @impl true
   def handle_info(%{event: "note_created", payload: %{note: _note}}, socket) do
-    {:noreply, refresh_notes(socket)}
+    {:noreply,
+      socket
+    |> assign(show_create_note: false)
+    |> refresh_notes()}
   end
 
   @impl true

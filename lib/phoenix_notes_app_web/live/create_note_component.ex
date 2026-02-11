@@ -17,7 +17,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
       case Notes.create_note(note_params) do
         {:ok, note} ->
           PhoenixNotesAppWeb.Endpoint.broadcast("notes:#{socket.assigns.user_id}", "note_created", %{note: note})
-          send(self(), {:note_created, note})
 
           {:noreply,
           socket
