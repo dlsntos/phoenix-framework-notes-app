@@ -136,20 +136,20 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       <section class="flex flex-row justify-between items-center px-10 mx-auto">
         <!-- Company Logo -->
         <div class="flex flex-row items-center">
-          <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
+          <div class="h-25 w-25 object-cover">
           <img
             src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
             alt="orange.png"
             />
           </div>
 
-          <div class="ml-2 text-xl font-bold delius-unicase-bold">
+          <div class="ml-2 text-5xl font-bold delius-unicase-bold">
             Note<span class="text-orange-500">Orange</span>
           </div>
         </div>
 
         <!-- Footer Column Container-->
-        <div class="flex flex-row mt-10 gap-5">
+        <div class="flex flex-row gap-5">
             <!-- About Column -->
           <div>
             <h3 class="text-orange-600 font-bold">
