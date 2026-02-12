@@ -15,7 +15,7 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
           </div>
 
           <div class="absolute flex flex-col inset-0 h-full w-full">
-            <h2 class="mx-auto mt-5 text-3xl text-white text-show-sm">Notes App</h2>
+            <h2 class="mx-auto mt-5 text-5xl text-white  text-show-sm delius-unicase-bold">Note<span class="text-orange-500">Orange</span></h2>
           </div>
         </div>
 
