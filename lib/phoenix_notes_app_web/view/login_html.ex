@@ -9,7 +9,7 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
           <img
             src="https://images.unsplash.com/photo-1612367980327-7454a7276aa7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="notebook and desk"
-            class="w-full h-full object-cover brightness-35 rounded-tl-md rounded-bl-md grayscale-50"
+            class="w-full h-full object-cover brightness-35 grayscale-50"
           />
           <div class="absolute flex flex-col inset-0 h-full w-full bg-orange-300 mix-blend-multiply">
           </div>
