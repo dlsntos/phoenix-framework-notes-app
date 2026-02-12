@@ -11,7 +11,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
     <main class="h-full">
       <!--Hero Section-->
-      <section class="relative flex flex-row justify-center lg:justify-evenly h-full w-full gap-5">
+      <section class="relative flex flex-row justify-center lg:justify-evenly h-screen w-full gap-5">
         <img
           src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="absolute w-full h-full object-cover brightness-30"
