@@ -9,7 +9,9 @@ defmodule PhoenixNotesApp.Users do
   ## Purpose
   The Users context contains the database queries for managing and authenticating user data
   """
-
+  @doc """
+  Builds a changeset for a user with the given attributes.
+  """
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
   end

@@ -9,6 +9,10 @@ defmodule PhoenixNotesApp.Notes do
   ## Purpose
   The Notes context contains the queries responsible for filtering, retrieving, creating, updating, and deleting notes.
   """
+
+  @doc """
+  Builds a changeset for a note with the given attributes.
+  """
   def change_note(%Note{} = note, attrs \\ %{}) do
     Note.changeset(note, attrs)
   end
