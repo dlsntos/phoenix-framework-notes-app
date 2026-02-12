@@ -66,13 +66,13 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!--Features Section-->
-      <section class="flex flex-col">
+      <section class="flex flex-col py-10 border-b-1">
         <div>
-          <h2 class="my-10 text-6xl text-center">Features</h2>
+          <h2 class="mb-10 text-6xl text-center">Features</h2>
         </div>
 
         <div class="">
-          <div class="h-[300px] w-full max-w-xs mx-auto bg-orange-500">
+          <div class="h-[300px] w-full p-2 max-w-xs mx-auto border-2 border-orange-500 rounded-xl transtition duration-300 hover:translate-y-[-10px]">
             <h3>
               Find Notes Fast
             </h3>
@@ -82,6 +82,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
             </p>
           </div>
         </div>
+
       </section>
 
     </main>
