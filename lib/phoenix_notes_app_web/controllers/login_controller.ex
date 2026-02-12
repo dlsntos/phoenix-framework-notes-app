@@ -4,11 +4,20 @@ defmodule PhoenixNotesAppWeb.LoginController do
   alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Users.User
 
+  @moduledoc """
+  LoginController
+
+  The Login controller module handles the
+  user login related actions
+  """
+
+  @doc" Renders the login page"
   def login(conn, _params) do
     changeset = Users.change_user(%User{})
     render(conn, :login, form: to_form(changeset),layout: false)
   end
 
+  @doc"handles the user login logic"
   def create(conn, %{"user" => user_params}) do
     case Users.authenticate_user(user_params) do
       {:ok, user} ->
@@ -29,6 +38,7 @@ defmodule PhoenixNotesAppWeb.LoginController do
     end
   end
 
+  @doc"handles the logout logic"
   def logout(conn, _params) do
     conn
     |> configure_session(drop: true)
