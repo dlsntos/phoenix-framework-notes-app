@@ -73,7 +73,13 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
         <div class="">
           <div class="h-[300px] w-full max-w-xs mx-auto bg-orange-500">
-            <p>Card</p>
+            <h3>
+              Find Notes Fast
+            </h3>
+
+            <p>
+              Easily search through your notes using keywords. Locate important information instantly without scrolling endlessly.
+            </p>
           </div>
         </div>
       </section>
