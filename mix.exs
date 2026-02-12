@@ -17,6 +17,7 @@ defmodule PhoenixNotesApp.MixProject do
         extras: ["README.md"],
         filter_modules: fn module, _metadata ->
           module in [
+            PhoenixNotesApp,
             PhoenixNotesApp.Notes,
             PhoenixNotesApp.Notes.Note,
             PhoenixNotesApp.Users,
