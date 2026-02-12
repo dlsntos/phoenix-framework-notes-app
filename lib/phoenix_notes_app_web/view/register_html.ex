@@ -3,7 +3,7 @@ defmodule PhoenixNotesAppWeb.RegisterHTML do
 
   def register(assigns) do
     ~H"""
-      <div class="flex flex-row justify-center items-center h-full w-full">
+      <div class="flex flex-row justify-center items-center h-screen w-full">
       <section class="relative px-5 pt-10 pb-20  h-auto w-full max-w-xs md:max-w-md bg-white border-1 border-gray-200 drop-shadow-md">
         <div class="flex flex-col items-center">
           <h1 class="text-3xl text-orange-600 font-semibold z-20">Create an account</h1>

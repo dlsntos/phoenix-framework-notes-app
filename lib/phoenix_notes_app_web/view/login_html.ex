@@ -3,7 +3,7 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
 
   def login(assigns) do
     ~H"""
-    <div class="flex flex-row items-center h-full w-full">
+    <div class="flex flex-row items-center h-screen w-full">
       <section class="flex flex-row justify-between h-full max-h-[60vh] w-full max-w-xs md:max-w-3xl lg:max-w-4xl mx-auto border-1 border-gray-200 shadow-lg rounded-md">
         <div class="hidden md:block relative h-full w-full max-w-sm">
           <img
