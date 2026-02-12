@@ -66,10 +66,9 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!--Features Section-->
-      <section class="relative flex flex-col py-10 border-b-1 bg-[]">
-        <svg class="absolute top-0 left-0" xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' ><rect fill='#FFFFFF' width='24' height='24'/><defs><linearGradient id='a' x1='0' x2='0' y1='0' y2='1'><stop offset='0' stop-color='#FFC01D'/><stop offset='1' stop-color='#FCFFF3'/></linearGradient></defs><pattern id='b' width='10' height='10' patternUnits='userSpaceOnUse'><circle fill='#FFFFFF' cx='5' cy='5' r='5'/></pattern><rect width='100%' height='100%' fill='url(#a)'/><rect width='100%' height='100%' fill='url(#b)' fill-opacity='0.35'/></svg>
-
-        <div>
+      <section class="relative flex flex-col py-10 border-b-1">
+        <svg class="absolute top-0 left-0 h-full w-full" xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 800 400' preserveAspectRatio="none"><rect fill='#333230' width='800' height='400'/><defs><radialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'><stop  offset='0' stop-color='#DD6112'/><stop  offset='1' stop-color='#333230'/></radialGradient><linearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'><stop offset='0'  stop-color='#FF7412' stop-opacity='0'/><stop offset='1'  stop-color='#FF7412' stop-opacity='0.5'/></linearGradient></defs><rect fill='url(#a)' width='800' height='400'/><g fill-opacity='0.4'><circle fill='url(#b)' cx='267.5' cy='61' r='300'/><circle fill='url(#b)' cx='532.5' cy='61' r='300'/><circle fill='url(#b)' cx='400' cy='30' r='300'/></g></svg>
+        <div class="relative z-10">
           <h2 class="mb-10 xl:mb-20 text-6xl text-center">Features</h2>
         </div>
 
