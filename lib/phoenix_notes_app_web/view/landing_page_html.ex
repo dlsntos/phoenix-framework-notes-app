@@ -332,11 +332,11 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
           {render_slot(@inner_block)}
         </div>
-        <h3 class="mt-5 mb-2 text-2xl font-semibold">
+        <h3 class="mt-5 mb-2 text-2xl montserrat-semibold">
           {@title}
         </h3>
 
-        <p class="text-justify px-2">
+        <p class="text-justify montserrat-normal px-2">
           {@description}
         </p>
       </div>
