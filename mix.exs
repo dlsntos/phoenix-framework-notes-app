@@ -23,7 +23,8 @@ defmodule PhoenixNotesApp.MixProject do
             PhoenixNotesApp.Users.User,
             PhoenixNotesAppWeb.NoteDashboardLive,
             PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent,
-            PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent
+            PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent,
+            PhoenixNotesAppWeb.UserAuth
           ]
         end
       ]
