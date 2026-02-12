@@ -2,6 +2,17 @@ defmodule PhoenixNotesApp.Notes.Note do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @moduledoc """
+  Note Schema
+
+  ## Purpose
+  This module contains the schema of the notes table
+
+  ## Fields
+  - `":title"` - represents the note title.
+  - `":content"` - represents the note's content.
+  - `":user_id"` - represents the user_id referenced from the users table.
+  """
   schema "notes" do
     field :title, :string
     field :content, :string
