@@ -85,32 +85,27 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           </.feature_card>
 
           <!-- Feature 2 card -->
-          <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
-            <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
-              <.icon name="hero-plus" class="text-white"/>
-            </div>
-            <h3 class="mt-5 mb-2 text-2xl font-semibold">
-              Create Notes Easily
-            </h3>
 
-            <p class="">
+          <.feature_card
+            title={"Create Notes Easily"}
+            description={"
               Quickly jot down ideas, reminders, or tasks. Start a new note in seconds and never miss an important thought.
-            </p>
-          </div>
+            "}
+          >
+            <.icon name="hero-plus" class="text-white"/>
+          </.feature_card>
 
           <!-- Feature 3 card -->
-          <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
-            <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
-              <.icon name="hero-pencil" class="text-white"/>
-            </div>
-            <h3 class="mt-5 mb-2 text-2xl font-semibold">
-              Edit Notes Seamlessly
-            </h3>
 
-            <p class="">
+          <.feature_card
+            title={"Edit Notes Seamlessly"}
+            description={"
               Update or refine your notes anytime. Make changes without losing formatting or important details.
-            </p>
-          </div>
+            "}
+          >
+            <.icon name="hero-pencil" class="text-white"/>
+          </.feature_card>
+
         </div>
 
       </section>
