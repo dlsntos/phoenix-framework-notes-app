@@ -73,6 +73,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           <h2 class="mb-10 xl:mb-20 text-6xl text-center">Features</h2>
         </div>
 
+        <!--feature card group container-->
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 self-center h-auto xl:h-[50vh] max-w-[60vw] gap-5 2xl:gap-20 z-100">
           <!-- Feature 1 card -->
           <.feature_card
