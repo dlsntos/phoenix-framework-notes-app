@@ -2,7 +2,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
   use PhoenixNotesAppWeb, :html
   def index(assigns) do
     ~H"""
-    <header class="absolute flex flex-row justify-between items-center px-5 py-3 w-full bg-[var(--text-white-1)] drop-shadow-md z-10000">
+    <header class="flex flex-row justify-between items-center px-5 py-3 w-full bg-[var(--text-white-1)] drop-shadow-md z-10000">
       <div class="flex flex-row items-center">
         <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
           <img
@@ -109,8 +109,8 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       </div>
     </header>
 
-    <main class="h-full overflow-hidden">
-      <section class="relative flex flex-row justify-center lg:justify-evenly h-full w-full mt-12 gap-5">
+    <main class="h-auto">
+      <section class="relative flex flex-row justify-center lg:justify-evenly h-full w-full gap-5">
         <img
           src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="absolute w-full h-full object-cover brightness-30"
@@ -163,9 +163,19 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
           />
         </svg>
       </section>
+
+      <section class="h-auto w-full bg-blue-300">
+        <div>
+          <h2>Features</h2>
+        </div>
+        <div>
+
+
+        </div>
+      </section>
     </main>
 
-    <footer class="h-auto">
+    <footer class="h-auto relative">
       <section class="flex flex-col justify-between items-center px-10 mx-auto">
         <!-- Company Logo -->
         <div class="flex flex-col items-center">
