@@ -63,50 +63,8 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         <.icon name="hero-bars-3" class="size-10"/>
       </button>
 
-      <nav
-        id="mobile-menu"
-        class="absolute top-10 right-0 mr-2 hidden md:hidden h-auto min-w-[30vw] bg-white md:bg-transparent px-4 py-4 rounded-md"
-      >
-        <ul class="md:hidden h-full w-full">
-          <li class="flex flex-row justify-end w-full">
-            <button
-              phx-click={ JS.add_class("hidden", to: "#mobile-menu")
-                          |> JS.remove_class("hidden", to: "#hamburger-btn")}
-              class="px-2 py-1 rounded-full cursor-pointer"
-            >
-              <.icon name="hero-x-mark"/>
-            </button>
-          </li>
+      <.mobile_navigation />
 
-          <.link
-            navigate="/"
-            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
-            >
-              Home
-          </.link>
-
-          <.link
-            navigate="/about"
-            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
-            >
-              About
-          </.link>
-
-          <.link
-            navigate="/login"
-            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
-          >
-            Login
-          </.link>
-
-          <.link
-            navigate="/register"
-            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
-          >
-            Register
-          </.link>
-        </ul>
-      </nav>
     </header>
 
     <main class="h-full">
@@ -249,6 +207,55 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         <p class="mx-auto font-medium">©2026 NoteOrange. All rights reserved.</p>
       </section>
     </footer>
+    """
+  end
+
+  defp mobile_navigation(assigns) do
+    ~H"""
+    <nav
+        id="mobile-menu"
+        class="absolute top-10 right-0 mr-2 hidden md:hidden h-auto min-w-[30vw] bg-white md:bg-transparent px-4 py-4 rounded-md"
+      >
+        <ul class="md:hidden h-full w-full">
+          <li class="flex flex-row justify-end w-full">
+            <button
+              phx-click={ JS.add_class("hidden", to: "#mobile-menu")
+                          |> JS.remove_class("hidden", to: "#hamburger-btn")}
+              class="px-2 py-1 rounded-full cursor-pointer"
+            >
+              <.icon name="hero-x-mark"/>
+            </button>
+          </li>
+
+          <.link
+            navigate="/"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+            >
+              Home
+          </.link>
+
+          <.link
+            navigate="/about"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+            >
+              About
+          </.link>
+
+          <.link
+            navigate="/login"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+          >
+            Login
+          </.link>
+
+          <.link
+            navigate="/register"
+            class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
+          >
+            Register
+          </.link>
+        </ul>
+      </nav>
     """
   end
 end
