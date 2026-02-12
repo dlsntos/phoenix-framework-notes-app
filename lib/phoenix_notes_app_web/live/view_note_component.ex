@@ -6,14 +6,18 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   ViewNoteComponent
 
   ## Purpose
-  This live component is responsible for editting and deleting notes
+  Modal UI for viewing, editing, and deleting a note.
+
+  ## Assigns
+  - `:note` - note being viewed or edited.
+  - `:user_id` - authenticated user id for PubSub topic.
 
   ## Events
-  - `"enable-edit"` - Enables the user to edit a note.
-  - `"cancel-edit"` - Cancels editing mode.
-  - `"save-note"` - Saves note data after updating a note.
-  - `"delete"` - deletes a note.
-  - `"close-modal"` - closes view_note modal.
+  - `"enable-edit"` - enter edit mode.
+  - `"cancel-edit"` - exit edit mode without saving.
+  - `"save-note"` - update note and broadcast `"note_updated"`.
+  - `"delete-note"` - delete note and broadcast `"note_deleted"`.
+  - `"close-view_note-modal"` - close the modal.
   """
 
   @impl true

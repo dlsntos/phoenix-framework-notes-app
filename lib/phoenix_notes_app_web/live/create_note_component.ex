@@ -6,12 +6,14 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
     CreateNoteComponent
 
     ## Purpose
-    This live component is responsible for the Visual Interface for the user to create a note
+    Modal UI for creating a new note.
+
+    ## Assigns
+    - `:user_id` - authenticated user id used for note ownership.
 
     ## Events
-    - `"close-create-note-modal"` - closes create-note modal.
-    - `"save_note"` - saves the newly created note
-
+    - `"close-create-note-modal"` - closes the modal.
+    - `"save_note"` - creates the note and broadcasts `"note_created"`.
     """
 
     @impl true

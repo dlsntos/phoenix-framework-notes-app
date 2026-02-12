@@ -5,28 +5,34 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   alias PhoenixNotesApp.Notes
 
   @moduledoc """
-  NoteDashboardLive LiveView
+  NoteDashboardLive
 
   ## Purpose
-  This page provides a Visual Interface for users to create, view, search,
-  edit, and delete their notes.
+  Main dashboard for viewing, searching, creating, editing, and deleting notes.
 
-  ## State
-  - `":user_id"` - gets the user_id.
-  - `":user"` - gets a single user.
-  - `":search_query"` - represents what the user searches.
-  - `":search_form"` -
-  - `":show_view_note_modal"` - boolean value to show the modal.
-  - `":show_create_note"` - boolean value to show the create-note modal.
+  ## Assigns
+  - `:user_id` - authenticated user id from the session.
+  - `:user` - the loaded user record.
+  - `:notes` - list of notes for the user (filtered by `:search_query`).
+  - `:search_query` - trimmed search string.
+  - `:search_form` - `to_form/2`-backed search form.
+  - `:show_view_note_modal` - toggles the view/edit modal.
+  - `:show_create_note` - toggles the create modal.
+  - `:selected_note` - note currently opened in the view/edit modal.
 
   ## Mount
-  - Auth mount fetches the data if the user_id is correct
-  - Otherwise it will proceed to the fall back mount that will redirect the user to the login page
+  - Authenticated mount subscribes to `"notes:<user_id>"` and loads initial data.
+  - Unauthenticated mount redirects to `/login`.
 
   ## Events
-  - `"open-modal"` - opens the view_note modal.
-  - `"open-create-note-modal"` - opens create-note-modal.
-  - `"search"` - searches for the note using the query given by the user.
+  - `"open-view_note_modal"` - open the view/edit modal for a note.
+  - `"open-create-note-modal"` - open the create modal.
+  - `"search"` - filter notes by title.
+
+  ## PubSub events
+  - `"note_created"` - refresh notes and close the create modal.
+  - `"note_updated"` - refresh notes and update `:selected_note` when needed.
+  - `"note_deleted"` - refresh notes and close the view modal.
   """
 
 
@@ -56,6 +62,9 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
+  @doc """
+  Handles PubSub note creation by closing the create modal and reloading notes.
+  """
   def handle_info(%{event: "note_created", payload: %{note: _note}}, socket) do
     {:noreply,
       socket
@@ -64,6 +73,9 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
+  @doc """
+  Handles PubSub note updates, refreshing notes and syncing the selected note.
+  """
   def handle_info(%{event: "note_updated", payload: %{note: note}}, socket) do
     socket =
       if socket.assigns[:selected_note] && socket.assigns.selected_note.id == note.id do
@@ -76,11 +88,17 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
+  @doc """
+  Closes the create note modal on component notify.
+  """
   def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent, :close_create_note_modal}, socket) do
     {:noreply, assign(socket, show_create_note: false)}
   end
 
   @impl true
+  @doc """
+  Closes the view modal and refreshes notes when a note is deleted.
+  """
   def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, event}, socket)
       when event in [:note_deleted, :close_modal] do
     socket = assign(socket, show_view_note_modal: false, selected_note: nil)
@@ -96,6 +114,9 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
+  @doc """
+  Handles PubSub note deletion by closing the view modal and reloading notes.
+  """
   def handle_info(%Phoenix.Socket.Broadcast{event: "note_deleted", payload: %{id: _id}}, socket) do
     {:noreply,
     socket
