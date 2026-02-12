@@ -14,8 +14,13 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
           <div class="absolute flex flex-col inset-0 h-full w-full bg-orange-300 mix-blend-multiply">
           </div>
 
-          <div class="absolute flex flex-col inset-0 h-full w-full">
-            <h2 class="mx-auto mt-5 text-5xl text-white  text-show-sm delius-unicase-bold">Note<span class="text-orange-500">Orange</span></h2>
+          <div class="absolute flex flex-col items-center top-30 left-0 h-full w-full">
+            <img
+              src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
+              alt="orange.png"
+              class="h-50 w-50 drop-shadow-lg"
+            />
+            <h2 class="mx-auto text-5xl text-white  text-show-sm delius-unicase-bold">Note<span class="text-orange-500">Orange</span></h2>
           </div>
         </div>
 
