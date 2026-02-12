@@ -68,10 +68,10 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       <!--Features Section-->
       <section class="flex flex-col">
         <div>
-          <h2 class="text-center">Features</h2>
+          <h2 class="my-10 text-6xl text-center">Features</h2>
         </div>
 
-        <div>
+        <div class="">
           <div class="h-[300px] w-full max-w-xs mx-auto bg-orange-500">
             <p>Card</p>
           </div>
