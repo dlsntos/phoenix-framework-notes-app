@@ -145,7 +145,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
             alt="orange.png"
           />
         </div>
-
         <h1 class="hidden md:block ml-4 text-black text-2xl delius-unicase-bold transition duration-300 hover:scale-105">Note<span class="text-orange-500">Orange</span></h1>
       </div>
 
@@ -239,9 +238,9 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     >
       <!--Note title section-->
       <section class="flex bg-[var(--bg-lightorange)] p-3 text-[var(--text-white-1)] rounded-t-2xl">
-      <h2 class="mx-auto text-xl font-semibold font-[var(--font-montserrat)] drop-shadow-md">
-        {@note.title}
-      </h2>
+        <h2 class="mx-auto text-xl font-semibold font-[var(--font-montserrat)] drop-shadow-md">
+          {@note.title}
+        </h2>
       </section>
 
       <!--Note content section-->
