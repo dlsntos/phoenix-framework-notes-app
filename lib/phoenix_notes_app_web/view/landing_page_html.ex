@@ -1,4 +1,4 @@
-defmodule PhoenixNotesAppWeb.NoteHTML do
+defmodule PhoenixNotesAppWeb.LandingPageHTML do
   use PhoenixNotesAppWeb, :html
   def index(assigns) do
     ~H"""

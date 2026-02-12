@@ -18,7 +18,7 @@ defmodule PhoenixNotesAppWeb.Router do
   scope "/", PhoenixNotesAppWeb do
     pipe_through :browser
 
-    get "/", NoteController, :index
+    get "/", LandingPageController, :index
     get "/login", LoginController, :login
     post "/login", LoginController, :create
     delete "/logout", LoginController, :logout
