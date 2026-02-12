@@ -42,15 +42,8 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         </ul>
       </nav>
 
-      <button
-        id="hamburger-btn"
-        phx-click={ JS.add_class("hidden", to: "#hamburger-btn")
-                    |> JS.remove_class("hidden", to: "#mobile-menu")}
-        class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300"
-      >
-        <.icon name="hero-bars-3" class="size-10"/>
-      </button>
 
+      <.mobile_menu_button />
       <.mobile_navigation />
 
     </header>
@@ -213,6 +206,19 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
     </div>
   </div>
   """
+  end
+
+  defp mobile_menu_button(assigns) do
+    ~H"""
+    <button
+        id="hamburger-btn"
+        phx-click={ JS.add_class("hidden", to: "#hamburger-btn")
+                    |> JS.remove_class("hidden", to: "#mobile-menu")}
+        class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300"
+      >
+        <.icon name="hero-bars-3" class="size-10"/>
+      </button>
+    """
   end
 
   defp mobile_navigation(assigns) do
