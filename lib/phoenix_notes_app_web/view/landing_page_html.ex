@@ -72,11 +72,11 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         </div>
 
         <div class="">
-          <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 rounded-3xl transtition duration-300 hover:translate-y-[-10px] hover:shadow-xl hover:shadow-orange-500/30">
+          <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transtition duration-300 hover:translate-y-[-10px] hover:shadow-xl hover:shadow-orange-500/30">
             <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
               <.icon name="hero-magnifying-glass" class="text-white"/>
             </div>
-            <h3 class="text-2xl">
+            <h3 class="mt-5 mb-2 text-2xl font-semibold">
               Find Notes Fast
             </h3>
 
