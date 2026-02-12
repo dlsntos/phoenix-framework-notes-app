@@ -3,19 +3,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
   def index(assigns) do
     ~H"""
     <header class="fixed flex flex-row justify-between items-center px-5 py-3 w-full bg-[var(--text-white-1)] drop-shadow-md z-10000">
-      <div class="flex flex-row items-center">
-        <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
-          <img
-            src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
-            alt="orange.png"
-          />
-        </div>
-
-        <div class="ml-2 text-xl font-bold delius-unicase-bold">
-          Note<span class="text-orange-500">Orange</span>
-        </div>
-      </div>
-
+      <.header_logo/>
       <nav>
         <ul class="hidden md:flex flex-row gap-2">
           <li>
@@ -208,6 +196,23 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       </section>
     </footer>
     """
+  end
+
+  defp header_logo(assigns) do
+  ~H"""
+  <div class="flex flex-row items-center">
+    <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
+      <img
+      src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
+      alt="orange.png"
+      />
+    </div>
+
+    <div class="ml-2 text-xl font-bold delius-unicase-bold">
+      Note<span class="text-orange-500">Orange</span>
+    </div>
+  </div>
+  """
   end
 
   defp mobile_navigation(assigns) do
