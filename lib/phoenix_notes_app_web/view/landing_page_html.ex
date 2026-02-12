@@ -336,7 +336,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           {@title}
         </h3>
 
-        <p class="">
+        <p class="text-justify px-2">
           {@description}
         </p>
       </div>
