@@ -328,7 +328,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
   defp feature_card(assigns) do
     ~H"""
-      <div class="h-[300px] w-full p-5 max-w-xs mx-auto bg-white border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
+      <div class="h-[300px] w-full p-5 max-w-xs mx-auto bg-white text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
         <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
           {render_slot(@inner_block)}
         </div>
