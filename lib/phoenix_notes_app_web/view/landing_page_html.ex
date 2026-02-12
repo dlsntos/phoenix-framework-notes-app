@@ -7,7 +7,6 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       <.desktop_navigation />
       <.mobile_menu_button />
       <.mobile_navigation />
-
     </header>
 
     <main class="h-full">
@@ -86,56 +85,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
               Stay organized, capture ideas, and boost productivity with Note Orange
           </p>
         </div>
-        <!-- Footer Column Container-->
-        <div class="flex flex-row md:justify-around justify-center w-full max-w-3xl my-10 ml-13 md:ml-20 gap-10 md:gap-0">
-            <!-- About Column -->
-          <div>
-            <h3 class="mb-3 text-orange-600 font-bold">
-              About
-            </h3>
-            <ul>
-              <li>
-                <.link navigate="/">About us</.link>
-              </li>
-              <li>
-                <.link navigate="/">Guides</.link>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Support Column -->
-          <div>
-            <h3 class="mb-3 text-orange-600 font-bold">
-              Support
-            </h3>
-            <ul>
-              <li>
-                <.link navigate="/">Help Center</.link>
-              </li>
-
-              <li>
-                <.link navigate="/">Contact</.link>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Legal Column -->
-          <div>
-            <h3 class="mb-3 text-orange-600 font-bold">
-              Legal
-            </h3>
-            <ul>
-              <li>
-                <.link navigate="/">Terms & Conditions</.link>
-              </li>
-              <li>
-                <.link navigate="/">Privacy Policy</.link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </section>
+        <.footer_link_columns />
       <section class="flex flex-row p-2">
         <p class="mx-auto font-medium">©2026 NoteOrange. All rights reserved.</p>
       </section>
@@ -265,4 +215,59 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
     """
   end
 
+  #Footer content components
+
+  defp footer_link_columns(assigns) do
+    ~H"""
+    <!-- Footer Column Container-->
+      <div class="flex flex-row md:justify-around justify-center w-full max-w-3xl my-10 ml-13 md:ml-20 gap-10 md:gap-0">
+        <!-- About Column -->
+        <div>
+          <h3 class="mb-3 text-orange-600 font-bold">
+            About
+          </h3>
+          <ul>
+            <li>
+              <.link navigate="/">About us</.link>
+            </li>
+            <li>
+              <.link navigate="/">Guides</.link>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Support Column -->
+        <div>
+          <h3 class="mb-3 text-orange-600 font-bold">
+            Support
+          </h3>
+          <ul>
+            <li>
+              <.link navigate="/">Help Center</.link>
+            </li>
+
+            <li>
+              <.link navigate="/">Contact</.link>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Legal Column -->
+        <div>
+          <h3 class="mb-3 text-orange-600 font-bold">
+            Legal
+          </h3>
+          <ul>
+            <li>
+              <.link navigate="/">Terms & Conditions</.link>
+            </li>
+            <li>
+              <.link navigate="/">Privacy Policy</.link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    """
+  end
 end
