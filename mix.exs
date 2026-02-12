@@ -14,7 +14,18 @@ defmodule PhoenixNotesApp.MixProject do
       listeners: [Phoenix.CodeReloader],
       docs: [
         main: @name,
-        extras: ["README.md"]
+        extras: ["README.md"],
+        filter_modules: fn module, _metadata ->
+          module in [
+            PhoenixNotesApp.Notes,
+            PhoenixNotesApp.Notes.Note,
+            PhoenixNotesApp.Users,
+            PhoenixNotesApp.Users.User,
+            PhoenixNotesAppWeb.NoteDashboardLive,
+            PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent,
+            PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent
+          ]
+        end
       ]
     ]
 
