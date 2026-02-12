@@ -64,6 +64,14 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           />
         </svg>
       </section>
+
+      <!--Features Section-->
+      <section>
+        <div>
+          <h2>Features</h2>
+        </div>
+      </section>
+
     </main>
 
     <footer class="h-auto relative">
