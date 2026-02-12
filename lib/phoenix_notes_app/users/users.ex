@@ -3,10 +3,20 @@ defmodule PhoenixNotesApp.Users do
   alias PhoenixNotesApp.Repo
   alias PhoenixNotesApp.Users.User
 
+  @moduledoc """
+  Users Context
+
+  ## Purpose
+  The Users context contains the database queries for managing and authenticating user data
+  """
+
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
   end
 
+  @doc"""
+  Gets a user by user_id
+  """
   def get_user(id) do
     Repo.get(User, id)
   end
@@ -15,6 +25,9 @@ defmodule PhoenixNotesApp.Users do
     Repo.get_by(User, email: email)
   end
 
+  @doc """
+  Creates a new user
+  """
   def create_user(attrs \\ %{}) do
     %User{}
 
@@ -23,6 +36,9 @@ defmodule PhoenixNotesApp.Users do
 
   end
 
+  @doc """
+  Authenticates the user logging in
+  """
   def authenticate_user(%{"email" => email, "password" => password}) do
     case get_user_by_email(email) do
       nil ->
