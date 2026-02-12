@@ -72,6 +72,8 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         </div>
 
         <div class="">
+
+          <!-- Feature 1 card -->
           <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
             <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
               <.icon name="hero-magnifying-glass" class="text-white"/>
