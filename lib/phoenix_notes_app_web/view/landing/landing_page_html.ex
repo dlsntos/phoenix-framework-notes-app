@@ -7,7 +7,6 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       <.desktop_navigation />
       <.mobile_menu_button />
       <.mobile_navigation />
-
     </header>
 
     <main class="h-full">
