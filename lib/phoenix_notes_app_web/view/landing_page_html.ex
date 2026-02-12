@@ -274,7 +274,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   defp footer_link_columns(assigns) do
     ~H"""
     <!-- Footer Column Container-->
-      <div class="flex flex-row md:justify-around justify-center w-full max-w-3xl my-10 ml-13 md:ml-20 gap-10 md:gap-0">
+      <div class="flex flex-row justify-center md:justify-around w-full max-w-2xl my-10 ml-13 md:ml-20 gap-10 md:gap-0">
         <!-- About Column -->
         <div>
           <h3 class="mb-3 text-orange-600 font-bold">
