@@ -3,7 +3,7 @@ defmodule PhoenixNotesApp.Notes do
   alias PhoenixNotesApp.Repo
   alias PhoenixNotesApp.Notes.Note
 
-  @doc """
+  @moduledoc """
   Notes Context
 
   ## Purpose
