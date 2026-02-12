@@ -21,10 +21,6 @@ defmodule PhoenixNotesApp.Users do
     Repo.get(User, id)
   end
 
-  defp get_user_by_email(email) do
-    Repo.get_by(User, email: email)
-  end
-
   @doc """
   Creates a new user
   """
@@ -51,5 +47,9 @@ defmodule PhoenixNotesApp.Users do
           {:error, :invalid_credentials}
         end
     end
+  end
+
+  defp get_user_by_email(email) do
+    Repo.get_by(User, email: email)
   end
 end
