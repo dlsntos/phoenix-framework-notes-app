@@ -67,25 +67,9 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
     <footer class="h-auto relative">
       <section class="flex flex-col justify-between items-center px-10 mx-auto">
-        <!-- Company Logo -->
-        <div class="flex flex-col items-center">
-          <div class="flex flex-row items-center">
-            <div class="h-25 w-25 object-cover">
-            <img
-              src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
-              alt="orange.png"
-              />
-            </div>
-
-            <div class="ml-2 text-3xl md:text-5xl font-bold delius-unicase-bold">
-              Note<span class="text-orange-500">Orange</span>
-            </div>
-          </div>
-          <p class="w-auto text-base md:text-lg text-center md:text-start font-semibold">
-              Stay organized, capture ideas, and boost productivity with Note Orange
-          </p>
-        </div>
+        <.footer_logo />
         <.footer_link_columns />
+      </section>
       <section class="flex flex-row p-2">
         <p class="mx-auto font-medium">©2026 NoteOrange. All rights reserved.</p>
       </section>
@@ -217,6 +201,29 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
   #Footer content components
 
+  defp footer_logo(assigns) do
+    ~H"""
+    <!-- Company Logo -->
+    <div class="flex flex-col items-center">
+      <div class="flex flex-row items-center">
+        <div class="h-25 w-25 object-cover">
+          <img
+            src="https://img.icons8.com/?size=100&id=hfNCM7e9VGca&format=png&color=000000"
+            alt="orange.png"
+            />
+        </div>
+
+        <div class="ml-2 text-3xl md:text-5xl font-bold delius-unicase-bold">
+          Note<span class="text-orange-500">Orange</span>
+        </div>
+      </div>
+      <p class="w-auto text-base md:text-lg text-center md:text-start font-semibold">
+        Stay organized, capture ideas, and boost productivity with Note Orange
+      </p>
+    </div>
+    """
+  end
+
   defp footer_link_columns(assigns) do
     ~H"""
     <!-- Footer Column Container-->
@@ -267,7 +274,6 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           </ul>
         </div>
       </div>
-    </section>
     """
   end
 end
