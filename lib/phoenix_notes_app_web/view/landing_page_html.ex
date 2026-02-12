@@ -113,12 +113,12 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
     </main>
 
     <footer class="h-auto relative">
-      <section class="flex flex-col xl:flex-row justify-between items-center px-10 mx-auto">
+      <section class="flex flex-col xl:flex-row justify-between items-center px-10 pb-10 mx-auto">
         <.footer_logo />
         <.footer_link_columns />
       </section>
       <section class="flex flex-row p-2">
-        <p class="mx-auto font-medium">©2026 NoteOrange. All rights reserved.</p>
+        <p class="mx-auto montserrat-normal">©2026 NoteOrange. All rights reserved.</p>
       </section>
     </footer>
     """
