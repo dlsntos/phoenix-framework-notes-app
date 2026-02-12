@@ -63,7 +63,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
         <.icon name="hero-bars-3" class="size-10"/>
       </button>
 
-      <div
+      <nav
         id="mobile-menu"
         class="absolute top-10 right-0 mr-2 hidden md:hidden h-auto min-w-[30vw] bg-white md:bg-transparent px-4 py-4 rounded-md"
       >
@@ -106,7 +106,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
             Register
           </.link>
         </ul>
-      </div>
+      </nav>
     </header>
 
     <main class="h-full">
