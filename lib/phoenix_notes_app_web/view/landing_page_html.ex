@@ -75,18 +75,14 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 self-center h-auto xl:h-[50vh] max-w-[60vw] gap-5 2xl:gap-20 z-100">
           <!-- Feature 1 card -->
-          <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
-            <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
-              <.icon name="hero-magnifying-glass" class="text-white"/>
-            </div>
-            <h3 class="mt-5 mb-2 text-2xl font-semibold">
-              Find Notes Fast
-            </h3>
-
-            <p class="">
+          <.feature_card
+            title={"Find Notes Fast"}
+            description={"
               Easily search through your notes using keywords. Locate important information instantly without scrolling endlessly.
-            </p>
-          </div>
+            "}
+          >
+            <.icon name="hero-magnifying-glass" class="text-white"/>
+          </.feature_card>
 
           <!-- Feature 2 card -->
           <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
@@ -329,6 +325,25 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
             </li>
           </ul>
         </div>
+      </div>
+    """
+  end
+
+  #Features Section Components
+
+  defp feature_card(assigns) do
+    ~H"""
+      <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
+        <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
+          {render_slot(@inner_block)}
+        </div>
+        <h3 class="mt-5 mb-2 text-2xl font-semibold">
+          {@title}
+        </h3>
+
+        <p class="">
+          {@description}
+        </p>
       </div>
     """
   end
