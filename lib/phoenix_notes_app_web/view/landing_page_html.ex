@@ -4,45 +4,7 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
     ~H"""
     <header class="fixed flex flex-row justify-between items-center px-5 py-3 w-full bg-[var(--text-white-1)] drop-shadow-md z-10000">
       <.header_logo/>
-      <nav>
-        <ul class="hidden md:flex flex-row gap-2">
-          <li>
-            <.link
-              navigate="/"
-              class="py-2 px-3 text-orange-600 font-medium cursor-pointer rounded-md transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]"
-            >
-              Home
-            </.link>
-          </li>
-
-          <li>
-            <.link
-              navigate="/"
-              class="py-2 px-3 text-orange-600 font-medium cursor-pointer rounded-md transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]"
-            >
-              About
-            </.link>
-          </li>
-
-          <li>
-            <.link
-              navigate="/login"
-              class="py-2 px-10 bg-orange-500 text-white font-medium cursor-pointer rounded-full transition duration-200 hover:bg-orange-700 hover:text-[var(--text-white-1)]">
-                Login
-            </.link>
-          </li>
-
-          <li>
-            <.link
-              navigate="/register"
-              class="py-2 px-10 bg-white text-orange-500 font-medium border-1 border-orange-500 cursor-pointer rounded-full transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]">
-                Register
-            </.link>
-          </li>
-        </ul>
-      </nav>
-
-
+      <.desktop_navigation />
       <.mobile_menu_button />
       <.mobile_navigation />
 
@@ -218,6 +180,48 @@ defmodule PhoenixNotesAppWeb.NoteHTML do
       >
         <.icon name="hero-bars-3" class="size-10"/>
       </button>
+    """
+  end
+
+  defp desktop_navigation(assigns) do
+    ~H"""
+    <nav>
+        <ul class="hidden md:flex flex-row gap-2">
+          <li>
+            <.link
+              navigate="/"
+              class="py-2 px-3 text-orange-600 font-medium cursor-pointer rounded-md transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]"
+            >
+              Home
+            </.link>
+          </li>
+
+          <li>
+            <.link
+              navigate="/"
+              class="py-2 px-3 text-orange-600 font-medium cursor-pointer rounded-md transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]"
+            >
+              About
+            </.link>
+          </li>
+
+          <li>
+            <.link
+              navigate="/login"
+              class="py-2 px-10 bg-orange-500 text-white font-medium cursor-pointer rounded-full transition duration-200 hover:bg-orange-700 hover:text-[var(--text-white-1)]">
+                Login
+            </.link>
+          </li>
+
+          <li>
+            <.link
+              navigate="/register"
+              class="py-2 px-10 bg-white text-orange-500 font-medium border-1 border-orange-500 cursor-pointer rounded-full transition duration-200 hover:bg-orange-500 hover:text-[var(--text-white-1)]">
+                Register
+            </.link>
+          </li>
+        </ul>
+      </nav>
     """
   end
 
