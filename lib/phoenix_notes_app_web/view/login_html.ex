@@ -21,7 +21,7 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
 
         <div class="relative flex flex-col h-full w-full py-5 md:p-5 bg-white z-100">
           <section class="flex flex-row justify-center items-center z-40">
-            <h1 class="mt-5 md:mt-10 text-3xl font-bold text-gray-700 text-shadow-sm">Sign up</h1>
+            <h1 class="mt-5 md:mt-10 text-3xl font-bold text-orange-600 text-shadow-sm">Sign up</h1>
           </section>
 
           <.form
