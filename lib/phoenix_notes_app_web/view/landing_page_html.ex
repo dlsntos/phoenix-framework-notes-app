@@ -71,7 +71,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           <h2 class="mb-10 text-6xl text-center">Features</h2>
         </div>
 
-        <div class="grid grid-cols-3 self-center h-auto max-w-[60vw] gap-5 xl:gap-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 self-center h-auto max-w-[60vw] gap-5 2xl:gap-20">
           <!-- Feature 1 card -->
           <div class="h-[300px] w-full p-5 max-w-xs mx-auto border-2 border-orange-500 text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
             <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
