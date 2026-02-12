@@ -4,7 +4,7 @@ defmodule PhoenixNotesAppWeb.UserAuth do
 
   @doc """
   LiveView on_mount hook that loads the session and current user.
-  It assigns `:session` and `:current_user` to the socket assigns.
+  It assigns `:session`, `:current_user`, and `:current_scope` to the socket assigns.
   """
   def on_mount(:default, _params, session, socket) do
     socket = assign(socket, :session, session)
