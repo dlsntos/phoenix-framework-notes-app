@@ -114,6 +114,9 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
       <!-- Who's it for section-->
       <section>
+        <div>
+          <h2 class="py-10 text-center text-6xl font-semibold">Who's it for?</h2>
+        </div>
         <div class="grid grid-cols-3">
           <.target_customer_card />
         </div>
@@ -352,7 +355,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   #Who's it for section components
   defp target_customer_card(assigns) do
     ~H"""
-      <div class="h-[20vh] bg-orange-500">
+      <div class="h-[2  0vh] bg-orange-500">
 
       </div>
     """
