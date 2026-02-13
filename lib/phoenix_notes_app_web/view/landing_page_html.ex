@@ -112,11 +112,12 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
       </section>
 
-      <!-- Who's it for section-->
+      <!-- Who's it for? section-->
       <section class="flex flex-col pb-10 shadow-sm">
         <div>
           <h2 class="py-10 text-center text-6xl font-semibold">Who's it for?</h2>
         </div>
+
         <div class="self-center max-w-[60vw] grid grid-cols-3 gap-5">
           <.target_customer_card label={"Student"}/>
           <.target_customer_card label={"Professionals"}/>
