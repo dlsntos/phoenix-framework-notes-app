@@ -12,6 +12,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
     <main class="h-full">
       <!--Hero Section-->
       <section class="relative flex flex-row justify-center lg:justify-evenly h-screen w-full gap-5">
+        <!-- Background image -->
         <img
           src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="absolute w-full h-full object-cover brightness-30"
@@ -39,6 +40,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           </button>
         </div>
 
+        <!-- Hero section stock image-->
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 700 600"
@@ -247,7 +249,6 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   end
 
   #Footer content components
-
   defp footer_logo(assigns) do
     ~H"""
     <!-- Company Logo -->
@@ -325,14 +326,13 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   end
 
   #Features Section Components
-
   defp feature_card(assigns) do
     ~H"""
       <div class="h-[300px] w-full p-5 max-w-xs mx-auto bg-white text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
         <div class="flex flex-row justify-center items-center h-15 w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
           {render_slot(@inner_block)}
         </div>
-        <h3 class="mt-5 mb-2 text-2xl montserrat-semibold">
+        <h3 class="mt-5 mb-2 text-2xl text-orange-600 text-shadow-sm montserrat-semibold">
           {@title}
         </h3>
 
