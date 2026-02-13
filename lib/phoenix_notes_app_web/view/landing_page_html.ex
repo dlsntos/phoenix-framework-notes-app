@@ -116,11 +116,11 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       <section class="flex flex-col shadow-sm">
         <!-- Target Customer Heading-->
         <div>
-          <h2 class="py-10 text-center text-6xl font-semibold">Who's it for?</h2>
+          <h2 class="py-10 text-center text-4xl md:text-6xl font-semibold">Who's it for?</h2>
         </div>
 
         <!-- Target Customer Buttons-->
-        <div class="self-center max-w-[60vw] grid grid-cols-3 gap-5">
+        <div class="self-center xl:max-w-[60vw] flex flex-row justify-center xl:grid grid-cols-3 gap-5">
           <.target_customer_button label={"Student"}/>
           <.target_customer_button label={"Professionals"}/>
           <.target_customer_button label={"Creators"}/>
@@ -365,8 +365,8 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   #Who's it for section components
   defp target_customer_button(assigns) do
     ~H"""
-      <div class="flex flex-row items-center h-auto w-[15rem] py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-105">
-        <p class="mx-auto text-3xl text-white font-semibold">
+      <div class="flex flex-row items-center h-auto w-[7rem] md:w-[10rem] xl:w-[15rem] p-2 md:py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-105">
+        <p class="mx-auto text-sm md:text-lg xl:text-3xl text-white font-semibold">
           {@label}
         </p>
       </div>
