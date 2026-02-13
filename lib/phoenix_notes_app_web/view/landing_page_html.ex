@@ -112,6 +112,10 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
       </section>
 
+      <!-- Who's it for section-->
+      <section>
+        <div></div>
+      </section>
     </main>
 
     <footer class="h-auto relative">
