@@ -18,15 +18,15 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           class="absolute w-full h-full object-cover brightness-30"
         />
         <div class="flex flex-col justify-start items-center lg:items-start max-w-sm md:max-w-screen my-auto p-10 pb-40 ml-0 lg:ml-60 z-100 gap-5">
-          <h1 class="text-4xl md:text-8xl text-[var(--text-white-1)] montserrat-bold font-bold drop-shadow-sm">
+          <h1 class="text-5xl md:text-8xl text-[var(--text-white-1)] montserrat-bold font-bold drop-shadow-sm">
             Note<span class="text-orange-500">Orange</span>
           </h1>
 
-          <p class="w-sm md:w-lg text-base md:text-xl text-[var(--text-white-1)] text-center md:text-start font-semibold drop-shadow-sm">
+          <p class="w-sm md:w-lg text-lg md:text-xl text-[var(--text-white-1)] text-center md:text-start font-semibold drop-shadow-sm">
             Stay organized, capture ideas, and boost productivity with Note Orange
           </p>
 
-          <p class="w-xs md:w-lg text-lg text-[var(--text-white-1)] text-justify montserrat-normal md:text-left drop-shadow-sm">
+          <p class="w-xs md:w-lg text-sm md:text-lg text-[var(--text-white-1)] text-justify montserrat-normal md:text-left drop-shadow-sm">
             The ultimate app for all your thoughts, lists, and inspirations. Jot notes, create checklists, and write your thoughts. With powerful search, folders, and cloud sync, your notes are always accessible on any device—perfect for staying organized effortlessly.
           </p>
 
