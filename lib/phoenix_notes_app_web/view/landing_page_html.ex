@@ -365,7 +365,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   #Who's it for section components
   defp target_customer_button(assigns) do
     ~H"""
-      <div class="flex flex-row items-center h-auto w-[15rem] py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700">
+      <div class="flex flex-row items-center h-auto w-[15rem] py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-105">
         <p class="mx-auto text-3xl text-white font-semibold">
           {@label}
         </p>
