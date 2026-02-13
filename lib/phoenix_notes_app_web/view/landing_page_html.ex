@@ -114,7 +114,9 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
       <!-- Who's it for section-->
       <section>
-        <div></div>
+        <div class="grid grid-cols-3">
+          <.target_customer_card />
+        </div>
       </section>
     </main>
 
@@ -343,6 +345,15 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         <p class="text-justify montserrat-normal px-2">
           {@description}
         </p>
+      </div>
+    """
+  end
+
+  #Who's it for section components
+  defp target_customer_card(assigns) do
+    ~H"""
+      <div class="h-[20vh] bg-orange-500">
+
       </div>
     """
   end
