@@ -113,11 +113,13 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!-- Who's it for section-->
-      <section class="shadow-sm">
+      <section class="flex flex-col pb-10 shadow-sm">
         <div>
           <h2 class="py-10 text-center text-6xl font-semibold">Who's it for?</h2>
         </div>
-        <div class="grid grid-cols-3">
+        <div class="self-center max-w-[60vw] grid grid-cols-3 gap-5">
+          <.target_customer_card />
+          <.target_customer_card />
           <.target_customer_card />
         </div>
       </section>
@@ -355,8 +357,8 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   #Who's it for section components
   defp target_customer_card(assigns) do
     ~H"""
-      <div class="flex flex-row items-center h-auto max-w-[15rem] py-5 bg-orange-500 rounded-full">
-        <p class="mx-auto text-3xl text-white font-semibold drop-shadow-sm">Students</p>
+      <div class="flex flex-row items-center h-auto w-[15rem] py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700">
+        <p class="mx-auto text-3xl text-white font-semibold">Students</p>
       </div>
     """
   end
