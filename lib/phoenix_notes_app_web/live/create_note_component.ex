@@ -64,7 +64,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
 
         <!-- This section contains the label "Create a new note" -->
         <section>
-          <h1 class="text-2xl text-center p-2">Create a new note</h1>
+          <h1 class="text-2xl text-center text-orange-500 montserrat-semibold p-2">Create a new note</h1>
         </section>
 
         <!-- This section contains the forms for inputting note title and content -->
