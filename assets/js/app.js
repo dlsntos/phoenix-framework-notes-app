@@ -37,6 +37,87 @@ topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
 window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
 
+const initTargetCustomerSwitcher = () => {
+  const container = document.querySelector("[data-target-customer-container]")
+  if (!container || container.dataset.bound === "true") {
+    return
+  }
+
+  const detail = container.querySelector("[data-target-customer-detail]")
+  const labelEl = detail?.querySelector("[data-target-customer-label]")
+  const messageEl = detail?.querySelector("[data-target-customer-message]")
+  const listEl = detail?.querySelector("[data-target-customer-list]")
+  const buttons = Array.from(container.querySelectorAll("[data-target-customer-button]"))
+
+  if (!detail || !labelEl || !messageEl || !listEl || buttons.length === 0) {
+    return
+  }
+
+  const activeClasses = ["bg-orange-700", "ring-2", "ring-orange-200"]
+
+  const setActive = activeButton => {
+    buttons.forEach(button => {
+      button.classList.remove(...activeClasses)
+      button.setAttribute("aria-pressed", "false")
+    })
+
+    activeButton.classList.add(...activeClasses)
+    activeButton.setAttribute("aria-pressed", "true")
+  }
+
+  const updateDetail = button => {
+    labelEl.textContent = button.dataset.label || button.textContent.trim()
+    labelEl.className = "text-7xl font-bold uppercase tracking-wide text-orange-400"
+
+    messageEl.textContent = button.dataset.message || ""
+    messageEl.className = "mt-3 text-base md:text-3xl text-gray-100"
+
+    const bgUrl = button.dataset.bg || ""
+    detail.style.backgroundImage = bgUrl ? `url("${bgUrl}")` : ""
+
+    const bullets = (button.dataset.bullets || "")
+      .split("|")
+      .map(item => item.trim())
+      .filter(Boolean)
+
+    listEl.innerHTML = ""
+    bullets.forEach(bullet => {
+      const item = document.createElement("li")
+      item.className = "flex items-start gap-3"
+
+      const icon = document.createElement("span")
+      icon.className = "mt-0.5 inline-block size-5 rounded-full bg-orange-500"
+
+      const text = document.createElement("span")
+      text.textContent = bullet
+      text.className = "text-xl text-gray-100"
+
+      item.appendChild(icon)
+      item.appendChild(text)
+      listEl.appendChild(item)
+    })
+  }
+
+  const defaultButton = buttons.find(button => button.dataset.default === "true") || buttons[0]
+  updateDetail(defaultButton)
+  setActive(defaultButton)
+
+  container.addEventListener("click", event => {
+    const button = event.target.closest("[data-target-customer-button]")
+    if (!button || !container.contains(button)) {
+      return
+    }
+
+    updateDetail(button)
+    setActive(button)
+  })
+
+  container.dataset.bound = "true"
+}
+
+window.addEventListener("DOMContentLoaded", initTargetCustomerSwitcher)
+window.addEventListener("phx:page-loading-stop", initTargetCustomerSwitcher)
+
 // connect if there are any LiveViews on the page
 liveSocket.connect()
 

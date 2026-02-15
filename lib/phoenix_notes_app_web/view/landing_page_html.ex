@@ -113,22 +113,73 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!-- Who's it for? section-->
-      <section class="flex flex-col shadow-sm">
+      <section class="flex flex-col shadow-sm" data-target-customer-container>
         <!-- Target Customer Heading-->
         <div>
           <h2 class="py-10 text-center text-4xl md:text-6xl font-semibold">Who's it for?</h2>
         </div>
 
         <!-- Target Customer Buttons-->
-        <div class="self-center xl:max-w-[60vw] flex flex-row justify-center xl:grid grid-cols-3 gap-5">
-          <.target_customer_button label={"Students"} target-customer-data=""/>
-          <.target_customer_button label={"Professionals"} target-customer-data=""/>
-          <.target_customer_button label={"Creators"} target-customer-data=""/>
+        <div
+          id="target-customer-buttons"
+          class="self-center xl:max-w-[60vw] flex flex-row justify-center xl:grid grid-cols-3 gap-5"
+        >
+          <.target_customer_button
+            label={"Students"}
+            data_label={"Students"}
+            data_message={"Struggling with scattered lecture notes?"}
+            data_bullets={"Organize by subject|Tag and Highlight|Search in seconds"}
+            data_bg={"https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80"}
+            default={true}
+          />
+          <.target_customer_button
+            label={"Professionals"}
+            data_label={"Professionals"}
+            data_message={"Drowning in meetings and endless todos?"}
+            data_bullets={"Capture notes instant  ly|Turn notes into tasks|Shareable summaries for teams"}
+            data_bg={"https://plus.unsplash.com/premium_photo-1661659946714-c7072e1accab?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+          />
+          <.target_customer_button
+            label={"Creators"}
+            data_label={"Creators"}
+            data_message={"Losing great ideas?"}
+            data_bullets={"Idea vault for drafts and sketches|Save Ideas instantly|Track revisions and feedback"}
+            data_bg={"https://images.unsplash.com/photo-1603126004372-e63e3b53934b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+          />
         </div>
 
         <!-- Target Customer Description-->
-        <div class="mt-5 h-[70vh] bg-gray-300">
-
+        <div
+          id="target-customer-details"
+          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10"
+          data-target-customer-detail
+          style={"background-image: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80')"}
+        >
+          <div class="absolute inset-0 bg-black/70"></div>
+          <div class="relative z-10 mx-auto h-auto w-full max-w-3xl p-6 md:p-10 gap-10">
+            <p data-target-customer-label>
+              Students
+            </p>
+            <div>
+              <p class="mt-3 text-base md:text-3xl text-gray-100" data-target-customer-message>
+              Struggling with scattered lecture notes?
+              </p>
+              <ul class="mt-6 space-y-3 text-gray-100" data-target-customer-list>
+                <li class="flex items-start gap-3">
+                  <.icon name="hero-check-circle" class="mt-0.5 size-5 text-orange-500" />
+                  <span>Organize by subject</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <.icon name="hero-check-circle" class="mt-0.5 size-5 text-orange-500" />
+                  <span>Tag and Highlight</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <.icon name="hero-check-circle" class="mt-0.5 size-5 text-orange-500" />
+                  <span>Search in seconds</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -362,10 +413,30 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
     """
   end
 
-  #Who's it for section components
+  #Who's it for section component attributes
+  attr :label, :string, required: true
+  attr :data_label, :string, required: true
+  attr :data_message, :string, required: true
+  attr :data_bullets, :string, required: true
+  attr :data_bg, :string, required: true
+  attr :default, :boolean, default: false
+
   defp target_customer_button(assigns) do
     ~H"""
-      <button class="flex flex-row items-center h-auto w-[7rem] md:w-[10rem] xl:w-[15rem] p-2 md:py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-105">
+      <button
+        type="button"
+        class={[
+          "flex flex-row items-center h-auto w-[7rem] md:w-[10rem] xl:w-[15rem] p-2 md:py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-105",
+          @default && "ring-2 ring-orange-200"
+        ]}
+        data-target-customer-button
+        data-label={@data_label}
+        data-message={@data_message}
+        data-bullets={@data_bullets}
+        data-bg={@data_bg}
+        data-default={to_string(@default)}
+        aria-pressed={@default}
+      >
         <p class="mx-auto text-sm md:text-lg xl:text-3xl text-white font-semibold">
           {@label}
         </p>
