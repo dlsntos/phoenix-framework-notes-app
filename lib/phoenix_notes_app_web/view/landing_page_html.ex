@@ -121,7 +121,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
         <!-- Target Customer Buttons-->
         <div class="self-center xl:max-w-[60vw] flex flex-row justify-center xl:grid grid-cols-3 gap-5">
-          <.target_customer_button label={"Student"}/>
+          <.target_customer_button label={"Students"}/>
           <.target_customer_button label={"Professionals"}/>
           <.target_customer_button label={"Creators"}/>
         </div>
