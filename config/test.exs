@@ -7,8 +7,9 @@ import Config
 # Run `mix help test` for more information.
 config :phoenix_notes_app, PhoenixNotesApp.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "abc123",
   hostname: "localhost",
+  port: 5433,
   database: "phoenix_notes_app_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
