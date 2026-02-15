@@ -113,7 +113,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!-- Who's it for? section-->
-      <section class="flex flex-col shadow-sm" data-target-customer-container>
+      <section class="flex flex-col shadow-md" data-target-customer-container>
         <!-- Target Customer Heading-->
         <div>
           <h2 class="py-10 text-center text-4xl md:text-6xl font-semibold">Who's it for?</h2>
@@ -151,7 +151,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         <!-- Target Customer Description-->
         <div
           id="target-customer-details"
-          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10 transition-all duration-500"
+          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10 transition-all duration-500 shadow-sm"
           data-target-customer-detail
           style={"background-image: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80')"}
         >
