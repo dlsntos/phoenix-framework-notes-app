@@ -18,23 +18,25 @@ defmodule PhoenixNotesAppWeb.LoginTest do
 
   end
 
-  test "Test valid changeset" do
-    changeset = User.changeset(%User{}, %{username: "Test user", email: "iex@example.com", hashed_password: "secret"})
-    assert changeset.valid?
-  end
+  describe "User changeset" do
+    test "Test valid changeset" do
+      changeset = User.changeset(%User{}, %{username: "Test user", email: "iex@example.com", hashed_password: "secret"})
+      assert changeset.valid?
+    end
 
-  test "Test invalid changeset without username" do
-    changeset = User.changeset(%User{}, %{email: "iex@example.com", hashed_password: "secret"})
-    refute changeset.valid?
-  end
+    test "Test invalid changeset without username" do
+      changeset = User.changeset(%User{}, %{email: "iex@example.com", hashed_password: "secret"})
+      refute changeset.valid?
+    end
 
-  test "Test invalid changeset without email" do
-    changeset = User.changeset(%User{}, %{username: "Test user", hashed_password: "secret"})
-    refute changeset.valid?
-  end
+    test "Test invalid changeset without email" do
+      changeset = User.changeset(%User{}, %{username: "Test user", hashed_password: "secret"})
+      refute changeset.valid?
+    end
 
-  test "Test invalid changeset without password" do
-    changeset = User.changeset(%User{}, %{username: "Test user", email: "iex@example.com"})
-    refute changeset.valid?
+    test "Test invalid changeset without password" do
+      changeset = User.changeset(%User{}, %{username: "Test user", email: "iex@example.com"})
+      refute changeset.valid?
+    end
   end
 end
