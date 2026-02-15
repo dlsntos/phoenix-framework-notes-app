@@ -63,8 +63,10 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
   @impl true
   @doc """
-  Handles PubSub note creation by closing the create modal and reloading notes.
+  Handles note-related notifications from PubSub and live components.
   """
+  def handle_info(message, socket)
+
   def handle_info(%{event: "note_created", payload: %{note: _note}}, socket) do
     {:noreply,
       socket
@@ -73,9 +75,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
-  @doc """
-  Handles PubSub note updates, refreshing notes and syncing the selected note.
-  """
   def handle_info(%{event: "note_updated", payload: %{note: note}}, socket) do
     socket =
       if socket.assigns[:selected_note] && socket.assigns.selected_note.id == note.id do
@@ -88,17 +87,11 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
-  @doc """
-  Closes the create note modal on component notify.
-  """
   def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent, :close_create_note_modal}, socket) do
     {:noreply, assign(socket, show_create_note: false)}
   end
 
   @impl true
-  @doc """
-  Closes the view modal and refreshes notes when a note is deleted.
-  """
   def handle_info({PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, event}, socket)
       when event in [:note_deleted, :close_modal] do
     socket = assign(socket, show_view_note_modal: false, selected_note: nil)
@@ -114,9 +107,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   end
 
   @impl true
-  @doc """
-  Handles PubSub note deletion by closing the view modal and reloading notes.
-  """
   def handle_info(%Phoenix.Socket.Broadcast{event: "note_deleted", payload: %{id: _id}}, socket) do
     {:noreply,
     socket
