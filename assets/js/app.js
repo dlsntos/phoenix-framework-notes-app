@@ -65,38 +65,50 @@ const initTargetCustomerSwitcher = () => {
     activeButton.setAttribute("aria-pressed", "true")
   }
 
+  const contentWrapper = detail.querySelector("[data-target-customer-content]")
+
   const updateDetail = button => {
-    labelEl.textContent = button.dataset.label || button.textContent.trim()
-    labelEl.className = "text-7xl font-bold uppercase tracking-wide text-orange-400"
+    if (!contentWrapper) return
 
-    messageEl.textContent = button.dataset.message || ""
-    messageEl.className = "mt-3 text-base md:text-3xl text-gray-100"
+    contentWrapper.style.opacity = "0"
 
-    const bgUrl = button.dataset.bg || ""
-    detail.style.backgroundImage = bgUrl ? `url("${bgUrl}")` : ""
+    setTimeout(() => {
+      labelEl.textContent = button.dataset.label || button.textContent.trim()
+      labelEl.className = "text-7xl font-bold uppercase tracking-wide text-orange-400"
 
-    const bullets = (button.dataset.bullets || "")
-      .split("|")
-      .map(item => item.trim())
-      .filter(Boolean)
+      messageEl.textContent = button.dataset.message || ""
+      messageEl.className = "mt-3 text-base md:text-3xl text-gray-100"
 
-    listEl.innerHTML = ""
-    bullets.forEach(bullet => {
-      const item = document.createElement("li")
-      item.className = "flex items-start gap-3"
+      const bgUrl = button.dataset.bg || ""
+      detail.style.backgroundImage = bgUrl ? `url("${bgUrl}")` : ""
 
-      const icon = document.createElement("span")
-      icon.className = "mt-0.5 inline-block size-5 rounded-full bg-orange-500"
+      const bullets = (button.dataset.bullets || "")
+        .split("|")
+        .map(item => item.trim())
+        .filter(Boolean)
 
-      const text = document.createElement("span")
-      text.textContent = bullet
-      text.className = "text-xl text-gray-100"
+      listEl.innerHTML = ""
+      bullets.forEach(bullet => {
+        const item = document.createElement("li")
+        item.className = "flex items-start gap-3"
 
-      item.appendChild(icon)
-      item.appendChild(text)
-      listEl.appendChild(item)
-    })
+        const icon = document.createElement("span")
+        icon.className = "mt-0.5 inline-block size-5 rounded-full bg-orange-500"
+
+        const text = document.createElement("span")
+        text.textContent = bullet
+        text.className = "text-xl text-gray-100"
+
+        item.appendChild(icon)
+        item.appendChild(text)
+        listEl.appendChild(item)
+      })
+
+      contentWrapper.style.opacity = "1"
+    }, 150)
   }
+
+  contentWrapper.style.opacity = "1"
 
   const defaultButton = buttons.find(button => button.dataset.default === "true") || buttons[0]
   updateDetail(defaultButton)

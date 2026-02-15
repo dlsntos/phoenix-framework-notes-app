@@ -136,7 +136,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
             label={"Professionals"}
             data_label={"Professionals"}
             data_message={"Drowning in meetings and endless todos?"}
-            data_bullets={"Capture notes instant  ly|Turn notes into tasks|Shareable summaries for teams"}
+            data_bullets={"Capture notes instantly|Turn notes into tasks|Shareable summaries for teams"}
             data_bg={"https://plus.unsplash.com/premium_photo-1661659946714-c7072e1accab?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
           />
           <.target_customer_button
@@ -151,12 +151,12 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         <!-- Target Customer Description-->
         <div
           id="target-customer-details"
-          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10"
+          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10 transition-all duration-500"
           data-target-customer-detail
           style={"background-image: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80')"}
         >
           <div class="absolute inset-0 bg-black/70"></div>
-          <div class="relative z-10 mx-auto h-auto w-full max-w-3xl p-6 md:p-10 gap-10">
+          <div class="relative z-10 mx-auto h-auto w-full max-w-3xl p-6 md:p-10 gap-10 transition-opacity duration-300" data-target-customer-content>
             <p data-target-customer-label>
               Students
             </p>
