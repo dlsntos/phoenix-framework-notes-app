@@ -166,15 +166,15 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
               </p>
               <ul class="mt-6 space-y-3 text-gray-100" data-target-customer-list>
                 <li class="flex items-start gap-3">
-                  <.icon name="hero-check-circle" class="mt-0.5 size-5 text-orange-500" />
+                  <.icon name="hero-check-circle" class="mt-1 size-5 text-orange-500" />
                   <span>Organize by subject</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <.icon name="hero-check-circle" class="mt-0.5 size-5 text-orange-500" />
+                  <.icon name="hero-check-circle" class="mt-1 size-5 text-orange-500" />
                   <span>Tag and Highlight</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <.icon name="hero-check-circle" class="mt-0.5 size-5 text-orange-500" />
+                  <.icon name="hero-check-circle" class="mt-1 size-5 text-orange-500" />
                   <span>Search in seconds</span>
                 </li>
               </ul>
@@ -223,7 +223,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300"
       >
         <.icon name="hero-bars-3" class="size-10"/>
-      </button>
+    </button>
     """
   end
 
