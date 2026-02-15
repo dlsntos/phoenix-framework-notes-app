@@ -28,13 +28,12 @@ defmodule PhoenixNotesApp.Users do
   Creates a new user
   """
   def create_user(attrs \\ %{}) do
-    IO.inspect(attrs, label: "attrs received")
     hashed_password = Pbkdf2.hash_pwd_salt(attrs["hashed_password"])
     %User{}
 
     |> User.changeset(
       attrs
-      |>  Map.delete("hashed_password")
+      |> Map.delete("hashed_password")
       |> Map.put("hashed_password", hashed_password)
     )
     |> Repo.insert()
