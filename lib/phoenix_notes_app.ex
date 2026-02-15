@@ -1,9 +1,6 @@
 defmodule PhoenixNotesApp do
   @moduledoc """
-  PhoenixNotesApp keeps the contexts that define your domain
-  and business logic.
-
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
+  This program is a notes web app made with the Elixir programming language and Phoenix Fullstack Framework.
+  The Web app includes a landing page and a user dashboard.
   """
 end
