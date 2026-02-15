@@ -406,7 +406,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           {@title}
         </h3>
 
-        <p class="text-base md:text-sm text-justify montserrat-normal px-2">
+        <p class="text-base md:text-sm text-justify text-gray-600 montserrat-normal px-2">
           {@description}
         </p>
       </div>
