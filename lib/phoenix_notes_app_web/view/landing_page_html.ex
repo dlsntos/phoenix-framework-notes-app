@@ -229,7 +229,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
   defp desktop_navigation(assigns) do
     ~H"""
-    <nav>
+      <nav>
         <ul class="hidden md:flex flex-row gap-2">
           <li>
             <.link
