@@ -25,7 +25,7 @@ defmodule PhoenixNotesApp.Users.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:username, :email, :hashed_password])
-    |> validate_required([:username, :email, :hashed_password])
+    |> validate_required([:username, :email, :hashed_password], message: "this is a required input")
     |> validate_format(:email, ~r/@/, message: "Please enter a valid email")
   end
 end
