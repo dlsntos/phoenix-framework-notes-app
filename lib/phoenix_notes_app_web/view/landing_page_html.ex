@@ -44,7 +44,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 700 600"
-          class="hidden xl:block z-60"
+          class="hidden xl:block z-60 shrink-0"
         >
           <defs>
             <pattern id="imgpattern" patternUnits="userSpaceOnUse" width="600" height="600">
