@@ -121,9 +121,9 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
         <!-- Target Customer Buttons-->
         <div class="self-center xl:max-w-[60vw] flex flex-row justify-center xl:grid grid-cols-3 gap-5">
-          <.target_customer_button label={"Students"}/>
-          <.target_customer_button label={"Professionals"}/>
-          <.target_customer_button label={"Creators"}/>
+          <.target_customer_button label={"Students"} target-customer-data=""/>
+          <.target_customer_button label={"Professionals"} target-customer-data=""/>
+          <.target_customer_button label={"Creators"} target-customer-data=""/>
         </div>
 
         <!-- Target Customer Description-->
@@ -365,11 +365,11 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   #Who's it for section components
   defp target_customer_button(assigns) do
     ~H"""
-      <div class="flex flex-row items-center h-auto w-[7rem] md:w-[10rem] xl:w-[15rem] p-2 md:py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-105">
+      <button class="flex flex-row items-center h-auto w-[7rem] md:w-[10rem] xl:w-[15rem] p-2 md:py-5 bg-orange-500 rounded-full shadow-md cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-105">
         <p class="mx-auto text-sm md:text-lg xl:text-3xl text-white font-semibold">
           {@label}
         </p>
-      </div>
+      </button>
     """
   end
 end
