@@ -75,7 +75,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         </div>
 
         <!--feature card group container-->
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 self-center h-auto xl:h-[50vh] max-w-[60vw] gap-5 2xl:gap-20 z-100">
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 self-center h-auto xl:h-[50vh] md:max-w-[60vw] gap-5 2xl:gap-20 z-100">
           <!-- Feature 1 card -->
           <.feature_card
             title={"Find Notes Fast"}
@@ -398,15 +398,15 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   #Features Section Components
   defp feature_card(assigns) do
     ~H"""
-      <div class="h-[300px] w-full p-5 max-w-xs mx-auto bg-white text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30">
+      <div class="h-[250px] md:h-[300px] w-full p-3 md:p-5 max-w-xs mx-auto bg-white text-center rounded-3xl transition duration-500 hover:-translate-y-3 hover:scale-[1.01] shadow-xl hover:shadow-orange-500/30 cursor-pointer">
         <div class="flex flex-row justify-center items-center h-10 w-10 md:h-15 md:w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
           {render_slot(@inner_block)}
         </div>
-        <h3 class="mt-5 mb-2 text-lg md:text-2xl text-orange-600 text-shadow-sm montserrat-semibold">
+        <h3 class="mt-5 mb-2 text-2xl text-orange-600 text-shadow-sm montserrat-semibold">
           {@title}
         </h3>
 
-        <p class="text-sm text-justify montserrat-normal px-2">
+        <p class="text-base md:text-sm text-justify montserrat-normal px-2">
           {@description}
         </p>
       </div>
