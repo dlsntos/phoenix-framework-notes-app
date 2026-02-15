@@ -74,10 +74,10 @@ const initTargetCustomerSwitcher = () => {
 
     setTimeout(() => {
       labelEl.textContent = button.dataset.label || button.textContent.trim()
-      labelEl.className = "text-7xl font-bold uppercase tracking-wide text-orange-400"
+      labelEl.className = "text-4xl md:text-7xl font-bold uppercase tracking-wide text-orange-400"
 
       messageEl.textContent = button.dataset.message || ""
-      messageEl.className = "mt-3 text-base md:text-3xl text-gray-100"
+      messageEl.className = "mt-3 text-2xl md:text-3xl text-gray-100"
 
       const bgUrl = button.dataset.bg || ""
       detail.style.backgroundImage = bgUrl ? `url("${bgUrl}")` : ""
@@ -97,7 +97,7 @@ const initTargetCustomerSwitcher = () => {
 
         const text = document.createElement("span")
         text.textContent = bullet
-        text.className = "text-xl text-gray-100"
+        text.className = "text-base md:text-xl text-gray-100"
 
         item.appendChild(icon)
         item.appendChild(text)
