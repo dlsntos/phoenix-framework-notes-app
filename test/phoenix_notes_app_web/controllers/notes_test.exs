@@ -13,6 +13,20 @@ alias PhoenixNotesApp.Users.User
       assert changeset.valid?
     end
 
+    test "Invalid Changeset, missing title" do
+      changeset = Note.changeset(%Note{}, %{content: "Hello Mabuhay World", user_id: 1})
+      refute changeset.valid?
+    end
+
+    test "Invalid Changeset, missing content" do
+      changeset = Note.changeset(%Note{}, %{title: "Test Title", user_id: 1})
+      refute changeset.valid?
+    end
+
+    test "Invalid Changeset, missing user_id" do
+      changeset = Note.changeset(%Note{}, %{id: 1, title: "Test Title", content: "Hello Mabuhay World"})
+      refute changeset.valid?
+    end
   end
   test "Insert note to user" do
     user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
