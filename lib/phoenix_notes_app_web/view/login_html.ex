@@ -34,6 +34,7 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
             action={~p"/login"}
             method="post"
             class="flex flex-col mt-10 px-10 z-50"
+            novalidate
           >
             <section class="flex flex-col w-full">
               <.input
@@ -58,6 +59,12 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
                 autocomplete="off"
               />
             </section>
+
+            <%= if @flash["error"] do %>
+                <p id="login-error" class="mt-2 text-sm text-red-600">
+                  {@flash["error"]}
+                </p>
+            <% end %>
 
             <button
               type="submit"
