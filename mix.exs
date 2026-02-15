@@ -85,6 +85,7 @@ defmodule PhoenixNotesApp.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.10.2"},
       {:ex_doc, "~> 0.31", only: :dev, runtime: false},
+      {:pbkdf2_elixir, "~> 2.0"}
     ]
   end
 
