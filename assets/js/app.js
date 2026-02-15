@@ -93,7 +93,7 @@ const initTargetCustomerSwitcher = () => {
         item.className = "flex items-start gap-3"
 
         const icon = document.createElement("span")
-        icon.className = "mt-0.5 inline-block size-5 rounded-full bg-orange-500"
+        icon.className = "mt-1 inline-block size-5 rounded-full bg-orange-500"
 
         const text = document.createElement("span")
         text.textContent = bullet
