@@ -2,6 +2,7 @@ defmodule PhoenixNotesApp.Users do
   import Ecto.Query, warn: false
   alias PhoenixNotesApp.Repo
   alias PhoenixNotesApp.Users.User
+  alias Pbkdf2
 
   @moduledoc """
   Users Context
@@ -27,9 +28,15 @@ defmodule PhoenixNotesApp.Users do
   Creates a new user
   """
   def create_user(attrs \\ %{}) do
+    IO.inspect(attrs, label: "attrs received")
+    hashed_password = Pbkdf2.hash_pwd_salt(attrs["hashed_password"])
     %User{}
 
-    |> User.changeset(attrs)
+    |> User.changeset(
+      attrs
+      |>  Map.delete("hashed_password")
+      |> Map.put("hashed_password", hashed_password)
+    )
     |> Repo.insert()
 
   end
@@ -43,7 +50,7 @@ defmodule PhoenixNotesApp.Users do
         {:error, :invalid_credentials}
 
       user ->
-        if user.hashed_password == password do
+        if Pbkdf2.verify_pass(password, user.hashed_password) do
           {:ok, user}
         else
           {:error, :invalid_credentials}
