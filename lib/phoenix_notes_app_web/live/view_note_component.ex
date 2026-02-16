@@ -101,7 +101,9 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
+    <div
+      id="view-note-modal"
+      class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
       <section class="h-full max-h-[80vh] w-full max-w-sm md:max-w-3xl rounded-3xl bg-white drop-shadow-2xl">
         <div class="flex flex-col h-auto w-full p-2 bg-[var(--bg-lightorange)] rounded-t-3xl drop-shadow-sm">
           <div
