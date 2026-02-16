@@ -212,7 +212,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
           name="note"
           id="note"
           placeholder="Add a note"
-          class="w-full h-full outline-none py-5 text-base md:text-xl text-justify resize-none px-10"
+          class="w-full h-full outline-none py-5 text-base text-gray-500 montserrat-semilight md:text-xl text-justify resize-none px-10"
           readonly
         >{@note.content}</textarea>
       </div>
