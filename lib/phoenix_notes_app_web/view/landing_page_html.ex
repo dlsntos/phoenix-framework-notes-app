@@ -352,10 +352,10 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
             About
           </h3>
           <ul>
-            <li>
+            <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">About us</.link>
             </li>
-            <li>
+            <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">Guides</.link>
             </li>
           </ul>
@@ -367,11 +367,11 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
             Support
           </h3>
           <ul>
-            <li>
+            <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">Help Center</.link>
             </li>
 
-            <li>
+            <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">Contact</.link>
             </li>
           </ul>
@@ -383,10 +383,10 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
             Legal
           </h3>
           <ul>
-            <li>
+            <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">Terms & Conditions</.link>
             </li>
-            <li>
+            <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">Privacy Policy</.link>
             </li>
           </ul>
