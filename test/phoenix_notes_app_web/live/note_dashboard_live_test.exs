@@ -1,5 +1,5 @@
 defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
-  use PhoenixNotesAppWeb.ConnCase
+  use PhoenixNotesAppWeb.ConnCase, async: true
   use ExUnit.Case, async: true
   import Phoenix.LiveViewTest
 
