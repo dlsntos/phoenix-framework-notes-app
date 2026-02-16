@@ -40,7 +40,7 @@ defmodule PhoenixNotesAppWeb.LoginControllerTest do
       })
 
     assert html_response(conn, 200)
-    assert get_flash(conn, :error) == "Invalid email or password"
+    assert Phoenix.Flash.get(conn.assigns.flash, :error) == "Invalid email or password"
   end
 
   test "DELETE /logout clears session", %{conn: conn} do
