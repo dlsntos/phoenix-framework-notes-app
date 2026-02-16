@@ -23,7 +23,7 @@ defmodule PhoenixNotesAppWeb.RegisterHTML do
               field={@form[:username]}
               type="text"
               placeholder="Username"
-              class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
+              class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:border-orange-500 focus:outline-2 focus:outline-orange-500"
               autocomplete="off"
             />
           </div>
@@ -34,7 +34,7 @@ defmodule PhoenixNotesAppWeb.RegisterHTML do
               field={@form[:email]}
               type="email"
               placeholder="Email"
-              class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
+              class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:border-orange-500 focus:outline-2 focus:outline-orange-500"
               autocomplete="off"
             />
           </div>
@@ -45,7 +45,7 @@ defmodule PhoenixNotesAppWeb.RegisterHTML do
               field={@form[:hashed_password]}
               type="password"
               placeholder="Password"
-              class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:outline-2 focus:outline-orange-700"
+              class="p-3 w-full bg-white text-gray-600 rounded-sm border-1 border-gray-400 focus:border-orange-500 focus:outline-2 focus:outline-orange-500"
               autocomplete="off"
             />
           </div>

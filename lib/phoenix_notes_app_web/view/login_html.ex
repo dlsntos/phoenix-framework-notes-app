@@ -43,7 +43,7 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
                 label="Email"
                 placeholder="Email"
                 class="p-3 w-full bg-white text-gray-600 border border-gray-300
-                focus:outline-2 focus:outline-orange-500 rounded-sm"
+                focus:outline-2 focus:outline-orange-500 focus:border-orange-500 rounded-sm"
                 autocomplete="off"
               />
             </section>
@@ -55,7 +55,7 @@ defmodule PhoenixNotesAppWeb.LoginHTML do
                 label="Password"
                 placeholder="Password"
                 class="p-3 w-full bg-white text-gray-600 border border-gray-300
-                focus:outline-2 focus:outline-orange-500 rounded-sm"
+                focus:outline-2 focus:outline-orange-500 focus:border-orange-500 rounded-sm"
                 autocomplete="off"
               />
             </section>
