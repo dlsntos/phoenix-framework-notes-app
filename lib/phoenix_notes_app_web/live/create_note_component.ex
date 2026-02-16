@@ -57,6 +57,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
 
           <button
             class="flex flex-row items-center h-7 w-7 bg-red-500 text-white rounded-full drop-shadow-sm cursor-pointer transition duration-300 hover:bg-red-700 hover:scale-110"
+            id="close-create-note-modal"
             phx-click="close-create-note-modal"
             phx-target={@myself}
           >
