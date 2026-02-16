@@ -401,7 +401,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   #Features Section Components
   defp feature_card(assigns) do
     ~H"""
-      <div class="h-[250px] md:h-[300px] w-full p-3 md:p-5 max-w-xs mx-auto bg-white text-center rounded-3xl cursor-pointer
+      <div class="h-[250px] md:h-[300px] w-full p-3 md:p-5 max-w-xs mx-auto bg-white text-center rounded-xl cursor-pointer
                   scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out
                   hover:-translate-y-3 hover:scale-[1.01] hover:duration-500 shadow-xl hover:shadow-orange-500/30">
         <div class="flex flex-row justify-center items-center h-10 w-10 md:h-15 md:w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
