@@ -208,8 +208,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         <% end %>
       </section>
 
-      <!-- absolute container that contains the create/add note button -->
-      <section class="absolute flex flex-row justify-end bottom-20 left-0 w-full p-5">
+      <!-- fixed container that contains the create/add note button -->
+      <section class="fixed flex flex-row justify-end bottom-20 left-0 w-full p-5">
         <button
           class="flex flex-row justify-center items-center bg-[var(--bg-lightorange)] text-white p-5 mr-0 md:mr-30 h-20 w-20 rounded-full cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-110"
           phx-click="open-create-note-modal"
