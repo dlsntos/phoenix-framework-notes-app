@@ -27,4 +27,37 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
     {:ok, note} = Notes.create_note(attrs)
     note
   end
+
+  defp log_in(conn, user) do
+    init_test_session(conn, %{"user_id" => user.id})
+  end
+
+  test "renders notes list", %{conn: conn} do
+    user = create_user()
+    note = create_note(user)
+
+    {:ok, view, _html} =
+      conn
+      |> log_in(user)
+      |> live(~p"/notes")
+
+    assert has_element?(view, "#note-item-#{note.id}")
+  end
+
+  test "search filters notes", %{conn: conn} do
+    user = create_user()
+    match = create_note(user, %{"title" => "Alpha"})
+    other = create_note(user, %{"title" => "Beta"})
+
+    {:ok, view, _html} =
+      conn
+      |> log_in(user)
+      |> live(~p"/notes")
+
+    render_change(view, "search", %{"search" => %{"query" => "Alp"}})
+
+    assert has_element?(view, "#note-item-#{match.id}")
+    refute has_element?(view, "#note-item-#{other.id}")
+  end
+
 end
