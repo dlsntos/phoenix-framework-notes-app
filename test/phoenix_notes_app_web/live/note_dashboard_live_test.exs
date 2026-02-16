@@ -60,4 +60,26 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
     refute has_element?(view, "#note-item-#{other.id}")
   end
 
+  test "open view modal and enable edit", %{conn: conn} do
+    user = create_user()
+    note = create_note(user)
+
+    {:ok, view, _html} =
+      conn
+      |> log_in(user)
+      |> live(~p"/notes")
+
+    view
+    |> element("button[phx-click='open-view_note_modal'][phx-value-id='#{note.id}']")
+    |> render_click()
+
+    assert has_element?(view, "#view-note-modal")
+
+    view
+    |> element("#view-note-modal button[phx-click='enable-edit']")
+    |> render_click()
+
+    assert has_element?(view, "#edit-note-form-#{note.id}")
+  end
+
 end
