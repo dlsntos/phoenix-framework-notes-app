@@ -212,6 +212,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       <section class="fixed flex flex-row justify-end bottom-20 left-0 w-full p-5">
         <button
           class="flex flex-row justify-center items-center bg-orange-500 text-white p-5 mr-0 md:mr-30 h-20 w-20 rounded-full border-3 border-orange-600 cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-110"
+          id="open-create-note-modal"
           phx-click="open-create-note-modal"
         >
           <.icon name="hero-plus" class="size-10"/>
