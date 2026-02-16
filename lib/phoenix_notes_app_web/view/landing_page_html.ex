@@ -151,12 +151,12 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         <!-- Target Customer Description-->
         <div
           id="target-customer-details"
-          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10 transition-all duration-500 shadow-sm"
+          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10 text-center transition-all duration-500 shadow-sm"
           data-target-customer-detail
           style={"background-image: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80')"}
         >
           <div class="absolute inset-0 bg-black/70"></div>
-          <div class="relative z-10 mx-auto h-auto w-full max-w-3xl p-6 md:p-10 gap-10 transition-opacity duration-300" data-target-customer-content>
+          <div class="relative z-10 mx-auto h-auto w-full max-w-5xl p-6 md:p-10 gap-10 transition-opacity duration-300" data-target-customer-content>
             <p data-target-customer-label>
               Students
             </p>
@@ -164,7 +164,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
               <p class="mt-3 text-base md:text-3xl text-gray-100" data-target-customer-message>
               Struggling with scattered lecture notes?
               </p>
-              <ul class="mt-6 space-y-3 text-gray-100" data-target-customer-list>
+              <ul class="md:flex flex-row justify-center mt-6 space-y-3 gap-3 text-gray-100" data-target-customer-list>
                 <li class="flex items-start gap-3">
                   <.icon name="hero-check-circle" class="mt-1 size-5 text-orange-500" />
                   <span>Organize by subject</span>
