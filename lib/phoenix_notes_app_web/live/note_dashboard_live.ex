@@ -193,7 +193,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
     <main class="relative bg-white-1 min-h-screen pt-16 px-8 md:pl-8 md:pr-0 z-0">
       <!-- Username Label -->
       <section class="mt-6 flex items-center">
-        <h2 class="mx-auto py-5 text-5xl font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
+        <h2 class="mx-auto py-5 text-5xl text-center font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
           <span class="text-orange-500">{@user.username |> String.capitalize()}'s</span> Notes
         </h2>
       </section>
