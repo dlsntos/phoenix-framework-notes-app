@@ -32,7 +32,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
           <button
             onclick="location.href='/register'"
-            class="p-3 w-full bg-[var(--bg-lightorange)] text-[var(--text-white-1)] font-bold rounded-xl text-shadow-md shadow-md cursor-pointer transition duration-300
+            class="p-3 w-full bg-[var(--bg-lightorange)] text-xl md:text-2xl text-[var(--text-white-1)] font-bold rounded-xl text-shadow-md shadow-md cursor-pointer transition duration-300
                   hover:bg-orange-600
             "
           >
