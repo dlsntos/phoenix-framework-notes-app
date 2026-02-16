@@ -113,7 +113,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!-- Who's it for? section-->
-      <section class="flex flex-col bg-gray-200 shadow-md" data-target-customer-container>
+      <section class="flex flex-col bg-white shadow-md" data-target-customer-container>
         <!-- Target Customer Heading-->
         <div>
           <h2 class="py-10 text-center text-4xl md:text-6xl font-bold">Who's it for?</h2>
