@@ -104,8 +104,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
     <div
       id="view-note-modal"
       class="fixed top-0 left-0 flex flex-row justify-center items-center h-screen w-full bg-black/70 z-10000 overflow-y-hidden">
-      <section class="h-full max-h-[80vh] w-full max-w-sm md:max-w-3xl rounded-3xl bg-white drop-shadow-2xl">
-        <div class="flex flex-col h-auto w-full p-2 bg-[var(--bg-lightorange)] rounded-t-3xl drop-shadow-sm">
+      <section class="h-full max-h-[80vh] w-full max-w-sm md:max-w-3xl rounded-box bg-white drop-shadow-2xl">
+        <div class="flex flex-col h-auto w-full p-2 bg-[var(--bg-lightorange)] rounded-t-lg drop-shadow-sm">
           <div
             class="flex flex-row self-end items-center h-10 w-10 bg-red-500 rounded-full cursor-pointer transition duration-200 hover:bg-red-700 hover:scale-110"
             phx-click="close-view_note-modal"
