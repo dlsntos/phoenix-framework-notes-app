@@ -218,9 +218,12 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
     ~H"""
     <button
         id="hamburger-btn"
+        type="button"
+        aria-label="Open mobile menu"
+        aria-expanded="false"
         phx-click={ JS.add_class("hidden", to: "#hamburger-btn")
                     |> JS.remove_class("hidden", to: "#mobile-menu")}
-        class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300"
+        class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
       >
         <.icon name="hero-bars-3" class="size-10"/>
     </button>
