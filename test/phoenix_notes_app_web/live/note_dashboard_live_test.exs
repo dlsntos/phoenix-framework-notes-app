@@ -82,4 +82,18 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
     assert has_element?(view, "#edit-note-form-#{note.id}")
   end
 
+  test "open create note modal", %{conn: conn} do
+    user = create_user()
+
+    {:ok, view, _html} =
+      conn
+      |> log_in(user)
+      |> live(~p"/notes")
+
+    view
+    |> element("button[phx-click='open-create-note-modal']")
+    |> render_click()
+
+    assert has_element?(view, "#show-create-note-modal")
+  end
 end
