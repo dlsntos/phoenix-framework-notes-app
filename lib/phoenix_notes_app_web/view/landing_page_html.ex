@@ -216,7 +216,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
   defp mobile_menu_button(assigns) do
     ~H"""
-    <button
+      <button
         id="hamburger-btn"
         type="button"
         aria-label="Open mobile menu"
@@ -226,7 +226,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         class="md:hidden rounded-md cursor-pointer transition duration-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
       >
         <.icon name="hero-bars-3" class="size-10"/>
-    </button>
+      </button>
     """
   end
 
@@ -274,7 +274,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
 
   defp mobile_navigation(assigns) do
     ~H"""
-    <nav
+      <nav
         id="mobile-menu"
         class="absolute top-10 right-0 mr-2 hidden md:hidden h-auto min-w-[30vw] bg-white md:bg-transparent px-4 py-4 rounded-md"
       >
@@ -403,7 +403,8 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
     ~H"""
       <div class="h-[250px] md:h-[300px] w-full p-3 md:p-5 max-w-xs mx-auto bg-white text-center rounded-xl cursor-pointer
                   scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out
-                  hover:-translate-y-3 hover:scale-[1.01] hover:duration-500 shadow-xl hover:shadow-orange-500/30">
+                  hover:-translate-y-3 hover:scale-[1.01] hover:duration-500 shadow-xl hover:shadow-orange-500/30"
+      >
         <div class="flex flex-row justify-center items-center h-10 w-10 md:h-15 md:w-15 bg-orange-500 rounded-full shadow-md shadow-orange-500/50">
           {render_slot(@inner_block)}
         </div>
