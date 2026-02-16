@@ -229,7 +229,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         <button
           phx-click="enable-edit"
           phx-target={@myself}
-          class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-[var(--bg-lightorange)] text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
+          class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-orange-500 text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
           <.icon name="hero-pencil-square" class="size-6"/> <span class="font-semibold drop-shadow-md">Edit Note</span>
         </button>
       </div>

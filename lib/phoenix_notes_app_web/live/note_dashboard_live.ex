@@ -181,7 +181,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
           <input type="hidden" name="_method" value="delete" />
           <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
           <button
-            class="bg-[var(--bg-lightorange)] text-white px-4 py-2 rounded-full cursor-pointer transition duration-200 hover:bg-orange-700"
+            class="bg-orange-500 text-white px-4 py-2 rounded-full cursor-pointer transition duration-200 hover:bg-orange-700"
             type="submit"
           >
             Logout
@@ -211,7 +211,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       <!-- fixed container that contains the create/add note button -->
       <section class="fixed flex flex-row justify-end bottom-20 left-0 w-full p-5">
         <button
-          class="flex flex-row justify-center items-center bg-[var(--bg-lightorange)] text-white p-5 mr-0 md:mr-30 h-20 w-20 rounded-full border-3 border-orange-600 cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-110"
+          class="flex flex-row justify-center items-center bg-orange-500 text-white p-5 mr-0 md:mr-30 h-20 w-20 rounded-full border-3 border-orange-600 cursor-pointer transition duration-300 hover:bg-orange-700 hover:scale-110"
           phx-click="open-create-note-modal"
         >
           <.icon name="hero-plus" class="size-10"/>
@@ -249,7 +249,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       class="flex flex-col h-full max-h-[250px] bg-white rounded-box drop-shadow-md transition duration-300 hover:scale-105"
     >
       <!--Note title section-->
-      <section class="flex bg-[var(--bg-lightorange)] p-3 text-[var(--text-white-1)] rounded-t-lg">
+      <section class="flex bg-orange-500 p-3 text-[var(--text-white-1)] rounded-t-lg">
         <h2 class="mx-auto text-xl font-semibold font-[var(--font-montserrat)] drop-shadow-md">
           {@note.title}
         </h2>
@@ -268,7 +268,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
         <button
           phx-click="open-view_note_modal"
           phx-value-id={@note.id}
-          class="h-10 w-10 py-2 bg-[var(--bg-lightorange)] rounded-full cursor-pointer transition duration-200 hover:bg-orange-700 hover:scale-110 cursor-pointer">
+          class="h-10 w-10 py-2 bg-orange-500 rounded-full cursor-pointer transition duration-200 hover:bg-orange-700 hover:scale-110 cursor-pointer">
           <.icon name="hero-arrows-pointing-out" class="mb-1 size-6 text-[var(--text-white-1)]"/>
         </button>
       </section>
