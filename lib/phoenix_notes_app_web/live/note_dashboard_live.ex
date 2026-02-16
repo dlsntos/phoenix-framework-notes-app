@@ -245,6 +245,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   defp note_item_component(assigns) do
   ~H"""
     <div
+      id={@id}
       class="flex flex-col h-full max-h-[250px] bg-white rounded-xl drop-shadow-md transition duration-300 hover:scale-105"
     >
       <!--Note title section-->
