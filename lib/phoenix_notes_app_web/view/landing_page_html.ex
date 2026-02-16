@@ -68,14 +68,14 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!--Features Section-->
-      <section class="relative flex flex-col py-10 shadow-md">
+      <section class="relative flex flex-col py-10">
         <svg class="absolute top-0 left-0 h-full w-full" xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 800 400' preserveAspectRatio="none"><rect fill='#333230' width='800' height='400'/><defs><radialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'><stop  offset='0' stop-color='#DD6112'/><stop  offset='1' stop-color='#333230'/></radialGradient><linearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'><stop offset='0'  stop-color='#FF7412' stop-opacity='0'/><stop offset='1'  stop-color='#FF7412' stop-opacity='0.5'/></linearGradient></defs><rect fill='url(#a)' width='800' height='400'/><g fill-opacity='0.4'><circle fill='url(#b)' cx='267.5' cy='61' r='300'/><circle fill='url(#b)' cx='532.5' cy='61' r='300'/><circle fill='url(#b)' cx='400' cy='30' r='300'/></g></svg>
         <div class="relative z-10">
           <h2 class="mb-10 xl:mb-20 text-6xl text-center text-white font-semibold text-shadow-md">Features</h2>
         </div>
 
         <!--feature card group container-->
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 self-center h-auto xl:h-[50vh] md:max-w-[60vw] gap-5 2xl:gap-20 z-100">
+        <div class="scroll-animate grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 self-center h-auto xl:h-[50vh] md:max-w-[60vw] gap-5 2xl:gap-20 z-100 opacity-0 translate-y-10 transition-all duration-700 ease-out">
           <!-- Feature 1 card -->
           <.feature_card
             title={"Find Notes Fast"}
@@ -115,14 +115,14 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       <!-- Who's it for? section-->
       <section class="flex flex-col bg-white shadow-md" data-target-customer-container>
         <!-- Target Customer Heading-->
-        <div>
+        <div class="scroll-animate opacity-0 translate-y-10 transition-all duration-700 ease-out">
           <h2 class="py-10 text-center text-4xl md:text-6xl font-bold">Who's it for?</h2>
         </div>
 
         <!-- Target Customer Buttons-->
         <div
           id="target-customer-buttons"
-          class="self-center xl:max-w-[60vw] flex flex-row justify-center xl:grid grid-cols-3 gap-5"
+          class="scroll-animate self-center xl:max-w-[60vw] flex flex-row justify-center xl:grid grid-cols-3 gap-5 opacity-0 translate-y-10 transition-all duration-700 ease-out"
         >
           <.target_customer_button
             label={"Students"}
@@ -151,7 +151,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         <!-- Target Customer Description-->
         <div
           id="target-customer-details"
-          class="relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10 text-center transition-all duration-500 shadow-sm"
+          class="scroll-animate relative mt-6 h-auto bg-gray-100 bg-cover bg-center py-10 text-center opacity-0 translate-y-10 transition-all duration-700 ease-out shadow-sm"
           data-target-customer-detail
           style={"background-image: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80')"}
         >
