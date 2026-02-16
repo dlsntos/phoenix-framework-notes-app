@@ -124,7 +124,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
             </h1>
           </div>
 
-          <div class="flex flex-row justify-between px-5 py-2">
+          <div class="flex flex-row justify-between px-10 py-2">
             <p class="text-xs md:text-lg text-white text-left text-shadow-sm">Created at {@note.inserted_at |> NaiveDateTime.to_date |> Date.to_string}</p>
 
             <p class="text-xs md:text-lg text-white text-right text-shadow-sm">Last updated at {@note.updated_at |> NaiveDateTime.to_date |> Date.to_string }</p>
