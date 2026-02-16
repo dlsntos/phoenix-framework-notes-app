@@ -1,6 +1,5 @@
 defmodule PhoenixNotesAppWeb.LoginControllerTest do
   use PhoenixNotesAppWeb.ConnCase, async: true
-
   alias PhoenixNotesApp.Users
 
   defp reg_user(attrs \\ %{}) do
@@ -30,5 +29,17 @@ defmodule PhoenixNotesAppWeb.LoginControllerTest do
 
     assert redirected_to(conn) == ~p"/notes"
     assert get_session(conn, :user_id) == user.id
+  end
+
+  test "POST /login with invalid credentials", %{conn: conn} do
+    user = reg_user()
+
+    conn =
+      post(conn, ~p"/login", %{
+        "user" => %{"email" => user.email, "password" => "wrongpassword123"}
+      })
+
+    assert html_response(conn, 200)
+    assert get_flash(conn, :error) == "Invalid email or password"
   end
 end
