@@ -246,10 +246,10 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   ~H"""
     <div
       id={@id}
-      class="flex flex-col h-full max-h-[250px] bg-white rounded-xl drop-shadow-md transition duration-300 hover:scale-105"
+      class="flex flex-col h-full max-h-[250px] bg-white rounded-box drop-shadow-md transition duration-300 hover:scale-105"
     >
       <!--Note title section-->
-      <section class="flex bg-[var(--bg-lightorange)] p-3 text-[var(--text-white-1)] rounded-t-2xl">
+      <section class="flex bg-[var(--bg-lightorange)] p-3 text-[var(--text-white-1)] rounded-t-lg">
         <h2 class="mx-auto text-xl font-semibold font-[var(--font-montserrat)] drop-shadow-md">
           {@note.title}
         </h2>
