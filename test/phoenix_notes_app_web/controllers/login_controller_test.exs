@@ -6,7 +6,10 @@ defmodule PhoenixNotesAppWeb.LoginControllerTest do
   defp reg_user(attrs \\ %{}) do
     {:ok, user} =
       attrs
-      |> Enum.into(%{username: "Test user", email: "iex@example.com", hashed_password: "secret123"})
+      |> Enum.into(%{
+        "username" => "Test user",
+        "email" => "iex@example.com",
+        "hashed_password" => "secret123"})
       |> Users.create_user()
 
     user
