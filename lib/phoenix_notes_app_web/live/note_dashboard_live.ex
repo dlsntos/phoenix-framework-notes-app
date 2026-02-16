@@ -256,8 +256,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       </section>
 
       <!--Note content section-->
-      <section class="relative h-full max-h-[120px] py-5 text-center overflow-hidden">
-        <p class="h-full max-h-[100px] w-full max-w-md md:max-w-xs text-lg text-justify text-gray-500 font-[var(--font-comme)] px-5 drop-shadow-sm break-words overflow-hidden">
+      <section class="relative h-full max-h-[120px] py-5 text-center montserrat-semilight overflow-hidden">
+        <p class="h-full max-h-[100px] w-full max-w-md md:max-w-xs text-lg text-justify text-gray-500 px-5 break-words overflow-hidden">
           {@note.content}
         </p>
         <div class="pointer-events-none absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white/100 to-white/0"></div>
