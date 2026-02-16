@@ -297,7 +297,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           </.link>
 
           <.link
-            navigate="/about"
+            navigate="/"
             class="block p-2 text-orange-500 font-medium rounded-md transtition duration-300 hover:bg-orange-500 hover:text-white"
             >
               About
