@@ -9,7 +9,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       <.mobile_navigation />
     </header>
 
-    <main class="h-full">
+    <main class="h-full antialiased">
       <!--Hero Section-->
       <section class="relative flex flex-row justify-center lg:justify-evenly h-screen w-full gap-5">
         <!-- Background image -->
@@ -113,10 +113,10 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
       </section>
 
       <!-- Who's it for? section-->
-      <section class="flex flex-col shadow-md" data-target-customer-container>
+      <section class="flex flex-col bg-gray-200 shadow-md" data-target-customer-container>
         <!-- Target Customer Heading-->
         <div>
-          <h2 class="py-10 text-center text-4xl md:text-6xl font-semibold">Who's it for?</h2>
+          <h2 class="py-10 text-center text-4xl md:text-6xl font-bold">Who's it for?</h2>
         </div>
 
         <!-- Target Customer Buttons-->
