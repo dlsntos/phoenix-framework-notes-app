@@ -16,5 +16,4 @@ defmodule PhoenixNotesAppWeb.LoginControllerTest do
     conn = get(conn, ~p"/login")
     assert html_response(conn, 200)
   end
-
 end
