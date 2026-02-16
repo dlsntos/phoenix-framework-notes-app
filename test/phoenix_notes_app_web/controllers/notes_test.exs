@@ -7,7 +7,6 @@ alias PhoenixNotesApp.Users.User
 
 
   describe "Changeset" do
-
     test "Test Valid Changeset" do
       changeset = Note.changeset(%Note{}, %{id: 1, title: "Test Title", content: "Hello Mabuhay World", user_id: 1})
       assert changeset.valid?
