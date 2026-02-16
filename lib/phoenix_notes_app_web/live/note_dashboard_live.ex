@@ -264,12 +264,12 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
 
       <!--Open note button section-->
       <section class="flex justify-end p-3 rounded-b-xl z-40">
-        <div
+        <button
           phx-click="open-view_note_modal"
           phx-value-id={@note.id}
           class="h-10 w-10 py-2 bg-[var(--bg-lightorange)] rounded-full cursor-pointer transition duration-200 hover:bg-orange-700 hover:scale-110 cursor-pointer">
-          <.icon name="hero-arrows-pointing-out" class="ml-2 mb-1 size-6 text-[var(--text-white-1)]"/>
-        </div>
+          <.icon name="hero-arrows-pointing-out" class="mb-1 size-6 text-[var(--text-white-1)]"/>
+        </button>
       </section>
     </div>
   """
