@@ -148,7 +148,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
   def render(assigns) do
   ~H"""
   <Layouts.app flash={@flash} current_scope={@current_scope}>
-    <header class="fixed top-0 left-0 flex flex-row justify-between items-center bg-cream h-16 w-full p-4 shadow-lg z-30">
+    <header class="fixed top-0 left-0 flex flex-row justify-between items-center bg-white h-16 w-full p-4 shadow-lg z-30">
       <div class="flex flex-row items-center">
         <div class="h-12 w-12 object-cover hover:scale-110 transition duration-300 cursor-pointer">
           <img
