@@ -348,13 +348,13 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
   defp footer_link_columns(assigns) do
     ~H"""
     <!-- Footer Column Container-->
-      <div class="flex flex-row justify-center md:justify-around w-full max-w-2xl my-10 ml-13 md:ml-20 gap-10 md:gap-0">
+      <div class="flex flex-row justify-center md:justify-around text-center md:text-left w-full max-w-2xl my-10 md:ml-20 gap-3 md:gap-0">
         <!-- About Column -->
         <div>
           <h3 class="mb-3 text-orange-600 font-bold">
             About
           </h3>
-          <ul>
+          <ul class="text-xs md:text-base">
             <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">About us</.link>
             </li>
@@ -365,11 +365,11 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
         </div>
 
         <!-- Support Column -->
-        <div>
+        <div class="ml-5 md:ml-0">
           <h3 class="mb-3 text-orange-600 font-bold">
             Support
           </h3>
-          <ul>
+          <ul class="text-xs md:text-base">
             <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">Help Center</.link>
             </li>
@@ -385,7 +385,7 @@ defmodule PhoenixNotesAppWeb.LandingPageHTML do
           <h3 class="mb-3 text-orange-600 font-bold">
             Legal
           </h3>
-          <ul>
+          <ul class="text-xs md:text-base">
             <li class="transition duration-200 hover:underline hover:decoration-orange-500">
               <.link navigate="/">Terms & Conditions</.link>
             </li>
