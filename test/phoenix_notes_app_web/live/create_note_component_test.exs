@@ -46,7 +46,7 @@ defmodule PhoenixNotesAppWeb.CreateNoteComponentTest do
   test "close create note modal", %{conn: conn} do
     user = create_user()
 
-    {:ok, view, html} =
+    {:ok, view, _html} =
       conn
       |> log_in(user)
       |> live(~p"/notes")
