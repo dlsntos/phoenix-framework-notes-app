@@ -33,6 +33,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
   describe "handle_info/2" do
     test "handle notes created", %{conn: conn}do
       user = create_user()
+
       conn =  init_test_session(conn, %{"user_id" => user.id})
 
       {:ok, view, _html} = live(conn, ~p"/notes")
@@ -40,6 +41,18 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
       send(view.pid, %{event: "note_created", payload: %{note: %{}}})
 
       refute has_element?(view, "#show-create-note-modal")
+    end
+
+    test "handle update notes", %{conn: conn} do
+      user = create_user()
+      note = create_note(user)
+      conn =  init_test_session(conn, %{"user_id" => user.id})
+
+      {:ok, view, _html} = live(conn, ~p"/notes")
+
+      send(view.pid, %{event: "note_updated", payload: %{note: note}})
+
+      refute has_element?(view, "#edit-note-form-#{note.id}")
     end
   end
 
