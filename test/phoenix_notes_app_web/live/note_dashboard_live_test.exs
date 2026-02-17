@@ -32,6 +32,10 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
     init_test_session(conn, %{"user_id" => user.id})
   end
 
+  describe "handle_info/2" do
+
+  end
+
   test "renders notes list", %{conn: conn} do
     user = create_user()
     note = create_note(user)
