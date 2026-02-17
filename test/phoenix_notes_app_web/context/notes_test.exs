@@ -71,6 +71,18 @@ alias PhoenixNotesApp.Notes.Note
 
       assert {:ok, Notes.create_note(attrs)}
     end
+
+    test "Create new note with incomplete values" do
+      user = HelperTest.user_fixture()
+
+      attrs = %{
+        title: "My Bucket List",
+        content: nil,
+        user_id: user.id
+      }
+
+      assert {:error, Notes.create_note(attrs)}
+    end
   end
 
   describe "changeset/2" do
