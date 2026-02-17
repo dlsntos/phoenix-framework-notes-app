@@ -1,41 +1,16 @@
 defmodule PhoenixNotesAppWeb.NotesTest do
 use PhoenixNotesApp.DataCase, async: true
 use ExUnit.Case, async: true
+alias PhoenixNotesAppWeb.HelperTest
 alias PhoenixNotesApp.Repo
 alias PhoenixNotesApp.Notes
 alias PhoenixNotesApp.Notes.Note
-alias PhoenixNotesApp.Users
 alias PhoenixNotesApp.Users.User
-
-  def user_fixture(attrs \\ %{}) do
-    {:ok, user} =
-      attrs
-      |> Enum.into(%{
-        "username" => "test user",
-        "email" => "iex@example.com",
-        "hashed_password" => "secret"
-      })
-      |> Users.create_user()
-
-    user
-  end
-
-  def note_fixture(attrs \\ %{})do
-    {:ok, note} =
-      attrs
-      |> Enum.into(%{
-        title: "Plans for today",
-        content: "Meditate and relax"
-      })
-
-    |> Notes.create_note()
-    note
-  end
 
   describe "delete_note/1" do
     test "Delete note by note_id" do
-      user = user_fixture()
-      note = note_fixture(%{user_id: user.id})
+      user = HelperTest.user_fixture()
+      note = HelperTest.note_fixture(%{user_id: user.id})
 
       assert {:ok, %Note{}} = Notes.delete_note(note.id)
       assert Notes.get_all_notes_by_userid(note.user_id) == []
@@ -50,8 +25,8 @@ alias PhoenixNotesApp.Users.User
 
   describe "update_note/2" do
     test "Update note all values" do
-      user = user_fixture()
-      note = note_fixture(%{user_id: user.id})
+      user = HelperTest.user_fixture()
+      note = HelperTest.note_fixture(%{user_id: user.id})
 
       {:ok, updated} = Notes.update_note(note, %{title: "Plans for tommorow", content: "Go Hiking"})
       assert updated.title == "Plans for tommorow"
@@ -59,16 +34,16 @@ alias PhoenixNotesApp.Users.User
     end
 
     test "Update note single value" do
-      user = user_fixture()
-      note = note_fixture(%{user_id: user.id})
+      user = HelperTest.user_fixture()
+      note = HelperTest.note_fixture(%{user_id: user.id})
 
       {:ok, updated} = Notes.update_note(note, %{title: "Plans for tommorow"})
       assert updated.title == "Plans for tommorow"
     end
 
     test "Update note without changes" do
-      user = user_fixture()
-      note = note_fixture(%{user_id: user.id})
+      user = HelperTest.user_fixture()
+      note = HelperTest.note_fixture(%{user_id: user.id})
 
       {:ok, updated} = Notes.update_note(note, %{})
       assert updated.id == note.id
@@ -77,8 +52,8 @@ alias PhoenixNotesApp.Users.User
     end
 
     test "Update note blank values" do
-      user = user_fixture()
-      note = note_fixture(%{user_id: user.id})
+      user = HelperTest.user_fixture()
+      note = HelperTest.note_fixture(%{user_id: user.id})
 
       {:error, updated} = Notes.update_note(note, %{title: nil})
       assert "can't be blank" in errors_on(updated).title
