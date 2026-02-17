@@ -44,56 +44,58 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
     assert has_element?(view, "#note-item-#{note.id}")
   end
 
-  test "search filters notes", %{conn: conn} do
-    user = create_user()
-    match = create_note(user, %{"title" => "Alpha"})
-    other = create_note(user, %{"title" => "Beta"})
+  describe "handle_event/2" do
+    test "search filters notes", %{conn: conn} do
+      user = create_user()
+      match = create_note(user, %{"title" => "Alpha"})
+      other = create_note(user, %{"title" => "Beta"})
 
-    {:ok, view, _html} =
-      conn
-      |> log_in(user)
-      |> live(~p"/notes")
+      {:ok, view, _html} =
+        conn
+        |> log_in(user)
+        |> live(~p"/notes")
 
-    render_change(view, "search", %{"search" => %{"query" => "Alp"}})
+      render_change(view, "search", %{"search" => %{"query" => "Alp"}})
 
-    assert has_element?(view, "#note-item-#{match.id}")
-    refute has_element?(view, "#note-item-#{other.id}")
-  end
+      assert has_element?(view, "#note-item-#{match.id}")
+      refute has_element?(view, "#note-item-#{other.id}")
+    end
 
-  test "open view modal and enable edit", %{conn: conn} do
-    user = create_user()
-    note = create_note(user)
+    test "open view modal and enable edit", %{conn: conn} do
+      user = create_user()
+      note = create_note(user)
 
-    {:ok, view, _html} =
-      conn
-      |> log_in(user)
-      |> live(~p"/notes")
+      {:ok, view, _html} =
+        conn
+        |> log_in(user)
+        |> live(~p"/notes")
 
-    view
-    |> element("button[phx-click='open-view_note_modal'][phx-value-id='#{note.id}']")
-    |> render_click()
+      view
+      |> element("button[phx-click='open-view_note_modal'][phx-value-id='#{note.id}']")
+      |> render_click()
 
-    assert has_element?(view, "#view-note-modal")
+      assert has_element?(view, "#view-note-modal")
 
-    view
-    |> element("#view-note-modal button[phx-click='enable-edit']")
-    |> render_click()
+      view
+      |> element("#view-note-modal button[phx-click='enable-edit']")
+      |> render_click()
 
-    assert has_element?(view, "#edit-note-form-#{note.id}")
-  end
+      assert has_element?(view, "#edit-note-form-#{note.id}")
+    end
 
-  test "open create note modal", %{conn: conn} do
-    user = create_user()
+    test "open create note modal", %{conn: conn} do
+      user = create_user()
 
-    {:ok, view, _html} =
-      conn
-      |> log_in(user)
-      |> live(~p"/notes")
+      {:ok, view, _html} =
+        conn
+        |> log_in(user)
+        |> live(~p"/notes")
 
-    view
-    |> element("button[phx-click='open-create-note-modal']")
-    |> render_click()
+      view
+      |> element("button[phx-click='open-create-note-modal']")
+      |> render_click()
 
-    assert has_element?(view, "#show-create-note-modal")
+      assert has_element?(view, "#show-create-note-modal")
+    end
   end
 end
