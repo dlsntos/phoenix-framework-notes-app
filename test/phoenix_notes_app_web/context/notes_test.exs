@@ -5,6 +5,17 @@ alias PhoenixNotesApp.Repo
 alias PhoenixNotesApp.Notes.Note
 alias PhoenixNotesApp.Users.User
 
+  defp note_fixture(attrs \\ %{})do
+    {:ok, note} =
+      attrs
+      |> Enum.into(%{
+        title: "Plans for today",
+        content: "Meditate and relax"
+      })
+
+    |> PhoenixNotesApp.Notes.create_note()
+    note
+  end
   test "Insert note to user" do
     user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
 
