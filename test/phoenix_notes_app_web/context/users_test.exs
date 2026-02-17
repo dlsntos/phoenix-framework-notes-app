@@ -31,6 +31,16 @@ defmodule PhoenixNotesAppWeb.LoginTest do
 
       assert {:error, Users.create_user(attrs)}
     end
+
+    test "Register user with improper email format" do
+      attrs = %{
+        "username" => "Test User",
+        "email" => "iex--example.com",
+        "hashed_password" => "secret"
+      }
+
+      assert {:error, Users.create_user(attrs)}
+    end
   end
 
   describe "authenticate_user/2" do
