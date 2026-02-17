@@ -5,6 +5,9 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
   alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Notes
 
+  describe "mount/3" do
+
+  end
   describe "handle_info/2" do
 
   end
