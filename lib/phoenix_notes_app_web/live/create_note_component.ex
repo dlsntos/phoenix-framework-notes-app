@@ -72,7 +72,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent do
 
         <!-- This section contains the forms for inputting note title and content -->
         <section class="h-auto">
-          <form phx-submit="save_note" phx-target={@myself}>
+          <form id="create-note-form" phx-submit="save_note" phx-target={@myself}>
             <div class="flex flex-row justify-between items-center gap-2">
               <label for="title" class="text-2xl">Title</label>
               <input
