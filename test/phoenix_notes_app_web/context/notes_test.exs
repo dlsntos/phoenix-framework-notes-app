@@ -60,8 +60,19 @@ alias PhoenixNotesApp.Users.User
     end
 
   end
-  describe "create_note/1" do
 
+  describe "create_note/1" do
+    test "Create new note with complete values" do
+      user = HelperTest.user_fixture()
+
+      attrs = %{
+        title: "My Bucket List",
+        content: "1. Build an MVP \n 2. Upskill on cloud computing \n 3. Travel to Japan",
+        user_id: user.id
+      }
+
+      assert {:ok, Notes.create_note(attrs)}
+    end
   end
 
   describe "changeset/2" do
