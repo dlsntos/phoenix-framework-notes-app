@@ -57,6 +57,14 @@ alias PhoenixNotesApp.Users.User
       assert updated.title == "Plans for tommorow"
       assert updated.content == "Go Hiking"
     end
+
+    test "Update note single value" do
+      user = user_fixture()
+      note = note_fixture(%{user_id: user.id})
+
+      {:ok, updated} = Notes.update_note(note, %{title: "Plans for tommorow"})
+      assert updated.title == "Plans for tommorow"
+    end
   end
   describe "create_note/1" do
     test "Insert note to user with complete data" do
