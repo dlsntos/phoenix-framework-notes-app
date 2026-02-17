@@ -17,7 +17,7 @@ alias PhoenixNotesApp.Users.User
     note
   end
 
-  describe "Insert note to user" do
+  describe "create_note/1" do
     test "Insert note to user with complete data" do
       user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
 
@@ -46,7 +46,8 @@ alias PhoenixNotesApp.Users.User
     end
   end
 
-  describe "Changeset" do
+
+  describe "changeset/2" do
     test "Test Valid Changeset" do
       changeset = Note.changeset(%Note{}, %{id: 1, title: "Test Title", content: "Hello Mabuhay World", user_id: 1})
       assert changeset.valid?
