@@ -2,10 +2,8 @@ defmodule PhoenixNotesAppWeb.NotesTest do
 use PhoenixNotesApp.DataCase, async: true
 use ExUnit.Case, async: true
 alias PhoenixNotesAppWeb.HelperTest
-alias PhoenixNotesApp.Repo
 alias PhoenixNotesApp.Notes
 alias PhoenixNotesApp.Notes.Note
-alias PhoenixNotesApp.Users.User
 
   describe "delete_note/1" do
     test "Delete note by note_id" do
