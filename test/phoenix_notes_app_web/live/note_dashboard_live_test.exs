@@ -11,7 +11,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
       user = create_user()
       _note = create_note(user)
 
-      note = create_note(user)
       conn =
         conn
         |> Plug.Test.init_test_session(%{"user_id" => user.id})
