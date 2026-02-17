@@ -4,9 +4,13 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
   import Phoenix.LiveViewTest
   alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Notes
+  alias PhoenixNotesAppWeb.NoteDashboardLive
 
   describe "mount/3" do
-
+    test "mount if user is not successfully authenticated" do
+      {:ok, socket} = NoteDashboardLive.mount(%{}, %{}, %Phoenix.LiveView.Socket{})
+      assert socket.redirected == {:redirect, %{status: 302, to: "/login"}}
+    end
   end
   describe "handle_info/2" do
 
