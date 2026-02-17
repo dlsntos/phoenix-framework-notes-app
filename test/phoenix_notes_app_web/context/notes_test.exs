@@ -29,6 +29,21 @@ alias PhoenixNotesApp.Users.User
       assert Enum.map(notes, & &1.id) == [note1.id, note2.id, note3.id]
       assert Enum.all?(notes, &(&1.user_id == user.id))
     end
+
+    test "Insert note to user with incomplete credentials" do
+      user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
+
+      note1 = %Note{title: "Note 1", content: "Content 1", user_id: user.id} |> Repo.insert!()
+      note2 = %Note{title: "Note 2", user_id: user.id} |> Repo.insert!()
+      note3 = %Note{title: "Note 3", content: "Content 3", user_id: user.id} |> Repo.insert!()
+
+      notes = Repo.all(from n in Note, where: n.user_id == ^user.id, order_by: n.id)
+      assert Enum.map(notes, & &1.id) == [note1.id, note2.id, note3.id]
+      assert Enum.all?(notes, &(&1.user_id == user.id))
+
+      note2_db = Repo.get!(Note, note2.id)
+      assert is_nil(note2_db.content)
+    end
   end
 
   describe "Changeset" do
