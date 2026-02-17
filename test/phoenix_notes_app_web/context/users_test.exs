@@ -17,6 +17,24 @@ defmodule PhoenixNotesAppWeb.LoginTest do
 
       assert {:ok, ^user} = result
     end
+
+    test "Authenticate user with invalid password" do
+      password = "secret"
+      password2 = "wrong password"
+
+      user = %User{email: "alice@example.com", hashed_password: hash_pwd_salt(password)}
+      user2 = %User{email: "iex10@example.com", hashed_password: hash_pwd_salt(password2)}
+
+      result =
+        if verify_pass(password, user2.hashed_password) do
+          {:ok, user}
+        else
+          {:error, "Invalid password"}
+        end
+
+      assert {:error, "Invalid password"} = result
+    end
+
   end
 
   describe "User changeset" do
