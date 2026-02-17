@@ -13,4 +13,12 @@ defmodule PhoenixNotesAppWeb.RegisterControllerTest do
 
     assert redirected_to(conn) == ~p"/login"
   end
+
+  test "POST /register, register with incomplete credentials", %{conn: conn} do
+    conn = post(conn, ~p"/register", %{
+      "user" => %{"username" => "test user", "hashed_password" => "secret"}
+    })
+
+    refute Phoenix.Flash.get(conn.assigns.flash, :error) == "All inputs are required"
+  end
 end
