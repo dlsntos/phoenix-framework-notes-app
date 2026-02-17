@@ -4,7 +4,7 @@ defmodule PhoenixNotesAppWeb.LoginTest do
   import Pbkdf2
 
   describe "authenticate_user/2" do
-    test "Test login" do
+    test "Authenticate user with proper credentials" do
       password = "secret"
       user = %User{email: "alice@example.com", hashed_password: hash_pwd_salt(password)}
 
