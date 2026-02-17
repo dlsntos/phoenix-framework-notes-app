@@ -66,6 +66,16 @@ alias PhoenixNotesApp.Users.User
       assert updated.title == "Plans for tommorow"
     end
 
+    test "Update note without changes" do
+      user = user_fixture()
+      note = note_fixture(%{user_id: user.id})
+
+      {:ok, updated} = Notes.update_note(note, %{})
+      assert updated.id == note.id
+      assert updated.title == note.title
+      assert updated.content == note.content
+    end
+
     test "Update note blank values" do
       user = user_fixture()
       note = note_fixture(%{user_id: user.id})
