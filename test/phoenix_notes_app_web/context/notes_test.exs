@@ -65,6 +65,15 @@ alias PhoenixNotesApp.Users.User
       {:ok, updated} = Notes.update_note(note, %{title: "Plans for tommorow"})
       assert updated.title == "Plans for tommorow"
     end
+
+    test "Update note blank values" do
+      user = user_fixture()
+      note = note_fixture(%{user_id: user.id})
+
+      {:error, updated} = Notes.update_note(note, %{title: nil})
+      assert "can't be blank" in errors_on(updated).title
+    end
+
   end
   describe "create_note/1" do
     test "Insert note to user with complete data" do
