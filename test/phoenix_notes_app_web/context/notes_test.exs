@@ -48,7 +48,9 @@ alias PhoenixNotesApp.Users.User
     end
   end
 
+  describe "update_note/2" do
 
+  end
   describe "create_note/1" do
     test "Insert note to user with complete data" do
       user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
