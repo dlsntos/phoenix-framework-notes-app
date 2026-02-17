@@ -21,6 +21,16 @@ defmodule PhoenixNotesAppWeb.LoginTest do
       assert user.email == "iex@example.com"
       assert user.username == "Test User"
     end
+
+    test "Register user with incomplete credentials" do
+      attrs = %{
+        "username" => nil,
+        "email" => "iex@example.com",
+        "hashed_password" => "secret"
+      }
+
+      assert {:error, Users.create_user(attrs)}
+    end
   end
 
   describe "authenticate_user/2" do
