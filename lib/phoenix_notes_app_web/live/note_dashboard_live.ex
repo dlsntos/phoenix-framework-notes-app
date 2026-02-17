@@ -190,7 +190,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive do
       </div>
     </header>
 
-    <main class="relative bg-white-1 min-h-screen pb-10 pt-16 px-8 md:pl-8 md:pr-0 z-0">
+    <main class="relative bg-white-1 min-h-screen px-5 xl:px-0 pb-10 pt-16 z-0">
       <!-- Username Label -->
       <section class="mt-6 flex items-center">
         <h2 class="mx-auto py-5 text-5xl text-center font-semibold font-[var(--font-delius-unicase)] drop-shadow-sm">
