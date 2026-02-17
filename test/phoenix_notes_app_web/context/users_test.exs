@@ -1,7 +1,27 @@
 defmodule PhoenixNotesAppWeb.LoginTest do
   use ExUnit.Case, async: true
+  use PhoenixNotesAppWeb.ConnCase, async: true
+  alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Users.User
   import Pbkdf2
+
+  describe "create_user/2" do
+    test "Register user with complete credentials and hashed password" do
+      attrs = %{
+        "username" => "Test User",
+        "email" => "iex@example.com",
+        "hashed_password" => "secret"
+      }
+
+      {:ok, %User{} = user} = Users.create_user(attrs)
+
+      refute user.hashed_password == "secret"
+      assert Pbkdf2.verify_pass("secret", user.hashed_password)
+
+      assert user.email == "iex@example.com"
+      assert user.username == "Test User"
+    end
+  end
 
   describe "authenticate_user/2" do
     test "Authenticate user with proper credentials" do
