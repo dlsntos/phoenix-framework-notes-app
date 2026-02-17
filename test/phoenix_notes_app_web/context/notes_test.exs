@@ -16,16 +16,19 @@ alias PhoenixNotesApp.Users.User
     |> PhoenixNotesApp.Notes.create_note()
     note
   end
-  test "Insert note to user" do
-    user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
 
-    note1 = %Note{title: "Note 1", content: "Content 1", user_id: user.id} |> Repo.insert!()
-    note2 = %Note{title: "Note 2", content: "Content 2", user_id: user.id} |> Repo.insert!()
-    note3 = %Note{title: "Note 3", content: "Content 3", user_id: user.id} |> Repo.insert!()
+  describe "Insert note to user" do
+    test "Insert note to user with complete data" do
+      user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
 
-    notes = Repo.all(from n in Note, where: n.user_id == ^user.id, order_by: n.id)
-    assert Enum.map(notes, & &1.id) == [note1.id, note2.id, note3.id]
-    assert Enum.all?(notes, &(&1.user_id == user.id))
+      note1 = %Note{title: "Note 1", content: "Content 1", user_id: user.id} |> Repo.insert!()
+      note2 = %Note{title: "Note 2", content: "Content 2", user_id: user.id} |> Repo.insert!()
+      note3 = %Note{title: "Note 3", content: "Content 3", user_id: user.id} |> Repo.insert!()
+
+      notes = Repo.all(from n in Note, where: n.user_id == ^user.id, order_by: n.id)
+      assert Enum.map(notes, & &1.id) == [note1.id, note2.id, note3.id]
+      assert Enum.all?(notes, &(&1.user_id == user.id))
+    end
   end
 
   describe "Changeset" do
