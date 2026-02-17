@@ -17,6 +17,10 @@ alias PhoenixNotesApp.Users.User
     note
   end
 
+  describe "delete_note/1" do
+
+  end
+
   describe "create_note/1" do
     test "Insert note to user with complete data" do
       user = %User{username: "Alice", email: "alice@example.com", hashed_password: "secret"} |> Repo.insert!()
@@ -45,7 +49,6 @@ alias PhoenixNotesApp.Users.User
       assert is_nil(note2_db.content)
     end
   end
-
 
   describe "changeset/2" do
     test "Test Valid Changeset" do
