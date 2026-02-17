@@ -2,7 +2,6 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
   use PhoenixNotesAppWeb.ConnCase, async: true
   use ExUnit.Case, async: true
   import Phoenix.LiveViewTest
-  alias PhoenixNotesAppWeb.HelperTest
   alias PhoenixNotesApp.Users
   alias PhoenixNotesApp.Notes
 
@@ -11,8 +10,8 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
   end
 
   test "renders notes list", %{conn: conn} do
-    user = HelperTest.create_user()
-    note = HelperTest.create_note(user.id)
+    user = create_user()
+    note = create_note(user)
 
     {:ok, view, _html} =
       conn
