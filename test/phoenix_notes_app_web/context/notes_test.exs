@@ -40,7 +40,14 @@ alias PhoenixNotesApp.Users.User
       assert {:ok, %Note{}} = Notes.delete_note(note.id)
       assert Notes.get_all_notes_by_userid(note.user_id) == []
     end
+
+    test "Delete note by id but note_id does not exist" do
+        nonexistent_note_id = -1
+
+        assert {:error, :not_found} = Notes.delete_note(nonexistent_note_id)
+    end
   end
+
 
   describe "create_note/1" do
     test "Insert note to user with complete data" do
