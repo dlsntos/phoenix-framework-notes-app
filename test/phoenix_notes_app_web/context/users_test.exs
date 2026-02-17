@@ -18,6 +18,9 @@ defmodule PhoenixNotesAppWeb.LoginTest do
 
   end
 
+  describe "authenticate_user/2" do
+
+  end
   describe "User changeset" do
     test "Test valid changeset" do
       changeset = User.changeset(%User{}, %{username: "Test user", email: "iex@example.com", hashed_password: "secret"})
