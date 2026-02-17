@@ -220,6 +220,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
 
       <div class="flex justify-center md:justify-end items-center px-15 space-x-5">
         <button
+          id="delete-note-button"
           phx-click="delete-note"
           phx-value-id={@note.id}
           phx-target={@myself}
@@ -228,6 +229,7 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent do
         </button>
 
         <button
+          id="enable-edit-note-button"
           phx-click="enable-edit"
           phx-target={@myself}
           class="flex flex-row justify-center items-center px-2 md:px-8 py-3 gap-2 w-auto bg-orange-500 text-xs md:text-base text-[var(--text-white-1)] rounded-lg md:rounded-3xl cursor-pointer hover:bg-orange-800 hover:scale-105 transition duration-200">
