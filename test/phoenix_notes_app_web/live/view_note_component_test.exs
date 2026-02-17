@@ -54,4 +54,61 @@ defmodule PhoenixNotesAppWeb.ViewNoteComponentTest do
 
     refute has_element?(view, "#view-note-modal")
   end
+
+  test "update note", %{conn: conn} do
+    user = create_user()
+    note = create_note(user)
+
+    {:ok, view, _html} =
+      conn
+      |> log_in(user)
+      |> live(~p"/notes")
+
+    view
+    |> element("#note-item-#{note.id} button[phx-click='open-view_note_modal']")
+    |> render_click()
+
+    assert has_element?(view, "#view-note-modal")
+
+    view
+    |> element("#enable-edit-note-button")
+    |> render_click()
+
+    view
+    |> form("#edit-note-form-#{note.id}",
+      note: %{
+        title: "Updated title",
+        content: "Updated content"
+      }
+    )
+    |> render_submit()
+
+    updated_note = Notes.get_note_by_id(note.id)
+    assert updated_note.title == "Updated title"
+    assert updated_note.content == "Updated content"
+  end
+
+  test "delete note", %{conn: conn} do
+    user = create_user()
+    note = create_note(user)
+
+    {:ok, view, _html} =
+      conn
+      |> log_in(user)
+      |> live(~p"/notes")
+
+    view
+    |> element("#note-item-#{note.id} button[phx-click='open-view_note_modal']")
+    |> render_click()
+
+    assert has_element?(view, "#view-note-modal")
+
+    view
+    |> element("#delete-note-button")
+    |> render_click()
+
+    refute has_element?(view, "#view-note-modal")
+    refute has_element?(view, "#note-item-#{note.id}")
+    assert Notes.get_note_by_id(note.id) == nil
+  end
 end
