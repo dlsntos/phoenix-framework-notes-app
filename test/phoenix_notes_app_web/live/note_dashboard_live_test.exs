@@ -7,6 +7,24 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
   alias PhoenixNotesAppWeb.NoteDashboardLive
 
   describe "mount/3" do
+    test "mount if user is authenticated", %{conn: conn} do
+      user = create_user()
+      _note = create_note(user)
+
+      note = create_note(user)
+      conn =
+        conn
+        |> Plug.Test.init_test_session(%{"user_id" => user.id})
+
+      {:ok, view, _html} = live(conn, ~p"/notes")
+
+      assert has_element?(view, "#note-item-#{_note.id}")
+      assert has_element?(view, "#note-search-form")
+      assert has_element?(view, "#open-create-note-modal")
+      refute has_element?(view, "#view-note-modal")
+      refute has_element?(view, "#show-create-note-modal")
+    end
+
     test "mount if user is not successfully authenticated" do
       {:ok, socket} = NoteDashboardLive.mount(%{}, %{}, %Phoenix.LiveView.Socket{})
       assert socket.redirected == {:redirect, %{status: 302, to: "/login"}}
