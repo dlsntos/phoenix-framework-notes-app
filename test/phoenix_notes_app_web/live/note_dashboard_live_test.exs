@@ -57,12 +57,12 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
 
     test "handles notifying the parent to close the create note component modal", %{conn: conn} do
       user = create_user()
-      note = create_note(user)
       conn = init_test_session(conn, %{"user_id" => user.id})
 
       {:ok, view, _html} = live(conn, ~p"/notes")
 
-      send(view.pid, %{event: "note_updated", payload: %{note: note}})
+      send(view.pid, {PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent, :close_create_note_modal})
+      refute has_element?(view, "#show-create-note-modal")
     end
   end
 
