@@ -64,6 +64,16 @@ defmodule PhoenixNotesAppWeb.NoteDashboardLiveTest do
       send(view.pid, {PhoenixNotesAppWeb.NoteDashboardLive.CreateNoteComponent, :close_create_note_modal})
       refute has_element?(view, "#show-create-note-modal")
     end
+
+    test "handles notes list state refreshes after deleting a note", %{conn: conn} do
+      user = create_user()
+      conn = init_test_session(conn, %{"user_id" => user.id})
+
+      {:ok, view, _html} = live(conn, ~p"/notes")
+
+      send(view.pid, {PhoenixNotesAppWeb.NoteDashboardLive.ViewNoteComponent, :note_deleted})
+      refute has_element?(view, "#show-view-note-modal")
+    end
   end
 
   test "renders notes list", %{conn: conn} do
